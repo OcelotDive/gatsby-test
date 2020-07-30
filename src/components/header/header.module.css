@@ -1,0 +1,27 @@
+.mainHeader {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    background: #0A2842;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0A2842, #4286f4);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0A2842, #4286f4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+    margin-bottom: 1.45rem;
+}
+
+.mainHeaderLogoContainer {
+    max-width: 300px;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    border: solid 1px red;
+}
+
+.mainHeaderSearchContainer {
+    max-width: 80%;
+    top: 65%;
+}
