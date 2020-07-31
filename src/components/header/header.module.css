@@ -1,21 +1,19 @@
 .mainHeader {
     position: relative;
+    top: 0;
     height: 120px;
     width: 100%;
-    background: #0A2842;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0A2842, #4286f4);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0A2842, #4286f4);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     overflow: hidden;
     margin-bottom: 1.45rem;
     background: #59C173;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0A2842, #4286f4, #59C173);
+    background: -webkit-linear-gradient(to right, #141930, #141930, #4286f4, #59C173);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0A2842, #4286f4, #59C173);
+    background: linear-gradient(to right, #141930, #141930, #4286f4, #59C173);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
 }
 
 .mainHeaderLogoContainer {
