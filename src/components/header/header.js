@@ -10,7 +10,7 @@ import headerStyles from './header.module.css';
 const Header = ({ siteTitle }) => (
   <header className={headerStyles.mainHeader}>
  <div className={headerStyles.mainHeaderLogoContainer}>
-     <Logo />
+    {/* <Logo /> */}
     </div>
   <div className={headerStyles.accessButtonContainer}>
     <AccessButton innerText="Join" accessClass="joinButton"/>
