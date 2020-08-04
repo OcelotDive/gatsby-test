@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import NewsCard from '../components/NewsCard';
+import NewsCard from '../components/newsCard/NewsCard';
 
 import Layout from "../components/layout"
 import Image from "../components/image"

@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
           margin: `auto`,
           maxWidth: 1200,
           padding: `0 1.0875rem 1.45rem`,
-          border: `solid 1px red`,
+      
          
         }}
       >

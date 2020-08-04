@@ -20,6 +20,7 @@ const MainNewsCardImage = () => {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
+          
           }
         }
       }
@@ -27,6 +28,7 @@ const MainNewsCardImage = () => {
   `)
 
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  
 }
 
 export default MainNewsCardImage;

@@ -1,7 +1,8 @@
 import React from 'react';
 import MainNewsCardImage from './MainNewsCardImage';
-import Layout from '../layout';
 
+
+import cardStyles from "./newsCard.module.css";
 
 const NewsCard = () => {
 
@@ -10,9 +11,9 @@ const NewsCard = () => {
     
  
     
-    <div class="card">
+    <div class={cardStyles.card}>
  <MainNewsCardImage />
-  <div class="container">
+  <div class={cardStyles.container}>
    
     <p>World Snooker Match Betting Tips</p>
   </div>
