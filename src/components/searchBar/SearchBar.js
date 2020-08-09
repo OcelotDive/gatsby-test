@@ -3,16 +3,16 @@ import PropTypes from "prop-types"
 
 import searchStyles from "./searchBar.module.css";
 
-const SearchBar = () => (
+const SearchBar = ({placeholder}) => (
 <>
-  <input className={searchStyles.input}type="text" placeholder="Tipsters, Fixtures, Sport" />
+  <input className={searchStyles.input}type="text" placeholder={placeholder} />
   <div className={searchStyles.searchBar}></div>
 </>
 
 )
 
 SearchBar.propTypes = {
-   
+  placeholder: PropTypes.string.isRequired
   }
   
   SearchBar.defaultProps = {

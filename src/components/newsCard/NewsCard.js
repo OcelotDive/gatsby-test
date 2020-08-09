@@ -1,26 +1,28 @@
 import React from 'react';
 import MainNewsCardImage from './MainNewsCardImage';
 
+import newsCardStyles from './newsCard.module.css';
 
-import cardStyles from "./newsCard.module.css";
-
-const NewsCard = () => {
-
-    return (
-        
-    
+const NewsCard = ({newsItem, primary}) => {
+    console.log(newsItem)
  
+ 
+    return (
+
     
-    <div class={cardStyles.card}>
- <MainNewsCardImage />
-  <div class={cardStyles.container}>
-   
-    <p>World Snooker Match Betting Tips</p>
-  </div>
+    <div className={newsCardStyles.card}>
+      <div className={newsCardStyles.standardImageContainer}>
+     <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+     </div>
+<div className={newsCardStyles.newsDescription}>
+  <h5>headint</h5>
+  <p>Some toss</p>
+</div>
 </div>
    
       
     )
+    
 }
 
 

@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import newsCardStyles from './newsCard.module.css';
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -13,22 +14,21 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const MainNewsCardImage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "ronnie.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          
-          }
-        }
-      }
-    }
-  `)
+const MainNewsCardImage = ({newsImage, primary}) => {
+ 
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-  
+
+  return (
+ 
+   
+      <img src={newsImage.url} />
+    
+
+   
+    
+   
+    ) 
+
 }
 
 export default MainNewsCardImage;
