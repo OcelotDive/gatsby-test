@@ -27,7 +27,6 @@ const IndexPage = () => {
   return (
   <Layout>
     <SEO title="Home" />
-    
     { businessNews.map((item, index) => <NewsCard newsItem={item} primary={index === 0 ? true : false}/> )}
   </Layout>
   )

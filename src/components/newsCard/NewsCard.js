@@ -4,25 +4,30 @@ import MainNewsCardImage from './MainNewsCardImage';
 import newsCardStyles from './newsCard.module.css';
 
 const NewsCard = ({newsItem, primary}) => {
-    console.log(newsItem)
- 
- 
-    return (
-
-    
+  return (
+    !primary ?
     <div className={newsCardStyles.card}>
       <div className={newsCardStyles.standardImageContainer}>
-     <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
-     </div>
-<div className={newsCardStyles.newsDescription}>
-  <h5>headint</h5>
-  <p>Some toss</p>
-</div>
-</div>
-   
+        <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+      </div>
+      <div className={newsCardStyles.newsDescription}>
+        <h5>heading</h5>
+        <p>Some stuff</p>
+      </div>
+    </div>
+    :
+    <div className={newsCardStyles.primaryCard}>
       
-    )
-    
+        <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+        <div className={newsCardStyles.primaryNewsDescription}>
+        <h5>headint</h5>
+        <p>Some stuff</p>
+        </div>
+      
+      
+    </div>
+
+    )  
 }
 
 
