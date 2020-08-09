@@ -19,14 +19,15 @@ const MainNewsCardImage = ({newsImage, primary}) => {
 
 
   return (
- 
-   
-      <img src={newsImage.url} />
+    <>
+   { !primary?
+      <img src={newsImage.url} className={newsCardStyles.standardNewsImage}/>
     
-
-   
+      :
+      <img src={newsImage.url} className={newsCardStyles.primaryNewsImage}/>
     
-   
+    }
+    </>
     ) 
 
 }

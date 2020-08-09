@@ -16,9 +16,9 @@ const NewsCard = ({newsItem, primary}) => {
       </div>
     </div>
     :
-    <div className={newsCardStyles.primaryCard}>
+    <div className={newsCardStyles.primaryCard} >
       
-        <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+        <MainNewsCardImage newsImage={newsItem.multimedia[0]} primary={primary}/> 
         <div className={newsCardStyles.primaryNewsDescription}>
         <h5>headint</h5>
         <p>Some stuff</p>

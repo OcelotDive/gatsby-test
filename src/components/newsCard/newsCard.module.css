@@ -39,11 +39,17 @@
 	border-bottom-left-radius: 5%;
 	border-top-left-radius: 5%;
 	height: 100%;
-	min-width: 160px;
+	min-width: 20%;
 	position: absolute;
 	width: 20%;
 }
-img
+.standardNewsImage
+{
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+.primaryNewsImage
 {
 	height: 100%;
 	position: absolute;
@@ -75,3 +81,22 @@ img
 	position: absolute;
 	width: 100%;
 }
+
+
+
+@media only screen and (max-width: 800px) {
+  .standardNewsImage {
+    display: none;
+  }
+  .newsDescription {
+    left: 2%;
+  }
+  .card {
+    width: 100%;
+  }
+  .primaryCard {
+    height: 350px;
+    width: 100%;
+  }
+}
+
