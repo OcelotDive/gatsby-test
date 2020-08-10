@@ -1,34 +1,40 @@
 import React from 'react';
 import MainNewsCardImage from './MainNewsCardImage';
-
+import PropTypes from 'prop-types'; 
 import newsCardStyles from './newsCardStyles.module.css';
 
 const NewsCard = ({newsItem, primary}) => {
+  console.log(newsItem)
+ const newsItemDesc = newsItem.abstract.length > 130 ? `${newsItem.abstract.substring(0, 130)}...` : newsItem.abstract.substring(0, 130);
+ 
   return (
     !primary ?
-    <div className={newsCardStyles.card}>
-      <div className={newsCardStyles.standardImageContainer}>
-        <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+    <a href={newsItem.url} target="_blank">
+      <div className={newsCardStyles.card}>
+        <div className={newsCardStyles.standardImageContainer}>
+          <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
+        </div>
+        <div className={newsCardStyles.newsDescription}>
+          <h6 className={newsCardStyles.newsItemHeader}>{newsItem.title}</h6>
+          <p>{newsItemDesc}</p>
+        </div>
       </div>
-      <div className={newsCardStyles.newsDescription}>
-        <h5>heading</h5>
-        <p>Some stuff</p>
-      </div>
-    </div>
+    </a>
     :
-    <div className={newsCardStyles.primaryCard} >
-      
+    <a href={newsItem.url} target="_blank">
+      <div className={newsCardStyles.primaryCard} >
         <MainNewsCardImage newsImage={newsItem.multimedia[0]} primary={primary}/> 
         <div className={newsCardStyles.primaryNewsDescription}>
-        <h5>headint</h5>
-        <p>Some stuff</p>
-        </div>
-      
-      
+          <h4 className={newsCardStyles.newsItemHeader}>{newsItem.title}</h4>
+        </div> 
     </div>
-
+    </a>
     )  
 }
 
+NewsCard.propTypes = {
+  newsItem: PropTypes.object,
+  primary: PropTypes.bool,
+}
 
 export default NewsCard;
