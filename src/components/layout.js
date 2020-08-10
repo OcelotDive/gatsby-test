@@ -38,7 +38,7 @@ const Layout = ({ children, ticker }) => {
          
         }}
       >
-      <Nav />
+      
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
