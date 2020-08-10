@@ -1,7 +1,7 @@
 import React from 'react';
 import MainNewsCardImage from './MainNewsCardImage';
 
-import newsCardStyles from './newsCard.module.css';
+import newsCardStyles from './newsCardStyles.module.css';
 
 const NewsCard = ({newsItem, primary}) => {
   return (
