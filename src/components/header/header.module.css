@@ -4,7 +4,6 @@
     height: 120px;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 1.45rem;
     background: #59C173;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #141930, #141930, #4286f4, #59C173);

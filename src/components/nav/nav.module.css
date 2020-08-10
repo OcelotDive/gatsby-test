@@ -2,7 +2,7 @@
     position: absolute;
     background: #141930;
     left: 0;
-    top: 118px;
+    top: 180px;
     width: 300px;
     margin-top: 4px;
     display: flex;
@@ -20,7 +20,7 @@
     justify-content: center;
 }
 
-li {
+.mainNavListItem {
     border-bottom: 1px solid #575757;
     border-left: 1px solid #929292;
     border-right: 1px solid #5d5d5d;
@@ -38,8 +38,7 @@ li {
     transition: all .5s;
 }
 
-a {
-    color: #FFFFFF;
+.navListLink {
     width: 100%;
     outline: medium none;
     text-decoration: none;
@@ -47,6 +46,10 @@ a {
     justify-content: flex-start;
     align-items: center;
     font-size: 80%;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 1%;
 }
 
 

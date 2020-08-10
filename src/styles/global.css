@@ -1,3 +1,7 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 html {
     background: #C9D6FF;
     /* fallback for old browsers */
@@ -6,4 +10,55 @@ html {
     background: linear-gradient(to right, #E2E2E2, #C9D6FF);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'Oswald', sans-serif;
+}
+
+.mainContentContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    -webkit-animation: fadeInLayout 3s ease-in;
+    /* Safari 4+ */
+    -moz-animation: fadeInLayout 3s ease-in;
+    /* Fx 5+ */
+    -o-animation: fadeInLayout 3s ease-in;
+    /* Opera 12+ */
+    animation: fadeInLayout 3s ease-in;
+    /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes fadeInLayout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInLayout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInLayout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLayout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

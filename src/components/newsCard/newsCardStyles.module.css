@@ -1,5 +1,5 @@
-a:link,
-a:visited {
+.newsLink:link,
+.newsLink:visited {
     text-decoration: none;
     color: #000;
     cursor: pointer;

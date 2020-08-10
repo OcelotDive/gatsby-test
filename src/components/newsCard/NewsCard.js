@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import newsCardStyles from './newsCardStyles.module.css';
 
 const NewsCard = ({newsItem, primary}) => {
-  console.log(newsItem)
+
  const newsItemDesc = newsItem.abstract.length > 130 ? `${newsItem.abstract.substring(0, 130)}...` : newsItem.abstract.substring(0, 130);
  
   return (
     !primary ?
-    <a href={newsItem.url} target="_blank">
+    <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
       <div className={newsCardStyles.card}>
         <div className={newsCardStyles.standardImageContainer}>
           <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
@@ -21,7 +21,7 @@ const NewsCard = ({newsItem, primary}) => {
       </div>
     </a>
     :
-    <a href={newsItem.url} target="_blank">
+    <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
       <div className={newsCardStyles.primaryCard} >
         <MainNewsCardImage newsImage={newsItem.multimedia[0]} primary={primary}/> 
         <div className={newsCardStyles.primaryNewsDescription}>
