@@ -52,6 +52,62 @@
     margin-left: 1%;
 }
 
+.menuNavContainer {
+    position: fixed;
+    width: 120px;
+    height: 40px;
+    left: 20px;
+    top: 200px;
+    border: solid 1px #808080;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    transition: top 0.3s;
+    z-index: 9;
+
+}
+.BurgerContainer {
+    cursor: pointer;
+    display: inline-block;
+    
+   
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    background-color: #333;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+    z-index: 999;
+}
+
+
+/* Rotate first bar */
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+
+/* Fade out the second bar */
+
+.change .bar2 {
+    opacity: 0;
+}
+
+
+/* Rotate last bar */
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
 
 /* keyframes #animation */
 

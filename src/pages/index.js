@@ -8,6 +8,7 @@ import SEO from "../components/seo";
 import MajorIndexes from "../components/majors/MajorIndexes";
 import NewsCard from "../components/newsCard/NewsCard";
 import NewsSelect from "../components/newsSelect/NewsSelect";
+import MenuTab from "../components/nav/MenuTab";
 
 
 const IndexPage = () => {
@@ -65,6 +66,7 @@ const IndexPage = () => {
   <Layout ticker={tickerData}>
     <MajorIndexes fmpk={fmpk}/>
     <SEO title="Home" />
+    <MenuTab />
     <section className="mainContentContainer">
     <NewsSelect selectNewsSource={selectNewsSource}/>
     { newsType.map((item, index) => <NewsCard newsItem={item} primary={index === 0 ? true : false} key={item.title}/> )}

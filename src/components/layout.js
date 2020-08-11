@@ -24,7 +24,7 @@ const Layout = ({ children, ticker }) => {
       }
     }
   `)
-
+  
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
