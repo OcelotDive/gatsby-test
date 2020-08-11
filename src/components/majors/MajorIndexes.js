@@ -4,22 +4,48 @@ import majorStyles from "./majorStyles.module.css";
 
 
 const MajorIndexes = ({fmpk}) => {
-    console.log(fmpk)
+    
     let [majorIndexes, setMajorIndexes] = useState([]);
+    let [left, setLeft] = useState(0);
+
     useEffect(() => {
         const majorUrl = "https://financialmodelingprep.com/api/v3/majors-indexes";
 
-        fetch(`${majorUrl}${fmpk}`)
+    fetch(`${majorUrl}${fmpk}`)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
       setMajorIndexes(data.majorIndexesList);
     })
-
     }, [])
+
+    const scrollLeft = (e) => {
+        if(left > -3450) {
+        setLeft(left - 1150);
+        let innerSlide = e.target.parentNode.nextSibling.firstElementChild;
+        innerSlide.style.transform = `translateX(${left - 1150}px)`;
+      console.log(innerSlide.style.transform )
+        }
+    }
+
+    const scrollRight = (e) => {
+        
+        if(left < 0) {
+        setLeft(left + 1150);
+        let innerSlide = e.target.parentNode.nextSibling.firstElementChild;
+        innerSlide.style.transform = `translateX(${left + 1150}px)`;
+      console.log(innerSlide.style.transform )
+        }
+    }
+   
+
+ 
     return (
         <>
         <h4>MAJOR INDEXES</h4>
+        <div className={majorStyles.controlContainer}>
+        <div className={majorStyles.majorLeftTriangle} onMouseDown={scrollLeft}></div>
+        <div className={majorStyles.majorRightTriangle} onMouseDown={scrollRight}></div>
+        </div>
         <section className={majorStyles.majorIndexesOuterContaner}>
             <div className={majorStyles.majorIndexesInnerContainer}>
 
