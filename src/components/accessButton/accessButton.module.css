@@ -1,23 +1,23 @@
 .joinButton {
-    width: 60px;
-    height: 30px;
-    border: none;
-    background-color: #141930;
-    font-size: 80%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: #141930;
+    border: none;
     border-radius: 5px;
     color: #fff;
+    display: flex;
+    font-size: 80%;
+    height: 30px;
+    justify-content: center;
+    width: 60px;
 }
 
 .loginButton {
-    width: 60px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-    font-size: 80%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    font-size: 80%;
+    height: 30px;
+    justify-content: center;
+    width: 60px;
 }

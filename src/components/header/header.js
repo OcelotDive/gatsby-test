@@ -8,17 +8,14 @@ import headerStyles from './header.module.css';
 
 const Header = ({ siteTitle }) => (
   <header className={headerStyles.mainHeader}>
- <div className={headerStyles.mainHeaderLogoContainer}>
+    <div className={headerStyles.mainHeaderLogoContainer}>
     
     </div>
   <div className={headerStyles.accessButtonContainer}>
     <AccessButton innerText="Join" accessClass="joinButton"/>
     <AccessButton innerText="Login" accessClass="loginButton"/>
   </div>
-
-
-      <SearchBar placeholder="PropTypes do work"/>
- 
+    <SearchBar placeholder="PropTypes do work"/>
   </header>
 )
 
