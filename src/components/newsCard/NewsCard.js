@@ -9,8 +9,8 @@ const NewsCard = ({newsItem, primary}) => {
  
   return (
     !primary ?
-    <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
       <div className={newsCardStyles.card}>
+        <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
         <div className={newsCardStyles.standardImageContainer}>
           <MainNewsCardImage newsImage={newsItem.multimedia[0]} /> 
         </div>
@@ -18,17 +18,18 @@ const NewsCard = ({newsItem, primary}) => {
           <h6 className={newsCardStyles.newsItemHeader}>{newsItem.title}</h6>
           <p>{newsItemDesc}</p>
         </div>
+        </a>
       </div>
-    </a>
+    
     :
-    <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
       <div className={newsCardStyles.primaryCard} >
+        <a href={newsItem.url} target="_blank" className={newsCardStyles.newsLink}>
         <MainNewsCardImage newsImage={newsItem.multimedia[0]} primary={primary}/> 
         <div className={newsCardStyles.primaryNewsDescription}>
           <h4 className={newsCardStyles.newsItemHeader}>{newsItem.title}</h4>
         </div> 
+        </a>
     </div>
-    </a>
     )  
 }
 

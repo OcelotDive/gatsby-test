@@ -19,21 +19,19 @@ const MajorIndexes = ({fmpk}) => {
     }, [])
 
     const scrollLeft = (e) => {
-        if(left > -3450) {
-        setLeft(left - 1150);
+        if(left > -3670) {
+        setLeft(left - 230);
         let innerSlide = e.target.parentNode.nextSibling.firstElementChild;
-        innerSlide.style.transform = `translateX(${left - 1150}px)`;
-      console.log(innerSlide.style.transform )
+        innerSlide.style.transform = `translateX(${left - 230}px)`;
+     
         }
     }
 
     const scrollRight = (e) => {
-        
         if(left < 0) {
-        setLeft(left + 1150);
+        setLeft(left + 230);
         let innerSlide = e.target.parentNode.nextSibling.firstElementChild;
-        innerSlide.style.transform = `translateX(${left + 1150}px)`;
-      console.log(innerSlide.style.transform )
+        innerSlide.style.transform = `translateX(${left + 230}px)`;
         }
     }
    
