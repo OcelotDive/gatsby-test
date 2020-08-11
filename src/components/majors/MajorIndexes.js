@@ -11,10 +11,10 @@ const MajorIndexes = ({fmpk}) => {
     useEffect(() => {
         const majorUrl = "https://financialmodelingprep.com/api/v3/majors-indexes";
 
-    fetch(`${majorUrl}${fmpk}`)
-    .then((response) => response.json())
-    .then((data) => {
-      setMajorIndexes(data.majorIndexesList);
+        fetch(`${majorUrl}${fmpk}`)
+        .then((response) => response.json())
+        .then((data) => {
+         setMajorIndexes(data.majorIndexesList);
     })
     }, [])
 
@@ -36,7 +36,6 @@ const MajorIndexes = ({fmpk}) => {
     }
    
 
- 
     return (
         <>
         <h4>MAJOR INDEXES</h4>
