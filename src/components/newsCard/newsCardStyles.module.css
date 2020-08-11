@@ -1,8 +1,8 @@
 .newsLink:link,
 .newsLink:visited {
-    text-decoration: none;
     color: #000;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .primaryCard>:nth-of-type(1) {
