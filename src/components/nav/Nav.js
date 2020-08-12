@@ -13,19 +13,7 @@ const Nav = React.forwardRef((props, ref) => {
                 <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 3</a></li>
                 <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 4</a></li>
                 <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
+           
                 
             </ul>
     

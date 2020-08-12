@@ -28,6 +28,7 @@ const MenuTab = () => {
                   
                if(preScrollPosY > currentScrollPosY) {
                 menuRef.current.style.top = "200px";
+  
                 
                }
                else {
