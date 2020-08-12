@@ -8,11 +8,12 @@ const Nav = React.forwardRef((props, ref) => {
         <section className={navStyles.navContainer} ref={ref}>
         
            <ul className={navStyles.mainNavList}>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 1</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 2</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 3</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 4</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 5</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Home</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Forex</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Commodities</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Cryptocurrency</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Sectors</a></li>
+                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Actives</a></li>
            
                 
             </ul>
