@@ -13,9 +13,9 @@ const MenuTab = () => {
  
 
        const handleBurgerClick = (e) => {
-         
          setMenuOpenClosed(!menuOpenClose);
-         burgerRef.current.className = !menuOpenClose ?  "burgerContainer change" : "burgerContainer";     
+         burgerRef.current.className = !menuOpenClose ?  "burgerContainer change" : "burgerContainer"; 
+         navRef.current.style.left =  !menuOpenClose ? "0" : "-1000px";
        }
 
       
@@ -28,7 +28,6 @@ const MenuTab = () => {
                   
                if(preScrollPosY > currentScrollPosY) {
                 menuRef.current.style.top = "200px";
-                navRef.current.style.left = "0";
                 
                }
                else {
@@ -37,10 +36,7 @@ const MenuTab = () => {
                    setTimeout(() => {
                     setMenuOpenClosed(false);
                     burgerRef.current.className = "burgerContainer";
-                    navRef.current.style.left = "-1000px";
-
                    }, 400)
-            
                }
               
                preScrollPosY = currentScrollPosY; 

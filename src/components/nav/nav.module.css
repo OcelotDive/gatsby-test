@@ -1,7 +1,7 @@
 .navContainer {
     position: fixed;
     background: #141930;
-    left: 0;
+    left: -1000px;
     top: 250px;
     width: 150px;
     margin-top: 4px;
