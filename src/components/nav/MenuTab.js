@@ -1,48 +1,46 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 
 import navStyles from "./nav.module.css";
+import burgerStyles from "./burgerStyles.css";
 
 
 const MenuTab = () => {
     const navRef = useRef();
- /*   handleBurgerClick(node: HTMLElement) {
-        node.classList.toggle("change");
-        this.displayMenu = !this.displayMenu;
-        if(this.displayMenu){
-          this.elRef.nativeElement.style.opacity = 1;
-          this.elRef.nativeElement.style.zIndex = 9999;
-        }
-        else {
-          this.elRef.nativeElement.style.opacity = 0;
-          this.elRef.nativeElement.style.zIndex = -3;
-        }
+    let [menuOpenClose, setMenuOpenClosed] = useState(false);
+
+
+       const handleBurgerClick = (e) => {
+         let burger = document.querySelector(".burgerContainer");
+         setMenuOpenClosed(!menuOpenClose);
+         burger.className = !menuOpenClose ?  "burgerContainer change" : "burgerContainer";
+           
        }
-*/
+
        const hideUnhideMenu = () => {
-           let preScrollPosY = window.pageYOffset,
-               preScrollPosX = window.pageXOffset;
+           let preScrollPosY = window.pageYOffset;
+            
            window.onscroll = () => {
-               let currentScrollPosY = window.pageYOffset,
-                   currentScrollPosX = window.pageXOffset;
+               let currentScrollPosY = window.pageYOffset;
+                  
                if(preScrollPosY > currentScrollPosY) {
                 navRef.current.style.top = "200px";
-                navRef.current.style.left = "20px";
                }
                else {
-                   navRef.current.style.top  = "-100px";
-                   navRef.current.style.left  = "-50px";
+                   navRef.current.style.top  = "-100px";   
                }
-               preScrollPosY = currentScrollPosY;
-               preScrollPosX = currentScrollPosX;
+               preScrollPosY = currentScrollPosY; 
            }
        }
+       
        hideUnhideMenu();
+
+
     return (
-        <section className={navStyles.menuNavContainer} ref={navRef}>
-        <div className={navStyles.BurgerContainer}>
-        <div className={navStyles.bar1}></div>
-        <div className={navStyles.bar2}></div>
-        <div className={navStyles.bar3}></div>
+        <section className="menuNavContainer" ref={navRef}>
+        <div className="burgerContainer" onClick={handleBurgerClick}>
+        <div className="bar1"></div>
+        <div className="bar2"></div>
+        <div className="bar3"></div>
     </div>
     Menu
     </section>

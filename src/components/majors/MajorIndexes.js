@@ -38,7 +38,7 @@ const MajorIndexes = ({fmpk}) => {
 
     return (
         <>
-        <h4>MAJOR INDEXES</h4>
+        <h4 className={majorStyles.majorHeader}>MAJOR INDEXES</h4>
         <div className={majorStyles.controlContainer}>
         <div className={majorStyles.majorLeftTriangle} onMouseDown={scrollLeft}></div>
         <div className={majorStyles.majorRightTriangle} onMouseDown={scrollRight}></div>
