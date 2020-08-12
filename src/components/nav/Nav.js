@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import navStyles from "./nav.module.css";
 
-const Nav = () => {
+const Nav = React.forwardRef((props, ref) => {
 
     return (
-        <section className={navStyles.navContainer}>
+        <section className={navStyles.navContainer} ref={ref}>
         
            <ul className={navStyles.mainNavList}>
                 <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Submenu 1</a></li>
@@ -31,7 +31,7 @@ const Nav = () => {
     
     </section>
     )
-}
+})
 
 
 export default Nav;

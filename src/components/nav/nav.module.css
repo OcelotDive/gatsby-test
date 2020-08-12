@@ -2,12 +2,13 @@
     position: fixed;
     background: #141930;
     left: 0;
-    top: 180px;
+    top: 250px;
     width: 150px;
     margin-top: 4px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    transition: all 1s;
 }
 
 .mainNavList {
@@ -52,34 +53,14 @@
     margin-left: 1%;
 }
 
-
-/* keyframes #animation */
-
-@-webkit-keyframes animation {
-    0% {
-        -webkit-transform: scale(1);
-    }
-    30% {
-        -webkit-transform: scale(1.05);
-    }
-    100% {
-        -webkit-transform: scale(1.02);
-    }
+.mainNavListItem:hover {
+    -webkit-animation: listItemHover 0.3s linear;
+    -moz-animation: listItemHover 0.3s linear;
+    animation: listItemHover 0.3s linear;
+    margin-left: -0.5%;
 }
 
-@-moz-keyframes animation {
-    0% {
-        -moz-transform: scale(1);
-    }
-    30% {
-        -moz-transform: scale(1.05);
-    }
-    100% {
-        -moz-transform: scale(1.02);
-    }
-}
-
-@keyframes animation {
+@keyframes listItemHover {
     0% {
         transform: scale(1);
     }
@@ -97,38 +78,4 @@
         -moz-box-shadow: -5px 1px 11px 0px rgba(0, 0, 0, 0.75);
         box-shadow: -5px 1px 11px 0px rgba(0, 0, 0, 0.75);
     }
-}
-
-li:hover {
-    /* CSS3 animation */
-    -webkit-animation-name: animation;
-    -webkit-animation-duration: 0.3s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-delay: 0;
-    -webkit-animation-play-state: running;
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-name: animation;
-    -moz-animation-duration: 0.3s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: 1;
-    -moz-animation-direction: normal;
-    -moz-animation-delay: 0;
-    -moz-animation-play-state: running;
-    -moz-animation-fill-mode: forwards;
-    animation-name: animation;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-delay: 0;
-    animation-play-state: running;
-    animation-fill-mode: forwards;
-    margin-left: -0.5%;
-}
-
-li:hover ul {
-    left: 0;
-    top: 34px;
 }
