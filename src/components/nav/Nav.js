@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import { Link } from "gatsby";
 import navStyles from "./nav.module.css";
 
 const Nav = React.forwardRef((props, ref) => {
@@ -8,12 +8,12 @@ const Nav = React.forwardRef((props, ref) => {
         <section className={navStyles.navContainer} ref={ref}>
         
            <ul className={navStyles.mainNavList}>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Home</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Forex</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Commodities</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Cryptocurrency</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Sectors</a></li>
-                <li className={navStyles.mainNavListItem}><a className={navStyles.navListLink} href="#">Actives</a></li>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Home</span></li></Link>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Forex</span></li></Link>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Commodities</span></li></Link>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Cryptocurrencies</span></li></Link>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Actives</span></li></Link>
+              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Something Else</span></li></Link>
            
                 
             </ul>

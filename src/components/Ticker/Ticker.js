@@ -1,12 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import React, { useEffect, useState } from "react";
+import Key from "../../keys";
 import tickerStyles from "./tickerStyles.module.css";
 
-const Ticker = ({ticker}) => {
+const Ticker = () => {
+    
+    const tickerUrl = "https://financialmodelingprep.com/api/v3/quote/AAPL,FB,GOOGL,AMZN,MSFT,NVDA";
+    let [tickerData, setTickerData] = useState([]);
 
-    const getSymbols = (ticker) => {
-     return   ticker.map(symbol => {
+    useEffect(() => {
+    fetch(`${tickerUrl}${Key.fmpk}`)
+    .then((response) => response.json())
+    .then((data) => {
+      setTickerData(data);
+    }) 
+ 
+}, []);
+
+    const getSymbols = (tickerData) => {
+     return   tickerData.map(symbol => {
             let changeClass = symbol.change > 0 ? "positiveChange" : symbol.change < 0 ? "negativeChange" : "stockQuote";
             return (
             <span className={tickerStyles.stockQuote} key={symbol.symbol}>{symbol.symbol} {symbol.price}
@@ -19,17 +30,15 @@ const Ticker = ({ticker}) => {
     return (  
      <section className={tickerStyles.ticker}>
         <div className={tickerStyles.tickerWrapper}>
-            {getSymbols(ticker)}   
+            {getSymbols(tickerData)}   
         </div>
         <div className={tickerStyles.tickerWrapper2}>
-            {getSymbols(ticker)}
+            {getSymbols(tickerData)}
         </div>
      </section>   
     )
 }
 
-Ticker.propTypes = {
-    ticker: PropTypes.arrayOf(PropTypes.object)
-}
+
 
 export default Ticker;

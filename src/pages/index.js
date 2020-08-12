@@ -16,7 +16,7 @@ const IndexPage = () => {
   const newsKey = 'api-key=PGHKoPmtwqq8kb6K41O0ARLliVN7a88V';
   const newsUrl = 'https://api.nytimes.com/svc/topstories/v2/';
   let [newsType, setNewsType] = useState([]);
-  let [tickerData, setTickerData] = useState([]);
+  
   let newsSource = "business.json?";
   
 
@@ -27,15 +27,9 @@ const IndexPage = () => {
       data.results = data.results.filter(item => item.multimedia !== null)
       setNewsType(data.results)
     });
+  }, []);
 
-    const tickerUrl = "https://financialmodelingprep.com/api/v3/quote/AAPL,FB,GOOGL,AMZN,MSFT,NVDA";
 
-    fetch(`${tickerUrl}${fmpk}`)
-    .then((response) => response.json())
-    .then((data) => {
-      setTickerData(data);
-    }) 
-  }, [])
 
   const selectNewsSource = (e) => {
     
@@ -63,7 +57,7 @@ const IndexPage = () => {
   }
   
   return (
-  <Layout ticker={tickerData}>
+  <Layout>
     <MajorIndexes fmpk={fmpk}/>
     <SEO title="Home" />
     <MenuTab />
