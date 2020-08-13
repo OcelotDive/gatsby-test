@@ -22,6 +22,16 @@ const Forex = () => {
       }, []);
 
 
+    const sortPair = () => {
+        let sorted = forexList.sort((a, b) => {
+            if(a.ticker < b.ticker) { return -1}
+            if(a.ticker > b.ticker) {return 1}
+            return 0;
+            setForexList([...sorted])
+        })
+        console.warn(sorted);
+    }
+
     return (
         <>
         <h4 className="pageHeader">WORLD CURRENCIES - FOREIGN EXCHANGE RATES</h4>
@@ -31,9 +41,9 @@ const Forex = () => {
         <tbody>
         <tr>
             <th className={forexStyles.tableHeader}></th>
-            <th className={forexStyles.tableHeader}>PAIR <span className={forexStyles.triUp}></span></th>
-            <th className={forexStyles.tableHeader}>PRICE <span className={forexStyles.triUp}></span></th>
-            <th className={forexStyles.tableHeader}>CHANGE <span className={forexStyles.triUp}></span></th>
+            <th className={forexStyles.tableHeader}>PAIR <span className={forexStyles.triDown} onClick={sortPair}></span></th>
+            <th className={forexStyles.tableHeader}>PRICE <span className={forexStyles.triDown}></span></th>
+            <th className={forexStyles.tableHeader}>CHANGE <span className={forexStyles.triDown}></span></th>
             <th className={forexStyles.tableHeader}>CHANGE(%)</th>
         </tr>
 

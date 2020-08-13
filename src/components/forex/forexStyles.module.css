@@ -33,5 +33,18 @@
     border-color: transparent transparent #007bff transparent;
     position: absolute;
     margin-left: 5px;
-    top: 20px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.triDown {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 5px 0 5px;
+    border-color: #007bff transparent transparent transparent;
+    position: absolute;
+    margin-left: 5px;
+    top: 30px;
+    cursor: pointer;
 }
