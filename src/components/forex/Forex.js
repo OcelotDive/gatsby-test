@@ -8,28 +8,73 @@ import forexStyles from "./forexStyles.module.css";
 const Forex = () => {
 
     const forexUrl = "https://financialmodelingprep.com/api/v3/forex";
+    
     let [forexList, setForexList] = useState([]);
-
-
+    let [pairSorted, setPairSorted] = useState(false);
+    let [priceSorted, setPriceSorted] = useState(false);
+    let [changeSorted, setChangeSorted] = useState(false);
+  
+    const pairClass = !pairSorted ? "triDown" : "triUp";
+    const priceClass = !priceSorted ? "triDown" : "triUp";
+    const changeClass = !changeSorted ? "triDown" : "triUp";
 
     useEffect(() => {
         fetch(`${forexUrl}${Key.fmpk}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.forexList)
           setForexList(data.forexList);
         });
       }, []);
 
 
-    const sortPair = () => {
-        let sorted = forexList.sort((a, b) => {
+    const sortPair = (param) => {
+        if(!pairSorted) {
+        forexList.sort((a, b) => {
             if(a.ticker < b.ticker) { return -1}
             if(a.ticker > b.ticker) {return 1}
-            return 0;
-            setForexList([...sorted])
+            return 0; 
         })
-        console.warn(sorted);
+        setPriceSorted(false);
+        setChangeSorted(false);
+        setPairSorted(!pairSorted);
+    }
+    else {
+            forexList.sort((a, b) => {
+                if(a.ticker > b.ticker) { return -1}
+                if(a.ticker < b.ticker) {return 1}
+                return 0; 
+            })
+            setPriceSorted(false);
+            setChangeSorted(false);
+            setPairSorted(!pairSorted);
+    }
+        setForexList([...forexList]);
+    }
+
+    const priceSort = (param) => {
+        if(!priceSorted) {
+        forexList.sort((a, b) => Number(a.ask)-Number(b.ask));
+        }
+        else {
+            forexList.sort((a, b) => Number(b.ask)-Number(a.ask));
+        }
+        setPairSorted(false);
+        setChangeSorted(false);
+        setPriceSorted(!priceSorted);
+        setForexList([...forexList]);
+    }
+
+    const changeSort = (param) => {
+        if(!changeSorted) {
+        forexList.sort((a, b) => Number(a.changes)-Number(b.changes));
+        }
+        else {
+            forexList.sort((a, b) => Number(b.changes)-Number(a.changes));
+        }
+        setPairSorted(false);
+        setPriceSorted(false);
+        setChangeSorted(!changeSorted);
+        setForexList([...forexList]);
     }
 
     return (
@@ -41,9 +86,9 @@ const Forex = () => {
         <tbody>
         <tr>
             <th className={forexStyles.tableHeader}></th>
-            <th className={forexStyles.tableHeader}>PAIR <span className={forexStyles.triDown} onClick={sortPair}></span></th>
-            <th className={forexStyles.tableHeader}>PRICE <span className={forexStyles.triDown}></span></th>
-            <th className={forexStyles.tableHeader}>CHANGE <span className={forexStyles.triDown}></span></th>
+            <th className={forexStyles.tableHeader} onClick={sortPair}>PAIR <span className={forexStyles[pairClass]}></span></th>
+            <th className={forexStyles.tableHeader} onClick={priceSort}>PRICE <span className={forexStyles[priceClass]}></span></th>
+            <th className={forexStyles.tableHeader} onClick={changeSort}>CHANGE <span className={forexStyles[changeClass]}></span></th>
             <th className={forexStyles.tableHeader}>CHANGE(%)</th>
         </tr>
 

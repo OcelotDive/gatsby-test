@@ -18,6 +18,7 @@
 
 .tableHeader {
     text-align: center;
+    cursor: pointer;
 }
 
 .forexImage {
@@ -30,10 +31,10 @@
     height: 0;
     border-style: solid;
     border-width: 0 5px 10px 5px;
-    border-color: transparent transparent #007bff transparent;
+    border-color: transparent transparent #141930 transparent;
     position: absolute;
-    margin-left: 5px;
-    top: 30px;
+    margin-left: 10px;
+    top: 20px;
     cursor: pointer;
 }
 
@@ -42,9 +43,9 @@
     height: 0;
     border-style: solid;
     border-width: 10px 5px 0 5px;
-    border-color: #007bff transparent transparent transparent;
+    border-color: #141930 transparent transparent transparent;
     position: absolute;
-    margin-left: 5px;
-    top: 30px;
+    margin-left: 10px;
+    top: 20px;
     cursor: pointer;
 }
