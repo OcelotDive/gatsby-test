@@ -1,6 +1,37 @@
-.mainContentContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border: solid 1px red;
+.forexPricePositive {
+    color: #00FF00;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.forexPriceNegative {
+    color: #FF0000;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.forexPriceNull {
+    color: #000;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.tableHeader {
+    text-align: center;
+}
+
+.forexImage {
+    width: 50px;
+    padding: 0;
+}
+
+.triUp {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent #007bff transparent;
+    position: absolute;
+    margin-left: 5px;
+    top: 20px;
 }

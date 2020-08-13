@@ -32,6 +32,10 @@ html {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+tr:nth-child(odd) {
+    background: #ddd;
+}
+
 @-webkit-keyframes fadeInLayout {
     0% {
         opacity: 0;

@@ -30,22 +30,22 @@ const Forex = () => {
     <table>
         <tbody>
         <tr>
-            <th></th>
-            <th>PAIR</th>
-            <th>PRICE</th>
-            <th>CHANGE</th>
-            <th>CHANGE(%)</th>
+            <th className={forexStyles.tableHeader}></th>
+            <th className={forexStyles.tableHeader}>PAIR <span className={forexStyles.triUp}></span></th>
+            <th className={forexStyles.tableHeader}>PRICE <span className={forexStyles.triUp}></span></th>
+            <th className={forexStyles.tableHeader}>CHANGE <span className={forexStyles.triUp}></span></th>
+            <th className={forexStyles.tableHeader}>CHANGE(%)</th>
         </tr>
 
         { forexList.map(forex => {
-    
+        const changeClass = forex.changes > 0 ? "forexPricePositive" : forex.changes <  0 ? "forexPriceNegative" : "forexPriceNull";
         return (
-        <tr>
-            <ForexImage src={forex.ticker.replace('/', '') + ".png"} />
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr key={forex.ticker}>
+           <td className={forexStyles.forexImage}> <ForexImage src={forex.ticker.replace('/', '') + ".png"} /></td>
+            <td className={forexStyles.forexPriceNull}>{forex.ticker}</td>
+            <td className={forexStyles.forexPriceNull}>{forex.ask}</td>
+            <td className={forexStyles[changeClass]}>{forex.changes.toFixed(4)}</td>
+            <td className={forexStyles[changeClass]}>({((forex.changes.toFixed(4) / (forex.ask)) * 100).toFixed(2)})</td>
         </tr>
         )
             })
