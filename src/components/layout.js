@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header/header";
 import Ticker from "../components/Ticker/Ticker";
+import MenuTab from "../components/nav/MenuTab";
 import "./layout.css"
 
 const Layout = ({ children, ticker }) => {
@@ -28,6 +29,7 @@ const Layout = ({ children, ticker }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Ticker ticker={ticker}/>
+      <MenuTab />
       <div
         style={{
           margin: `auto`,
