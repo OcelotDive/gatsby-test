@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ForexImage from "./ForexImage";
-
 import Key from "../../keys";
 import forexStyles from "./forexStyles.module.css"; 
 
@@ -13,7 +12,6 @@ const Forex = () => {
     let [nameSorted, setNameSorted] = useState(false);
     let [priceSorted, setPriceSorted] = useState(false);
     let [changeSorted, setChangeSorted] = useState(false);
-  
     const nameClass = !nameSorted ? "triDown" : "triUp";
     const priceClass = !priceSorted ? "triDown" : "triUp";
     const changeClass = !changeSorted ? "triDown" : "triUp";
@@ -27,7 +25,7 @@ const Forex = () => {
       }, []);
 
 
-    const sortName = () => {
+    const nameSort = () => {
         if(!nameSorted) {
         dataList.sort((a, b) => {
             if(a.ticker < b.ticker) { return -1}
@@ -86,7 +84,7 @@ const Forex = () => {
         <tbody>
         <tr>
             <th className={forexStyles.tableHeader}></th>
-            <th className={forexStyles.tableHeader} onClick={sortName}>PAIR <span className={nameClass}></span></th>
+            <th className={forexStyles.tableHeader} onClick={nameSort}>PAIR <span className={nameClass}></span></th>
             <th className={forexStyles.tableHeader} onClick={priceSort}>PRICE <span className={priceClass}></span></th>
             <th className={forexStyles.tableHeader} onClick={changeSort}>CHANGE <span className={changeClass}></span></th>
             <th className={forexStyles.tableHeader}>CHANGE(%)</th>

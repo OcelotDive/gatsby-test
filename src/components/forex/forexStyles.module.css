@@ -19,10 +19,10 @@
 .tableHeader {
     text-align: center;
     cursor: pointer;
+    font-size: 1.2vw;
 }
 
 .forexImage {
-    width: 50px;
     padding: 0;
 }
 

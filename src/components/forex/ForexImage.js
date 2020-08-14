@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import { StaticQuery, graphql } from 'gatsby';
 function renderImage(file) {
 
-  return <Img fluid={file.node.childImageSharp.fluid} />
+  return <Img fluid={file.node.childImageSharp.fluid} style={{ width: '50px' }}/>
 }
 const ForexImage = function ({src}) {
   return <StaticQuery
@@ -16,7 +16,7 @@ const ForexImage = function ({src}) {
           extension
           relativePath
           childImageSharp {
-            fluid(maxWidth: 1000) {
+            fluid(maxWidth: 100) {
               ...GatsbyImageSharpFluid
             }
           }

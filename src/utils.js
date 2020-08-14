@@ -1,4 +1,4 @@
-const nameSort = () => {
+const nameSort = (setPriceSorted, setChangeSorted, setNameSorted,  dataList, setDataList) => {
     if(!nameSorted) {
     dataList.sort((a, b) => {
         if(a.ticker < b.ticker) { return -1}
