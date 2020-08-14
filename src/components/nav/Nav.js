@@ -9,11 +9,11 @@ const Nav = React.forwardRef((props, ref) => {
         
            <ul className={navStyles.mainNavList}>
               <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink}>Home</span></li></Link>
-              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Forex</span></li></Link>
-              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Commodities</span></li></Link>
-              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Cryptocurrencies</span></li></Link>
-              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Actives</span></li></Link>
-              <Link to="/page-2/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Something Else</span></li></Link>
+              <Link to="/forex-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Forex</span></li></Link>
+              <Link to="/commodities-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Commodities</span></li></Link>
+              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Cryptocurrencies</span></li></Link>
+              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Actives</span></li></Link>
+              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Something Else</span></li></Link>
            
                 
             </ul>
