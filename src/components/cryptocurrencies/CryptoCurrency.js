@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import CryptoImage from "./CryptoImage";
 
 import Key from "../../keys";
 
@@ -21,7 +21,7 @@ const CryptoCurrency = () => {
         fetch(`${cryptoCurrencyUrl}${Key.fmpk}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
+         
           setDataList(data.cryptocurrenciesList);
         });
       }, []);
@@ -87,22 +87,22 @@ const CryptoCurrency = () => {
         <table>
             <tbody>
                 <tr>
-                    <th className="tableHeader">SYMBOL</th>
+                    
                     <th className="tableHeader" onClick={nameSort}>NAME<span className={nameClass}></span></th>
                     <th className="tableHeader" onClick={priceSort}>PRICE <span className={priceClass}></span></th>
                     <th className="tableHeader" onClick={changeSort}>CHANGE <span className={changeClass}></span></th>
                     <th className="tableHeader">CHANGE(%)</th>
                 </tr>
 
-             { dataList.map(com => {
-                const changeClass = com.change > 0 ? "pricePositive" : com.change <  0 ? "priceNegative" : "priceNull";
+             { dataList.map(crypto => {
+                const changeClass = crypto.change > 0 ? "pricePositive" : crypto.change <  0 ? "priceNegative" : "priceNull";
                 return (
-                 <tr key={com.symbol}>
-                    <td className="priceNull">{com.symbol}</td>
-                    <td className="priceNull">{com.name}</td>
-                    <td className="priceNull">${com.price.toFixed(2)}</td>
-                    <td className={changeClass}>{com.change}</td>
-                    <td className={changeClass}>({com.changesPercentage})</td>
+                 <tr key={crypto.name}>
+                 <td><CryptoImage src={crypto.ticker.toLowerCase() + ".png"} /></td>
+                    <td className="priceNull">{crypto.name}</td>
+                    <td className="priceNull">${crypto.price.toFixed(2)}</td>
+                    <td className={changeClass}>{crypto.change}</td>
+                    <td className={changeClass}>({crypto.changesPercentage})</td>
                 </tr>
                 )
                 })
