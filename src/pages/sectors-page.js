@@ -10,7 +10,7 @@ const FifthPage = () => (
   <Layout>
     <SEO title="Sectors" />
     <Sectors />
-    <Link to="/">Go back to the homepage</Link>
+   
   </Layout>
 )
 

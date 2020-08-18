@@ -9,7 +9,7 @@ const SecondPage = () => (
   <Layout>
     <SEO title="Forex" />
     <Forex />
-    <Link to="/">Go back to the homepage</Link>
+    
   </Layout>
 )
 

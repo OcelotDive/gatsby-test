@@ -9,7 +9,7 @@ const SixthPage = () => (
   <Layout>
     <SEO title="ACTIVES" />
     <Actives />
-    <Link to="/">Go back to the homepage</Link>
+ 
   </Layout>
 )
 

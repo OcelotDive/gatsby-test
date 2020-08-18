@@ -10,7 +10,7 @@ const FourthPage = () => (
   <Layout>
     <SEO title="CryptoCurrencies" />
     <CryptoCurrency />
-    <Link to="/">Go back to the homepage</Link>
+    
   </Layout>
 )
 

@@ -15,7 +15,7 @@ const Header = ({ siteTitle }) => (
     <AccessButton innerText="Join" accessClass="joinButton"/>
     <AccessButton innerText="Login" accessClass="loginButton"/>
   </div>
-    <SearchBar placeholder="PropTypes do work"/>
+    <SearchBar placeholder="Search by company name or symbol"/>
   </header>
 )
 

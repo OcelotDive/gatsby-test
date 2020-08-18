@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 
-
+import Key from "../keys";
 import Layout from "../components/layout";
 
 import SEO from "../components/seo";
@@ -12,8 +12,7 @@ import NewsSelect from "../components/newsSelect/NewsSelect";
 
 
 const IndexPage = () => {
-  const fmpk = '?apikey=51539c417d86b4a726f3acc52e1ac955';
-  const newsKey = 'api-key=PGHKoPmtwqq8kb6K41O0ARLliVN7a88V';
+  
   const newsUrl = 'https://api.nytimes.com/svc/topstories/v2/';
   let [newsType, setNewsType] = useState([]);
   
@@ -21,7 +20,7 @@ const IndexPage = () => {
   
 
   useEffect(() => {
-    fetch(`${newsUrl}${newsSource}${newsKey}`)
+    fetch(`${newsUrl}${newsSource}${Key.newsk}`)
     .then((response) => response.json())
     .then((data) => {
       data.results = data.results.filter(item => item.multimedia !== null)
@@ -48,7 +47,7 @@ const IndexPage = () => {
         break;
     }
     
-    fetch(`${newsUrl}${newsSource}${newsKey}`)
+    fetch(`${newsUrl}${newsSource}${Key.newsk}`)
     .then((response) => response.json())
     .then((data) => {
       data.results = data.results.filter(item => item.multimedia !== null)
@@ -58,7 +57,7 @@ const IndexPage = () => {
   
   return (
   <Layout>
-    <MajorIndexes fmpk={fmpk}/>
+    <MajorIndexes fmpk={Key.fmpk}/>
     <SEO title="Home" />
     
     <section className="mainContentContainer">
