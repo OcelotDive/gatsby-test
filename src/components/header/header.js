@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import SearchBar from "../searchBar/SearchBar";
 import AccessButton from "../accessButton/AccessButton";
-
 import headerStyles from './header.module.css';
 
 
