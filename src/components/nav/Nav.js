@@ -8,12 +8,12 @@ const Nav = React.forwardRef((props, ref) => {
         <section className={navStyles.navContainer} ref={ref}>
         
            <ul className={navStyles.mainNavList}>
-              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink}>Home</span></li></Link>
-              <Link to="/forex-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Forex</span></li></Link>
-              <Link to="/commodities-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Commodities</span></li></Link>
-              <Link to="/crypto-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Cryptocurrencies</span></li></Link>
-              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Actives</span></li></Link>
-              <Link to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Something Else</span></li></Link>
+              <Link style={{textDecoration: "none"}} to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink}>Home</span></li></Link>
+              <Link style={{textDecoration: "none"}}  to="/forex-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Forex</span></li></Link>
+              <Link style={{textDecoration: "none"}}  to="/commodities-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Commodities</span></li></Link>
+              <Link style={{textDecoration: "none"}}  to="/crypto-page/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Cryptocurrencies</span></li></Link>
+              <Link style={{textDecoration: "none"}}  to="/sectors-page"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Sectors</span></li></Link>
+              <Link style={{textDecoration: "none"}}  to="/"><li className={navStyles.mainNavListItem}><span className={navStyles.navListLink} href="#">Something Else</span></li></Link>
            
                 
             </ul>

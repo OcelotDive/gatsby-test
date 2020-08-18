@@ -31,8 +31,8 @@ const CryptoCurrency = () => {
           console.log("name")
         if(!nameSorted) {
         dataList.sort((a, b) => {
-            if(a.name < b.name) {return -1}
-            if(a.name > b.name) {return 1}
+            if(a.name.toLowerCase() < b.name.toLowerCase()) {return -1}
+            if(a.name.toLowerCase() > b.name.toLowerCase()) {return 1}
             return 0; 
         })
         setPriceSorted(false);
@@ -67,10 +67,10 @@ const CryptoCurrency = () => {
 
     const changeSort = () => {
         if(!changeSorted) {
-        dataList.sort((a, b) => Number(a.change)-Number(b.change));
+        dataList.sort((a, b) => Number(a.changes)-Number(b.changes));
         }
         else {
-            dataList.sort((a, b) => Number(b.change)-Number(a.change));
+            dataList.sort((a, b) => Number(b.changes)-Number(a.changes));
         }
         setNameSorted(false);
         setPriceSorted(false);
@@ -87,7 +87,7 @@ const CryptoCurrency = () => {
         <table>
             <tbody>
                 <tr>
-                    
+                <th className="tableHeader">Symbol</th>
                     <th className="tableHeader" onClick={nameSort}>NAME<span className={nameClass}></span></th>
                     <th className="tableHeader" onClick={priceSort}>PRICE <span className={priceClass}></span></th>
                     <th className="tableHeader" onClick={changeSort}>CHANGE <span className={changeClass}></span></th>
@@ -95,14 +95,15 @@ const CryptoCurrency = () => {
                 </tr>
 
              { dataList.map(crypto => {
-                const changeClass = crypto.change > 0 ? "pricePositive" : crypto.change <  0 ? "priceNegative" : "priceNull";
+                
+                const changeClass = crypto.changes > 0 ? "pricePositive" : crypto.changes <  0 ? "priceNegative" : "priceNull";
                 return (
                  <tr key={crypto.name}>
-                 <td><CryptoImage src={crypto.ticker.toLowerCase() + ".png"} /></td>
+                 <td className="priceNull">{crypto.ticker}</td>
                     <td className="priceNull">{crypto.name}</td>
                     <td className="priceNull">${crypto.price.toFixed(2)}</td>
-                    <td className={changeClass}>{crypto.change}</td>
-                    <td className={changeClass}>({crypto.changesPercentage})</td>
+                    <td className={changeClass}>{crypto.changes}</td>
+                    <td className={changeClass}>({((crypto.changes /crypto.price) * 100).toFixed(2)})</td>
                 </tr>
                 )
                 })

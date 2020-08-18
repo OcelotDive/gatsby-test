@@ -42,7 +42,6 @@
 .navListLink {
     width: 100%;
     outline: medium none;
-    text-decoration: none;
     display: flex;
     justify-content: flex-start;
     align-items: center;

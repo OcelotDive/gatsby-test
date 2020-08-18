@@ -7,7 +7,7 @@ function renderImage(file) {
   return <Img fluid={file.node.childImageSharp.fluid} style={{ width: '50px' }}/>
 }
 const CryptoImage = function ({src}) {
-  console.log(src)
+  
   return <StaticQuery
     query={graphql`
       query {
@@ -27,10 +27,10 @@ const CryptoImage = function ({src}) {
     }
     `}
     render={({ images }) =>  renderImage(images.edges.find(image => {
-      console.log(image)
-     return image.node.relativePath;
-    }))
-    }
+   
+      return image.node.relativePath;
+     }))
+     }
   />
 }
 export default CryptoImage;
