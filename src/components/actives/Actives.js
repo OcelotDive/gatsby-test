@@ -5,9 +5,9 @@ import Key from "../../keys";
 
 
 
-const CryptoCurrency = () => {
+const Actives = () => {
 
-    const cryptoCurrencyUrl = "https://financialmodelingprep.com/api/v3/cryptocurrencies";
+    const activesUrl = "https://financialmodelingprep.com/api/v3/actives";
 
     let [dataList, setDataList] = useState([]);
     let [nameSorted, setNameSorted] = useState(false);
@@ -18,21 +18,21 @@ const CryptoCurrency = () => {
     const changeClass = !changeSorted ? "triDown" : "triUp";
 
     useEffect(() => {
-        fetch(`${cryptoCurrencyUrl}${Key.fmpk}`)
+        fetch(`${activesUrl}${Key.fmpk}`)
         .then((response) => response.json())
         .then((data) => {
-         
-          setDataList(data.cryptocurrenciesList);
+            console.warn(data)
+          setDataList(data);
         });
       }, []);
 
 
       const nameSort = () => {
-          console.log("name")
+         
         if(!nameSorted) {
         dataList.sort((a, b) => {
-            if(a.name.toLowerCase() < b.name.toLowerCase()) {return -1}
-            if(a.name.toLowerCase() > b.name.toLowerCase()) {return 1}
+            if(a.companyName.toLowerCase() < b.companyName.toLowerCase()) {return -1}
+            if(a.companyName.toLowerCase() > b.companyName.toLowerCase()) {return 1}
             return 0; 
         })
         setPriceSorted(false);
@@ -41,8 +41,8 @@ const CryptoCurrency = () => {
     }
     else {
             dataList.sort((a, b) => {
-                if(a.name.toLowerCase() > b.name.toLowerCase()) { return -1}
-                if(a.name.toLowerCase() < b.name.toLowerCase()) {return 1}
+                if(a.companyName.toLowerCase() > b.companyName.toLowerCase()) { return -1}
+                if(a.companyName.toLowerCase() < b.companyName.toLowerCase()) {return 1}
                 return 0; 
             })
             setPriceSorted(false);
@@ -82,7 +82,7 @@ const CryptoCurrency = () => {
 
     return (
         <>
-        <h4 className="pageHeader">CRYPTOCURRENCY</h4>
+        <h4 className="pageHeader">ACTIVES</h4>
         <main className="mainContentContainer">
         <table>
             <tbody>
@@ -94,16 +94,16 @@ const CryptoCurrency = () => {
                     <th className="tableHeader">CHANGE(%)</th>
                 </tr>
 
-             { dataList.map(crypto => {
+             { dataList.map(active => {
                 
-                const changeClass = crypto.changes > 0 ? "pricePositive" : crypto.changes <  0 ? "priceNegative" : "priceNull";
+                const changeClass = active.changes > 0 ? "pricePositive" : active.changes <  0 ? "priceNegative" : "priceNull";
                 return (
-                 <tr key={crypto.name}>
-                 <td className="priceNull">{crypto.ticker}</td>
-                    <td className="priceNull">{crypto.name}</td>
-                    <td className="priceNull">${crypto.price.toFixed(2)}</td>
-                    <td className={changeClass}>{crypto.changes}</td>
-                    <td className={changeClass}>({((crypto.changes /crypto.price) * 100).toFixed(2)})</td>
+                 <tr key={active.ticker}>
+                 <td className="priceNull">{active.ticker}</td>
+                    <td className="priceNull">{active.companyName}</td>
+                    <td className="priceNull">${Number(active.price).toFixed(2)}</td>
+                    <td className={changeClass}>{active.changes}</td>
+                    <td className={changeClass}>{active.changesPercentage}</td>
                 </tr>
                 )
                 })
@@ -116,4 +116,4 @@ const CryptoCurrency = () => {
 }
 
 
-export default CryptoCurrency;
+export default Actives;

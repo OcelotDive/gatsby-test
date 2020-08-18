@@ -28,8 +28,8 @@ const Forex = () => {
     const nameSort = () => {
         if(!nameSorted) {
         dataList.sort((a, b) => {
-            if(a.ticker < b.ticker) { return -1}
-            if(a.ticker > b.ticker) {return 1}
+            if(a.ticker.toLowerCase() < b.ticker.toLowerCase()) { return -1}
+            if(a.ticker.toLowerCase() > b.ticker.toLowerCase()) {return 1}
             return 0; 
         })
         setPriceSorted(false);

@@ -39,8 +39,8 @@ const Sectors = () => {
     }
     else {
             dataList.sort((a, b) => {
-                if(a.sector > b.sector) { return -1}
-                if(a.sector < b.sector) {return 1}
+                if(a.sector.toLowerCase() > b.sector.toLowerCase()) { return -1}
+                if(a.sector.toLowerCase() < b.sector.toLowerCase()) {return 1}
                 return 0; 
             })
             setChangeSorted(false);
@@ -69,7 +69,7 @@ const Sectors = () => {
 
     return (
         <>
-        <h4 className="pageHeader">Sectors</h4>
+        <h4 className="pageHeader">SECTORS</h4>
         <main className="mainContentContainer">
         <table>
             <tbody>
