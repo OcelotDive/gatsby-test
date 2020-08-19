@@ -12,6 +12,7 @@ const SearchBar = ({placeholder}) => {
   const searchRef = useRef("");
   const [displaySearches, setDisplaySearches] = useState(false);
   const [dataList, setDataList] = useState([]);
+  const [filteredList, setFilteredList] = useState();
 
 
 
@@ -19,20 +20,37 @@ const SearchBar = ({placeholder}) => {
     fetch(`${stocksListUrl}${Key.fmpk}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
-      setDataList(data.symbolList);
+
+      setDataList(data.symbolsList);
+   
+      
     });
   }, []);
 
 
   const getSearchInput = () => {
+    
     searchRef.current.value.length >= 2 ? setDisplaySearches(true) : setDisplaySearches(false);
+
+    
+    setFilteredList(dataList.filter(company =>  {
+     
+     if(company.name !== undefined) {
+       return company.name.toLowerCase().indexOf(searchRef.current.value.toLowerCase()) !== -1
+       || company.symbol.toLowerCase().indexOf(searchRef.current.value.toLowerCase()) !== - 1
+     } 
+    })
+    
+    )
+
+  }
+  const resetSearchOnFocusLoss = (e) => {
+    searchRef.current.focus();
+   // searchRef.current.value = "";
     
   }
-  const resetSearchOnFocusLoss = () => {
-    searchRef.current.value = "";
-    setDisplaySearches(false);
-  }
+
+
 
 
   return (
@@ -41,8 +59,10 @@ const SearchBar = ({placeholder}) => {
   <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput} onBlur={resetSearchOnFocusLoss}/>
   <div className={searchStyles.searchBar}></div>
 
-  {displaySearches &&  <ul className={searchStyles.searchResultList}>
-      <li>place holder</li>
+  {displaySearches &&  <ul className={searchStyles.searchResultList} >
+      {
+       filteredList.map(companyObj => <li key={companyObj.symbol}>{companyObj.symbol} {companyObj.name}</li>)
+      }
     </ul>
     }
   
