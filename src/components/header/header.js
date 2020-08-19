@@ -6,6 +6,7 @@ import headerStyles from './header.module.css';
 
 
 const Header = ({ siteTitle }) => (
+  <section className={headerStyles.headerContainer}>
   <header className={headerStyles.mainHeader}>
     <div className={headerStyles.mainHeaderLogoContainer}>
     
@@ -15,7 +16,9 @@ const Header = ({ siteTitle }) => (
     <AccessButton innerText="Login" accessClass="loginButton"/>
   </div>
     <SearchBar placeholder="Search by company name or symbol"/>
+    
   </header>
+  </section>
 )
 
 Header.propTypes = {

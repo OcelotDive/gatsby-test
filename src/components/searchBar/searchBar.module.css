@@ -98,3 +98,16 @@
     font-weight: bold;
     opacity: 0.5;
 }
+
+.searchResultList {
+    position: absolute;
+    left: 58%;
+    top: 80%;
+    list-style: none;
+    height: 200px;
+    width: 200px;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 3px 3px 3px #808080;
+    overflow-y: scroll;
+}

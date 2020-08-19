@@ -1,11 +1,16 @@
 .mainHeader {
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+}
+
+.headerContainer {
     background: #59C173;
     background: linear-gradient(to right, #141930, #141930, #4286f4, #59C173);
     background: -webkit-linear-gradient(to right, #141930, #141930, #4286f4, #59C173);
     box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
     height: 120px;
     moz-box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
-    overflow: hidden;
     position: relative;
     top: 0;
     webkit-box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
@@ -27,4 +32,18 @@
     position: absolute;
     right: 0%;
     width: 180px;
+}
+
+.testDiv {
+    position: absolute;
+    background: #fff;
+    top: 5%;
+}
+
+.testDiv:after {
+    content: "";
+    width: 200px;
+    height: 0;
+    background: #fff;
+    display: block;
 }
