@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -13,6 +13,7 @@ import Header from "./header/header";
 import Ticker from "../components/Ticker/Ticker";
 import MenuTab from "../components/nav/MenuTab";
 import "./layout.css"
+import searchStyles from "./searchBar/SearchBar";
 
 const Layout = ({ children, ticker }) => {
   const data = useStaticQuery(graphql`
@@ -24,10 +25,16 @@ const Layout = ({ children, ticker }) => {
       }
     }
   `)
+
+  let [elementClicked, setElementClicked] = useState("");
+
+  const getElementClicked= (e) => {
+      setElementClicked(e.target.className)
+  }
   
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <section className="LayoutMain" onClick={getElementClicked}>
+      <Header siteTitle={data.site.siteMetadata.title} elementClicked={elementClicked}/>
       <Ticker ticker={ticker}/>
       <MenuTab />
       <div
@@ -47,7 +54,7 @@ const Layout = ({ children, ticker }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </section>
   )
 }
 

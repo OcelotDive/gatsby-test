@@ -4,15 +4,15 @@ import Key from "../../keys"
 
 import searchStyles from "./searchBar.module.css";
 
-const SearchBar = ({placeholder}) => {
-
+const SearchBar = ({placeholder, elementClicked}) => {
+  
   const stocksListUrl = 'https://financialmodelingprep.com/api/v3/company/stock/list';
 
 
   const searchRef = useRef("");
   const [displaySearches, setDisplaySearches] = useState(false);
   const [dataList, setDataList] = useState([]);
-  const [filteredList, setFilteredList] = useState();
+  const [filteredList, setFilteredList] = useState([]);
 
 
 
@@ -45,8 +45,17 @@ const SearchBar = ({placeholder}) => {
 
   }
   const resetSearchOnFocusLoss = (e) => {
-    searchRef.current.focus();
-   // searchRef.current.value = "";
+    
+   console.warn(elementClicked)
+    if(elementClicked.includes("searchBar")) {
+      e.target.focus();
+      setDisplaySearches(true);
+      
+    }
+    else {
+      setDisplaySearches(false);
+      searchRef.current.value = "";
+    }
     
   }
 
