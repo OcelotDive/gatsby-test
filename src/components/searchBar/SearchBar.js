@@ -2,6 +2,7 @@ import React, {useRef, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import Key from "../../keys"
 import searchStyles from "./searchBar.module.css";
+import { node } from "prop-types";
 
 const SearchBar = ({placeholder}) => {
   
@@ -9,7 +10,7 @@ const SearchBar = ({placeholder}) => {
 
 
   const searchRef = useRef("");
-
+  const outerRef = useRef("outer");
 
   const [displaySearches, setDisplaySearches] = useState(false);
   const [dataList, setDataList] = useState([]);
@@ -27,9 +28,15 @@ const SearchBar = ({placeholder}) => {
    
       
     });
+    document.addEventListener("mousedown", handleClick,false);
   }, []);
 
-
+  const handleClick = (e) => {
+    if(outerRef.current.contains(e.target)) {
+      alert("in search")
+    }
+    return;
+  }
 
 
   const getSearchInput = () => {
@@ -59,7 +66,7 @@ const SearchBar = ({placeholder}) => {
 
   return (
 <>
-
+    <section ref={outerRef}>
   <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput}  onBlur={testIfSearchResults}/>
   <div className={searchStyles.searchBar}></div>
 
@@ -69,7 +76,7 @@ const SearchBar = ({placeholder}) => {
       }
     </ul>
     }
-
+</section>
 </>
   )
 }
