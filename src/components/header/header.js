@@ -5,7 +5,7 @@ import AccessButton from "../accessButton/AccessButton";
 import headerStyles from './header.module.css';
 
 
-const Header = ({ siteTitle, elementClicked }) => (
+const Header = ({ siteTitle }) => (
   <section className={headerStyles.headerContainer}>
   <header className={headerStyles.mainHeader}>
     <div className={headerStyles.mainHeaderLogoContainer}>
@@ -15,7 +15,7 @@ const Header = ({ siteTitle, elementClicked }) => (
     <AccessButton innerText="Join" accessClass="joinButton"/>
     <AccessButton innerText="Login" accessClass="loginButton"/>
   </div>
-    <SearchBar placeholder="Search by company name or symbol" elementClicked={elementClicked}/>
+    <SearchBar placeholder="Search by company name or symbol" />
     
   </header>
   </section>
@@ -23,7 +23,7 @@ const Header = ({ siteTitle, elementClicked }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  elementClicked: PropTypes.string,
+
 }
 
 Header.defaultProps = {

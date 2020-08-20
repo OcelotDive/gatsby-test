@@ -26,15 +26,28 @@ const Layout = ({ children, ticker }) => {
     }
   `)
 
-  let [elementClicked, setElementClicked] = useState("");
+  /*let [elementClicked, setElementClicked] = useState(false);
 
   const getElementClicked= (e) => {
-      setElementClicked(e.target.className)
+    console.warn(e.target.className)
+    if(e.target.className.includes("searchBar")) {
+      console.log("this is search bar class")
+      setElementClicked(false);
+    }
+    // clicked on element other than searchBar class
+    else if(e.target.className === "") {
+        setElementClicked(true)
+    }
+    else {
+      setElementClicked(true);
+    }
   }
+  */
   
+
   return (
-    <section className="LayoutMain" onClick={getElementClicked}>
-      <Header siteTitle={data.site.siteMetadata.title} elementClicked={elementClicked}/>
+    <section className="LayoutMain">
+      <Header siteTitle={data.site.siteMetadata.title} />
       <Ticker ticker={ticker}/>
       <MenuTab />
       <div

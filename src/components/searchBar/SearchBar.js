@@ -1,20 +1,22 @@
 import React, {useRef, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import Key from "../../keys"
-
 import searchStyles from "./searchBar.module.css";
 
-const SearchBar = ({placeholder, elementClicked}) => {
+const SearchBar = ({placeholder}) => {
   
   const stocksListUrl = 'https://financialmodelingprep.com/api/v3/company/stock/list';
 
 
   const searchRef = useRef("");
+
+
   const [displaySearches, setDisplaySearches] = useState(false);
   const [dataList, setDataList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
 
+ 
 
   useEffect(() => {
     fetch(`${stocksListUrl}${Key.fmpk}`)
@@ -26,6 +28,8 @@ const SearchBar = ({placeholder, elementClicked}) => {
       
     });
   }, []);
+
+
 
 
   const getSearchInput = () => {
@@ -44,47 +48,38 @@ const SearchBar = ({placeholder, elementClicked}) => {
     )
 
   }
-  const resetSearchOnFocusLoss = (e) => {
-    
-   console.warn(elementClicked)
-    if(elementClicked.includes("searchBar")) {
-      e.target.focus();
-      setDisplaySearches(true);
-      
+
+  const testIfSearchResults = () => {
+    if(displaySearches) {
+      searchRef.current.focus();
     }
-    else {
-      setDisplaySearches(false);
-      searchRef.current.value = "";
-    }
-    
   }
 
-
-
+  
 
   return (
 <>
-   
-  <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput} onBlur={resetSearchOnFocusLoss}/>
+
+  <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput}  onBlur={testIfSearchResults}/>
   <div className={searchStyles.searchBar}></div>
 
   {displaySearches &&  <ul className={searchStyles.searchResultList} >
       {
-       filteredList.map(companyObj => <li key={companyObj.symbol}>{companyObj.symbol} {companyObj.name}</li>)
+       filteredList.map(companyObj => <li key={companyObj.symbol} className={searchStyles.searchBarListItem}>{companyObj.symbol} {companyObj.name}</li>)
       }
     </ul>
     }
-  
+
 </>
   )
 }
 
-SearchBar.propTypes = {
+/*SearchBar.propTypes = {
   placeholder: PropTypes.string.isRequired
   }
   
   SearchBar.defaultProps = {
     
-  }
+  }*/
 
 export default SearchBar;
