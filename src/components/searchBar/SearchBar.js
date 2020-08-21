@@ -10,7 +10,7 @@ const SearchBar = ({placeholder}) => {
 
 
   const searchRef = useRef("");
-  const outerRef = useRef("outer");
+  const resetButton = useRef();
 
   const [displaySearches, setDisplaySearches] = useState(false);
   const [dataList, setDataList] = useState([]);
@@ -58,19 +58,30 @@ const SearchBar = ({placeholder}) => {
 
   }
 
-  const testIfSearchResults = () => {
+  const testIfSearchResults = (e) => {
     if(displaySearches) {
       searchRef.current.focus();
     }
+ 
   }
 
+  const reset = (e) => {
+    setDisplaySearches(false);
+    console.log(e.target)
+    
+    
+   
+    
+  }
   
 
   return (
 <>
-    <section ref={outerRef}>
+    <form className={searchStyles.searchWrapper}>
   <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput}  onBlur={testIfSearchResults}/>
+  <button className={searchStyles.closeIcon} type="reset" onClick={reset} ref={resetButton}></button>
   <div className={searchStyles.searchBar}></div>
+
 
   {displaySearches &&  <ul className={searchStyles.searchResultList} >
       {
@@ -78,7 +89,7 @@ const SearchBar = ({placeholder}) => {
       }
     </ul>
     }
-</section>
+</form>
 </>
   )
 }
