@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+
 import newsCardStyles from './newsCardStyles.module.css';
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
