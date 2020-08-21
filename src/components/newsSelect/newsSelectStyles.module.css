@@ -1,9 +1,11 @@
 .form {
     display: flex;
     flex-direction: column;
-    float: right;
     position: relative;
     width: 30%;
+    position: absolute;
+    right: -.8%;
+    animation: driftIn .8s ease-out;
 }
 
 .inputGroup {
@@ -90,5 +92,16 @@
 @media only screen and (max-width: 800px) {
     .form {
         display: none;
+    }
+}
+
+@keyframes driftIn {
+    0% {
+        right: -8%;
+        opacity: 0;
+    }
+    100% {
+        right: 0;
+        opacity: 1;
     }
 }

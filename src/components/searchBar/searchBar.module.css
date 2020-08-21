@@ -101,15 +101,39 @@
 
 .searchResultList {
     position: absolute;
-    left: 58%;
-    top: 80%;
+    left: 58.8%;
+    top: 95%;
     list-style: none;
     height: 200px;
-    width: 200px;
+    width: 30%;
+    min-width: 250px;
     background: #fff;
     z-index: 9999;
     box-shadow: 3px 3px 3px #808080;
     overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+    border-radius: 5px;
 }
 
-.searchBarListItem {}
+.searchBarListItem {
+    text-indent: 2.5%;
+    border-bottom: solid 1px lightgray;
+    margin-bottom: 0;
+    padding: 2px;
+}
+
+.searchBarListItem:hover {
+    background-color: lightskyblue;
+}
+
+.companListSymbol {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+@media only screen and (max-width: 728px) {
+    .searchResultList {
+        left: 40%;
+    }
+}

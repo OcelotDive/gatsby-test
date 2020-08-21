@@ -28,22 +28,13 @@ const SearchBar = ({placeholder}) => {
    
       
     });
-    document.addEventListener("mousedown", handleClick,false);
+    document.addEventListener("mousedown", handleOuterClick,false);
   }, []);
-
-  const handleClick = (e) => {
-    if(outerRef.current.contains(e.target)) {
-      alert("in search")
-    }
-    return;
-  }
-
 
   const getSearchInput = () => {
     
     searchRef.current.value.length >= 2 ? setDisplaySearches(true) : setDisplaySearches(false);
 
-    
     setFilteredList(dataList.filter(company =>  {
      
      if(company.name !== undefined) {
@@ -51,28 +42,32 @@ const SearchBar = ({placeholder}) => {
        || company.symbol.toLowerCase().indexOf(searchRef.current.value.toLowerCase()) !== - 1
      } 
     })
-    
     )
-
   }
 
-  const testIfSearchResults = () => {
+  const stayFocusedWhileSearchResults = () => {
     if(displaySearches) {
       searchRef.current.focus();
     }
   }
 
-  
+  const handleOuterClick = (e) => {
+    if(!outerRef.current.contains(e.target)) {
+      searchRef.current.value = "";
+      setDisplaySearches(false);
+    }
+    return;
+  }
 
   return (
 <>
     <section ref={outerRef}>
-  <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput}  onBlur={testIfSearchResults}/>
+  <input className={searchStyles.input}type="text" placeholder={placeholder} ref={searchRef} onChange={getSearchInput}  onBlur={stayFocusedWhileSearchResults}/>
   <div className={searchStyles.searchBar}></div>
 
   {displaySearches &&  <ul className={searchStyles.searchResultList} >
       {
-       filteredList.map(companyObj => <li key={companyObj.symbol} className={searchStyles.searchBarListItem}>{companyObj.symbol} {companyObj.name}</li>)
+       filteredList.map(companyObj => <li key={companyObj.symbol} className={searchStyles.searchBarListItem}><span className={searchStyles.companListSymbol}>{companyObj.symbol}</span> <small>{companyObj.name}</small></li>)
       }
     </ul>
     }
