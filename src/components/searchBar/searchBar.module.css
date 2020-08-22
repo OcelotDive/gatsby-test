@@ -56,11 +56,10 @@
 .input {
     background: #141930;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
     border-radius: 30px;
     bottom: 0;
-    box-shadow: 0 0 25px 0 #23508E, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
+    
     color: white;
     font-size: 80%;
     font-weight: bold;
@@ -83,9 +82,7 @@
 }
 
 .input:focus {
-    background: #C9D6FF;
-    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
-    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    background: #fff;
     color: #000;
     cursor: text;
     opacity: 1;
@@ -109,19 +106,21 @@
 
 .searchResultList {
     position: absolute;
-    left: 58.8%;
-    top: 95%;
+    left: -2.5%;
+    top: 100%;
     list-style: none;
     height: 200px;
-    width: 30%;
+    width: 92%;
     min-width: 250px;
     background: #fff;
     z-index: 9999;
-    box-shadow: 3px 3px 3px #808080;
+   border-radius:1px;
     overflow-y: scroll;
     overflow-x: hidden;
     white-space: nowrap;
-    border-radius: 5px;
+    
+   
+  
 }
 
 .searchBarListItem {
@@ -140,11 +139,7 @@
     font-weight: 900;
 }
 
-@media only screen and (max-width: 728px) {
-    .searchResultList {
-        left: 40%;
-    }
-}
+
 
 .closeIcon {
 	border:1px solid transparent;
@@ -187,3 +182,15 @@
     transform: translateX(310px);
     opacity: 1;
 }
+
+@media all and (max-width: 920px) {
+    .searchWrapper, .searchResultsList {
+      left: 30%;
+    }
+  }
+
+
+
+
+
+  

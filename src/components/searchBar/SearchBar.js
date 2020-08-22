@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import Key from "../../keys"
+
 import searchStyles from "./searchBar.module.css";
 import { node } from "prop-types";
 
@@ -28,18 +29,10 @@ const SearchBar = ({placeholder}) => {
    
       
     });
-   // document.addEventListener("mousedown", handleClick,false);
+
   }, []);
 
- /* const handleClick = (e) => {
-    if(!outerRef.current.contains(e.target)) {
-      searchRef.current.value = "";
-      setDisplaySearches(false);
 
-    }
-    return;
-  }
-*/
 
   const getSearchInput = () => {
     
@@ -53,7 +46,6 @@ const SearchBar = ({placeholder}) => {
        || company.symbol.toLowerCase().indexOf(searchRef.current.value.toLowerCase()) !== - 1
      } 
     })
-    
     )
 
   }

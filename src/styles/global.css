@@ -84,6 +84,22 @@ tr:nth-child(odd) {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+   
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(225, 227, 230);
+    border-radius: 5px;
+  }
+
 @-webkit-keyframes fadeInLayout {
     0% {
         opacity: 0;
