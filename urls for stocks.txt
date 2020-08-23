@@ -1,0 +1,36 @@
+ this.companyProfile = 'https://financialmodelingprep.com/api/v3/company/profile/';
+        this.keyMetrics = 'https://financialmodelingprep.com/api/v3/company-key-metrics/'
+        this.historicalStockPrice = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
+        this.annualIncomeStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/income-statement/';
+        this.annualBalanceStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/';
+        this.annualCashFlowStatement = 'https://financialmodelingprep.com/api/v3/financials/cash-flow-statement/';
+        this.ratioUrl = 'https://financialmodelingprep.com/api/v3/financial-ratios/';
+        this.companyRatingUrl = 'https://financialmodelingprep.com/api/v3/company/rating/';
+        this.commoditiesUrl = 'https://financialmodelingprep.com/api/v3/quote/GCUSD,SIUSD,CLUSD,KCUSX,CUSX,SBUSX,NGUSD,LCUSX';
+        this.sectorUrl = 'https://financialmodelingprep.com/api/v3/stock/sectors-performance';
+
+
+  getCompanyProfile(symbol: string) {
+        return this.http.get(`${this.companyProfile}${symbol}${this.fmpk}`)
+    }
+    getKeyMetrics(symbol: string) {
+        return this.http.get(`${this.keyMetrics}${symbol}${this.fmpk}`);
+    }
+    getHistoric(symbol: string, previousDate: string, currentDate: string) {
+        return this.http.get(`${this.historicalStockPrice}${symbol}?from=${previousDate}&to=${currentDate}&${this.fmpk2}`);
+    }
+    getAnnualIncome(symbol: string) {
+        return this.http.get(`${this.annualIncomeStatementUrl}${symbol}${this.fmpk}`);
+    }
+    getAnnualBalance(symbol: string) {
+        return this.http.get(`${this.annualBalanceStatementUrl}${symbol}${this.fmpk}`);
+    }
+    getAnnualCashFlow(symbol: string) {
+        return this.http.get(`${this.annualCashFlowStatement}${symbol}${this.fmpk}`);
+    }
+     getFinancialRatios(symbol: string) {
+        return this.http.get(`${this.ratioUrl}${symbol}${this.fmpk}`);
+    }
+    getCompanyRating(symbol: string) {
+        return this.http.get(`${this.companyRatingUrl}${symbol}${this.fmpk}`);
+    }
