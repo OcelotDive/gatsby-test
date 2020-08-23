@@ -15,28 +15,23 @@ import MenuTab from "../components/nav/MenuTab";
 import "./layout.css"
 import searchStyles from "./searchBar/SearchBar";
 
-const Layout = ({ children, ticker }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const CompanyLayout = ({ children, ticker }) => {
+ 
 
 
 
   return (
     <section className="LayoutMain">
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
       <Ticker ticker={ticker}/>
       <MenuTab />
       <div
         style={{
-          margin: `auto`,
-          maxWidth: 1200,
+  
+          postion: `absolute`,
+          top: `0`,
+          width: `100%`,
+          height: `100%`,
           padding: `0 1.0875rem 1.45rem`,
       
          
@@ -54,8 +49,8 @@ const Layout = ({ children, ticker }) => {
   )
 }
 
-Layout.propTypes = {
+CompanyLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default CompanyLayout

@@ -8,6 +8,7 @@
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        
     }
     
     article,
@@ -471,7 +472,7 @@
         padding-right: 0;
         padding-top: 0;
         margin-bottom: 1.45rem;
-        font-size: 1.2vw;
+        font-size: 1.7vw;
         line-height: 1.45rem;
         border-collapse: collapse;
         width: 100%;

@@ -29,6 +29,12 @@
     top: 0;
 }
 
+.tickerStock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .stockQuote {
     align-self: center;
     color: #000;

@@ -9,6 +9,7 @@ html {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E2E2E2, #C9D6FF);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
 }
 
 .mainContentContainer {
@@ -25,12 +26,15 @@ html {
     animation: fadeInLayout 3s ease-in;
     /* IE 10+, Fx 29+ */
     padding: 0;
+   
 }
 
+
+
 .pageHeader {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.5vw;
+    font-size: 180%;
 }
 
 tr:nth-child(odd) {
