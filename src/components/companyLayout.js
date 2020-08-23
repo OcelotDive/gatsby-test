@@ -32,14 +32,14 @@ const CompanyLayout = ({ children, ticker }) => {
           top: `0`,
           width: `100%`,
           height: `100%`,
-          padding: `0 1.0875rem 1.45rem`,
+          
       
          
         }}
       >
       
         <main>{children}</main>
-        <footer>
+        <footer style={{textAlign: `center`}}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

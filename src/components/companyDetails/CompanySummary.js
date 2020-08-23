@@ -19,6 +19,7 @@ console.log(company)
             <p className={companyStyles.description}><b>Ceo:</b> {company.ceo}</p>
             <p className={companyStyles.description}><b>Exq:</b> {company.exchange}</p> 
         </div>
+        <article className={companyStyles.backgroundInfo}>{company.description}</article>
         </>
     )
         
