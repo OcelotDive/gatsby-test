@@ -71,3 +71,45 @@
     top: -20px;
     font-weight: 900;
 }
+
+.companyDataBrief {
+    display: flex;
+    margin-right: 4%;
+    position: relative;
+    top: 5%;
+    width: 100%;
+    border: solid 1px red;
+}
+
+.companyDataSection {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    width: 50%;
+}
+
+.dataBriefHeaderSection {
+    align-items: center;
+    background: #141930;
+    color: #fff;
+    display: flex;
+    height: 50px;
+    justify-content: flex-start;
+    text-indent: 10px;
+    width: 100%;
+}
+
+.infoBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 5px 10px;
+    width: 100%;
+}
+
+.infoBar:nth-of-type(odd) {
+    background: #ddd;
+}
+
+.dataName {
+    font-weight: 900;
+}

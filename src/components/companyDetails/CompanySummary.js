@@ -9,8 +9,12 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 
 const CompanySummary = ({company, companyRating}) => {
+    let starArray = [];
+    while(starArray.length < companyRating.rating.score) {
+        starArray.push("*");
+    }
 
- console.log("from compSum", company.profile.image)
+// console.log("from compSum", company.profile.image)
  
     return (
         <>
@@ -26,7 +30,7 @@ const CompanySummary = ({company, companyRating}) => {
         <div className={companyStyles.companyRating}><small>Recommendation:</small>
         <span><b>{companyRating.rating.recommendation}</b></span>&nbsp;&nbsp;&nbsp;
         <small> Stock Performance Rating: </small>
-  
+        {starArray.map((star, index) => <FontAwesomeIcon icon={faStar} key={index}/> )}
     </div> 
         </>
     )

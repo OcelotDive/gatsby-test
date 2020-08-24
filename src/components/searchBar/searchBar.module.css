@@ -1,21 +1,18 @@
-
 .searchWrapper {
     position: absolute;
     width: 320px;
     height: 40px;
     left: 60%;
     bottom: 12%;
-   
 }
+
 .searchBar {
     background: #141930;
     border-radius: 20%;
-
     box-shadow: 0 0 5px 0 #0C2A46;
     height: 40px;
     top: 0;
     position: absolute;
-
     transition: all .4s;
     width: 40px;
     z-index: 4;
@@ -56,10 +53,8 @@
 .input {
     background: #141930;
     border: none;
-
     border-radius: 30px;
     bottom: 0;
-    
     color: white;
     font-size: 80%;
     font-weight: bold;
@@ -114,13 +109,10 @@
     min-width: 250px;
     background: #fff;
     z-index: 9999;
-   border-radius:1px;
+    border-radius: 1px;
     overflow-y: scroll;
     overflow-x: hidden;
     white-space: nowrap;
-    
-   
-  
 }
 
 .searchBarListItem {
@@ -139,41 +131,39 @@
     font-weight: 900;
 }
 
-
-
 .closeIcon {
-	border:1px solid transparent;
-	background-color: transparent;
-	display: inline-block;
-	vertical-align: middle;
-  outline: 0;
-  cursor: pointer;
-  position: relative;
-  bottom: 13px;
-  z-index: 9;
-  opacity: 0;
-  transition: all .5s;
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+    position: relative;
+    bottom: 16px;
+    z-index: 9;
+    opacity: 0;
+    transition: all .5s;
 }
+
 .closeIcon:after {
-	content: "X";
+    content: "X";
     display: flex;
     justify-content: center;
     align-items: center;
-	width: 15px;
-	height: 15px;
-	position: absolute;
-	background-color: #FA9595;
-	right: 10px;
-	top: 12px;
-
-	margin: auto;
-	padding: 2px;
-	border-radius: 50%;
-	text-align: center;
-	color: white;
-	font-weight: normal;
-	font-size: 12px;
-	box-shadow: 0 0 2px #E50F0F;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #FA9595;
+    right: 5px;
+    top: 12px;
+    margin: auto;
+    padding: 2px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+    box-shadow: 0 0 2px #E50F0F;
     cursor: pointer;
     z-index: 9999;
 }
@@ -184,13 +174,8 @@
 }
 
 @media all and (max-width: 920px) {
-    .searchWrapper, .searchResultsList {
-      left: 30%;
+    .searchWrapper,
+    .searchResultsList {
+        left: 30%;
     }
-  }
-
-
-
-
-
-  
+}
