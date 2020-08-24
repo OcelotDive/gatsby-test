@@ -19,23 +19,18 @@
     position: relative;
     top: 0;
     left: 0;
-    width:55%;
+    width: 55%;
     height: auto;
-
 }
 
-
 .pageHeader {
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 180%;
     left: 0;
     margin-left: 0;
     width: 50%;
 }
-
-
-
 
 .companyHeaderRow {
     position: relative;
@@ -44,8 +39,6 @@
     justify-content: flex-start;
     align-items: flex-end;
     flex-wrap: wrap;
-    margin-bottom: 5px;
-  
 }
 
 .companyImage {
@@ -54,23 +47,27 @@
     margin-right: 15px;
     align-self: baseline;
 }
+
 .descriptionTitle {
     margin-right: 20px;
     align-self: baseline;
     text-transform: uppercase;
     white-space: nowrap;
 }
+
 .description {
     margin-right: 20px;
     align-self: baseline;
     white-space: nowrap;
+    font-size: 16px;
 }
 
 .backgroundInfo {
     position: relative;
     height: auto;
-    font-size: 90%;
+    font-size: 70%;
     margin-bottom: 20px;
-    border: solid 1px red;
     line-height: 120%;
+    top: -20px;
+    font-weight: 900;
 }

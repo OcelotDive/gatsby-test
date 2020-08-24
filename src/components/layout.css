@@ -8,7 +8,6 @@
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        
     }
     
     article,
@@ -435,7 +434,7 @@
         padding-left: 0;
         padding-right: 0;
         padding-top: 0;
-        margin-bottom: 1.45rem;
+        margin-bottom: 1.0rem;
     }
     
     figure {

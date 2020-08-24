@@ -12,6 +12,7 @@ const Ticker = () => {
     fetch(`${tickerUrl}${Key.fmpk}`)
     .then((response) => response.json())
     .then((data) => {
+        console.log("ticker data", data)
       setTickerData(data);
     }) 
  
@@ -22,7 +23,7 @@ const Ticker = () => {
             let changeClass = symbol.change > 0 ? "positiveChange" : symbol.change < 0 ? "negativeChange" : "stockQuote";
             return (
          <div className={tickerStyles.tickerStock} key={symbol.symbol}>
-         <Link style={{textDecoration: "none", display: "flex"}} to={`/company-page/#${symbol.symbol}`} state={{symbol: symbol.symbol}}>   
+         <Link style={{textDecoration: "none", display: "flex"}} to={`/company-page/#${symbol.symbol}`}>   
          <span className={tickerStyles.stockQuote} >{symbol.symbol} {symbol.price}
          <span className={tickerStyles[changeClass]}> {symbol.change} ({symbol.changesPercentage})</span>
          </span>
