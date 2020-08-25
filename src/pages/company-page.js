@@ -368,18 +368,40 @@ const CompanyPage = () => {
      
   console.log("companyHistoricalArray", companyHistorical)
 
-  const  fiveDay = [{
+  const getGraphTimeLine = (days) => {
+    if(days <= 30) {
+  return  [{
     "id": "price",
-    "data": priceGraphData[0].data.slice(0, 30).reverse()
+    "data": priceGraphData[0].data.slice(0, days).reverse()
   }, 
   {
     "id": "high",
-    "data": priceGraphData[1].data.slice(0,30).reverse()
+    "data": priceGraphData[1].data.slice(0,days).reverse()
   }, {
     "id": "low",
-    "data": priceGraphData[2].data.slice(0, 30).reverse()
+    "data": priceGraphData[2].data.slice(0, days).reverse()
   }
 ]
+    }
+    else if(days === 180){
+      return  [{
+        "id": "price",
+        "data": priceGraphData[0].data.slice(0, days).reverse().filter((_,index) => index % 10 === 0)
+      }, 
+      {
+        "id": "high",
+        "data": priceGraphData[1].data.slice(0,days).reverse().filter((_,index) => index % 10 === 0)
+      }, {
+        "id": "low",
+        "data": priceGraphData[2].data.slice(0, days).reverse().filter((_,index) => index % 10 === 0)
+      }
+    ]
+    }
+  }
+
+
+
+
     return (
   <CompanyLayout>
     <SEO title="CompanyDetails" />
@@ -392,7 +414,7 @@ const CompanyPage = () => {
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
         <div className={companyStyles.chartContainer}>
-        <CompanyLineChart data={fiveDay}/>
+        <CompanyLineChart data={getGraphTimeLine(180)}/>
         </div>
       </section>
    </main>
