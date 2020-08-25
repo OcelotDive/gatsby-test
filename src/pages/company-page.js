@@ -359,27 +359,26 @@ const CompanyPage = () => {
         "data": []
       }
       ]
+      
       companyHistorical.map(item => {
-        priceGraphData[0].data.push({x: item.date, y: item.close.toFixed(2)})
-        priceGraphData[1].data.push({x: item.date, y: item.high.toFixed(2)})
-        priceGraphData[2].data.push({x: item.date, y: item.low.toFixed(2)})
+        priceGraphData[0].data.push({x: item.date.split("-").reverse().join("-"), y: item.close.toFixed(2)})
+        priceGraphData[1].data.push({x: item.date.split("-").reverse().join("-"), y: item.high.toFixed(2)})
+        priceGraphData[2].data.push({x: item.date.split("-").reverse().join("-"), y: item.low.toFixed(2)})
       });
      
   console.log("companyHistoricalArray", companyHistorical)
 
   const  fiveDay = [{
     "id": "price",
-    "data": priceGraphData[0].data.slice(0, 5).reverse()
+    "data": priceGraphData[0].data.slice(0, 30).reverse()
   }, 
   {
     "id": "high",
-    "data": priceGraphData[1].data.slice(0,5).reverse()
+    "data": priceGraphData[1].data.slice(0,30).reverse()
   }, {
     "id": "low",
-    "data": priceGraphData[2].data.slice(0, 5).reverse()
+    "data": priceGraphData[2].data.slice(0, 30).reverse()
   }
-
-
 ]
     return (
   <CompanyLayout>
