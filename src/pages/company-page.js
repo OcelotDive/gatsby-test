@@ -369,6 +369,13 @@ const CompanyPage = () => {
   console.log("companyHistoricalArray", companyHistorical)
 
   const getGraphTimeLine = (days) => {
+
+    let timeLine1 = priceGraphData[0].data.slice(0, days);
+    let timeLine2 = priceGraphData[1].data.slice(0, days);
+    let timeLine3 = priceGraphData[2].data.slice(0, days);
+      let timeLineEnd1 = timeLine1[timeLine1.length - 1];
+      let timeLineEnd2 = timeLine2[timeLine2.length - 1];
+      let timeLineEnd3 = timeLine3[timeLine3.length - 1];
     if(days <= 30) {
   return  [{
     "id": "price",
@@ -386,20 +393,48 @@ const CompanyPage = () => {
     else if(days === 180){
       return  [{
         "id": "price",
-        "data": priceGraphData[0].data.slice(0, days).reverse().filter((_,index) => index % 10 === 0)
+        "data": priceGraphData[0].data.slice(0, days).filter((_,index) => index % 10 === 0).reverse()
       }, 
       {
         "id": "high",
-        "data": priceGraphData[1].data.slice(0,days).reverse().filter((_,index) => index % 10 === 0)
+        "data": priceGraphData[1].data.slice(0,days).filter((_,index) => index % 10 === 0).reverse()
       }, {
         "id": "low",
-        "data": priceGraphData[2].data.slice(0, days).reverse().filter((_,index) => index % 10 === 0)
+        "data": priceGraphData[2].data.slice(0, days).filter((_,index) => index % 10 === 0).reverse()
       }
     ]
     }
+    else if(days === 365){
+      return  [{
+        "id": "price",
+        "data": timeLine1.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd1).reverse()
+      }, 
+      {
+        "id": "high",
+        "data": timeLine2.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd2).reverse()
+      }, {
+        "id": "low",
+        "data": timeLine3.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd3).reverse()
+      }
+    ]
+    }
+    else if(days === 1825){
+
+     return  [{
+      "id": "price",
+      "data": timeLine1.slice(0, days).filter((_,index) => index % 100 === 0).concat(timeLineEnd1).reverse()
+    }, 
+    {
+      "id": "high",
+      "data": timeLine2.slice(0,days).filter((_,index) => index % 100 === 0).concat(timeLineEnd2).reverse()
+    }, {
+      "id": "low",
+      "data": timeLine3.slice(0, days).filter((_,index) => index % 100 === 0).concat(timeLineEnd3).reverse()
+    }
+  ]
+    }
+
   }
-
-
 
 
     return (
@@ -414,7 +449,7 @@ const CompanyPage = () => {
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
         <div className={companyStyles.chartContainer}>
-        <CompanyLineChart data={getGraphTimeLine(180)}/>
+        <CompanyLineChart data={getGraphTimeLine(1825)}/>
         </div>
       </section>
    </main>
