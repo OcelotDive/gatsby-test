@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ResponsiveBar } from '@nivo/bar'
+import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
@@ -12,29 +13,11 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
         keys={[ 'price', 'high', 'low']}
         indexBy="date"
         groupMode="grouped"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 130, bottom: 80, left: 60 }}
         padding={0.3}
-        colors={{ scheme: 'nivo' }}
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: '#38bcb2',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: '#eed312',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
+        colors={{ scheme: 'dark2' }}
+        label="none"
+      
      
         borderColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
         axisTop={null}
@@ -42,10 +25,11 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
         axisBottom={{
             tickSize: 5,
             tickPadding: 5,
-            tickRotation: 0,
+            tickRotation: 120,
             legend: 'date',
             legendPosition: 'middle',
-            legendOffset: 32
+           
+            legendOffset: 75
         }}
         axisLeft={{
             tickSize: 5,
@@ -55,9 +39,9 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
             legendPosition: 'middle',
             legendOffset: -40
         }}
-        labelSkipWidth={12}
-        labelSkipHeight={12}
-        labelTextColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
+    
+     
+    
         legends={[
             {
                 dataFrom: 'keys',

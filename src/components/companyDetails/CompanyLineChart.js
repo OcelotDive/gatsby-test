@@ -9,7 +9,7 @@ import { ResponsiveLine } from '@nivo/line'
 const CompanyLineChart = ({ data /* see data tab */ }) => (
     <ResponsiveLine
         data={data}
-        margin={{ top: 50, right: 110, bottom: 65, left: 60 }}
+        margin={{ top: 50, right: 110, bottom: 80, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: false, reverse: false }}
         axisTop={null}
@@ -18,9 +18,9 @@ const CompanyLineChart = ({ data /* see data tab */ }) => (
             orient: 'bottom',
             tickSize: 5,
             tickPadding: 5,
-            tickRotation: 140,
+            tickRotation: 120,
             legend: 'date',
-            legendOffset: 56,
+            legendOffset: 75,
             legendPosition: 'middle'
         }}
         axisLeft={{
