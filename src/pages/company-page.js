@@ -99,8 +99,23 @@ const CompanyPage = () => {
     {(companyKeyMetrics.metrics && companyObject.profile) &&  <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
+      <div className={companyStyles.graphButtonContainer}>
+          <div className={companyStyles.graphTypeContainer} >
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Line</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Bar</button>
+          </div>
+          <div className={companyStyles.graphTimeLineContainer} >
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >5D</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1M</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6M</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1Y</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6Y</button>
+          </div>
+          </div>
+
         <div className={companyStyles.chartContainer}>
-    <CompanyBarChart data={getBarGraphTimeLine(365, companyHistorical)}/> 
+    <CompanyLineChart data={getLineGraphTimeLine(365, companyHistorical)} /> 
         </div>
       </section>
    </main>

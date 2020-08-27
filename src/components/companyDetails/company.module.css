@@ -126,3 +126,42 @@
 .dataName {
     font-weight: 900;
 }
+
+.graphButtonContainer {
+    width: 100%;
+    height: 50px;
+    border-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.graphTypeContainer {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.graphTimeLineContainer {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.graphButton {
+    align-items: center;
+    background-color: #141930;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    font-size: 80%;
+    height: 30px;
+    justify-content: center;
+    width: 60px;
+    margin: 0 10px 0 10px;
+}
