@@ -1,13 +1,14 @@
 import React from "react";
 
-import { ResponsiveLine } from '@nivo/line'
+
+import { ResponsiveScatterPlot } from '@nivo/scatterplot'
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const CompanyLineChart = ({ data /* see data tab */ }) => (
-    <ResponsiveLine
+const CompanyScatterChart = ({ data /* see data tab */ }) => (
+    <ResponsiveScatterPlot
         data={data}
         margin={{ top: 50, right: 110, bottom: 65, left: 60 }}
         xScale={{ type: 'point' }}
@@ -45,21 +46,18 @@ const CompanyLineChart = ({ data /* see data tab */ }) => (
                 anchor: 'bottom-right',
                 direction: 'column',
                 justify: false,
-                translateX: 100,
+                translateX: 130,
                 translateY: 0,
-                itemsSpacing: 0,
+                itemWidth: 100,
+                itemHeight: 12,
+                itemsSpacing: 5,
                 itemDirection: 'left-to-right',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 0.75,
                 symbolSize: 12,
                 symbolShape: 'square',
-                symbolBorderColor: 'rgba(0, 0, 0, .5)',
                 effects: [
                     {
                         on: 'hover',
                         style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
                             itemOpacity: 1
                         }
                     }
@@ -69,5 +67,4 @@ const CompanyLineChart = ({ data /* see data tab */ }) => (
     />
 )
 
-
-export default CompanyLineChart;
+export default CompanyScatterChart;

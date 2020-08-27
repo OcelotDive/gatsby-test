@@ -11,6 +11,8 @@ import queryString from 'query-string'
 
 import companyStyles from "../components/companyDetails/company.module.css";
 import CompanyLineChart from "../components/companyDetails/CompanyLineChart";
+import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart";
+import CompanyBarChart from "../components/companyDetails/CompanyBarChart";
 //return this.http.get(`${this.companyProfile}${symbol}${this.fmpk}`)
 //this.keyMetrics = 'https://financialmodelingprep.com/api/v3/company-key-metrics/'
 
@@ -20,276 +22,108 @@ const CompanyPage = () => {
 
   const data = [
     {
-      "id": "japan",
-      "color": "hsl(223, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 293
-        },
-        {
-          "x": "helicopter",
-          "y": 143
-        },
-        {
-          "x": "boat",
-          "y": 161
-        },
-        {
-          "x": "train",
-          "y": 261
-        },
-        {
-          "x": "subway",
-          "y": 206
-        },
-        {
-          "x": "bus",
-          "y": 20
-        },
-        {
-          "x": "car",
-          "y": 5
-        },
-        {
-          "x": "moto",
-          "y": 82
-        },
-        {
-          "x": "bicycle",
-          "y": 149
-        },
-        {
-          "x": "horse",
-          "y": 90
-        },
-        {
-          "x": "skateboard",
-          "y": 208
-        },
-        {
-          "x": "others",
-          "y": 121
-        }
-      ]
+      "country": "2020-08-26",
+      "price": 213.020004,
+      "priceColor": "hsl(348, 70%, 50%)",
+      "high": 216.25,
+      "burgerColor": "hsl(83, 70%, 50%)",
+      "low": 212.85006,
+      "sandwichColor": "hsl(50, 70%, 50%)",
+      "kebab": 113,
+      "kebabColor": "hsl(150, 70%, 50%)",
+      
     },
     {
-      "id": "france",
-      "color": "hsl(92, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 255
-        },
-        {
-          "x": "helicopter",
-          "y": 3
-        },
-        {
-          "x": "boat",
-          "y": 25
-        },
-        {
-          "x": "train",
-          "y": 130
-        },
-        {
-          "x": "subway",
-          "y": 289
-        },
-        {
-          "x": "bus",
-          "y": 220
-        },
-        {
-          "x": "car",
-          "y": 137
-        },
-        {
-          "x": "moto",
-          "y": 51
-        },
-        {
-          "x": "bicycle",
-          "y": 276
-        },
-        {
-          "x": "horse",
-          "y": 2
-        },
-        {
-          "x": "skateboard",
-          "y": 79
-        },
-        {
-          "x": "others",
-          "y": 136
-        }
-      ]
+      "country": "AE",
+      "hot dog": 93,
+      "hot dogColor": "hsl(50, 70%, 50%)",
+      "burger": 62,
+      "burgerColor": "hsl(57, 70%, 50%)",
+      "sandwich": 8,
+      "sandwichColor": "hsl(329, 70%, 50%)",
+      "kebab": 149,
+      "kebabColor": "hsl(60, 70%, 50%)",
+      "fries": 161,
+      "friesColor": "hsl(146, 70%, 50%)",
+      "donut": 108,
+      "donutColor": "hsl(170, 70%, 50%)"
     },
     {
-      "id": "us",
-      "color": "hsl(193, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 6
-        },
-        {
-          "x": "helicopter",
-          "y": 241
-        },
-        {
-          "x": "boat",
-          "y": 210
-        },
-        {
-          "x": "train",
-          "y": 21
-        },
-        {
-          "x": "subway",
-          "y": 17
-        },
-        {
-          "x": "bus",
-          "y": 10
-        },
-        {
-          "x": "car",
-          "y": 291
-        },
-        {
-          "x": "moto",
-          "y": 75
-        },
-        {
-          "x": "bicycle",
-          "y": 56
-        },
-        {
-          "x": "horse",
-          "y": 240
-        },
-        {
-          "x": "skateboard",
-          "y": 232
-        },
-        {
-          "x": "others",
-          "y": 126
-        }
-      ]
+      "country": "AF",
+      "hot dog": 158,
+      "hot dogColor": "hsl(134, 70%, 50%)",
+      "burger": 87,
+      "burgerColor": "hsl(336, 70%, 50%)",
+      "sandwich": 69,
+      "sandwichColor": "hsl(226, 70%, 50%)",
+      "kebab": 0,
+      "kebabColor": "hsl(170, 70%, 50%)",
+      "fries": 60,
+      "friesColor": "hsl(352, 70%, 50%)",
+      "donut": 92,
+      "donutColor": "hsl(223, 70%, 50%)"
     },
     {
-      "id": "germany",
-      "color": "hsl(232, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 112
-        },
-        {
-          "x": "helicopter",
-          "y": 35
-        },
-        {
-          "x": "boat",
-          "y": 258
-        },
-        {
-          "x": "train",
-          "y": 89
-        },
-        {
-          "x": "subway",
-          "y": 154
-        },
-        {
-          "x": "bus",
-          "y": 179
-        },
-        {
-          "x": "car",
-          "y": 237
-        },
-        {
-          "x": "moto",
-          "y": 175
-        },
-        {
-          "x": "bicycle",
-          "y": 209
-        },
-        {
-          "x": "horse",
-          "y": 273
-        },
-        {
-          "x": "skateboard",
-          "y": 30
-        },
-        {
-          "x": "others",
-          "y": 179
-        }
-      ]
+      "country": "AG",
+      "hot dog": 53,
+      "hot dogColor": "hsl(347, 70%, 50%)",
+      "burger": 127,
+      "burgerColor": "hsl(114, 70%, 50%)",
+      "sandwich": 56,
+      "sandwichColor": "hsl(354, 70%, 50%)",
+      "kebab": 0,
+      "kebabColor": "hsl(82, 70%, 50%)",
+      "fries": 43,
+      "friesColor": "hsl(2, 70%, 50%)",
+      "donut": 148,
+      "donutColor": "hsl(288, 70%, 50%)"
     },
     {
-      "id": "norway",
-      "color": "hsl(9, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 188
-        },
-        {
-          "x": "helicopter",
-          "y": 285
-        },
-        {
-          "x": "boat",
-          "y": 151
-        },
-        {
-          "x": "train",
-          "y": 9
-        },
-        {
-          "x": "subway",
-          "y": 4
-        },
-        {
-          "x": "bus",
-          "y": 68
-        },
-        {
-          "x": "car",
-          "y": 295
-        },
-        {
-          "x": "moto",
-          "y": 246
-        },
-        {
-          "x": "bicycle",
-          "y": 241
-        },
-        {
-          "x": "horse",
-          "y": 206
-        },
-        {
-          "x": "skateboard",
-          "y": 188
-        },
-        {
-          "x": "others",
-          "y": 142
-        }
-      ]
+      "country": "AI",
+      "hot dog": 177,
+      "hot dogColor": "hsl(288, 70%, 50%)",
+      "burger": 155,
+      "burgerColor": "hsl(33, 70%, 50%)",
+      "sandwich": 11,
+      "sandwichColor": "hsl(327, 70%, 50%)",
+      "kebab": 31,
+      "kebabColor": "hsl(140, 70%, 50%)",
+      "fries": 57,
+      "friesColor": "hsl(344, 70%, 50%)",
+      "donut": 197,
+      "donutColor": "hsl(93, 70%, 50%)"
+    },
+    {
+      "country": "AL",
+      "hot dog": 135,
+      "hot dogColor": "hsl(118, 70%, 50%)",
+      "burger": 103,
+      "burgerColor": "hsl(104, 70%, 50%)",
+      "sandwich": 72,
+      "sandwichColor": "hsl(210, 70%, 50%)",
+      "kebab": 81,
+      "kebabColor": "hsl(229, 70%, 50%)",
+      "fries": 182,
+      "friesColor": "hsl(313, 70%, 50%)",
+      "donut": 160,
+      "donutColor": "hsl(39, 70%, 50%)"
+    },
+    {
+      "country": "AM",
+      "hot dog": 124,
+      "hot dogColor": "hsl(243, 70%, 50%)",
+      "burger": 101,
+      "burgerColor": "hsl(190, 70%, 50%)",
+      "sandwich": 111,
+      "sandwichColor": "hsl(101, 70%, 50%)",
+      "kebab": 150,
+      "kebabColor": "hsl(170, 70%, 50%)",
+      "fries": 68,
+      "friesColor": "hsl(20, 70%, 50%)",
+      "donut": 43,
+      "donutColor": "hsl(114, 70%, 50%)"
     }
-  ];
+  ]
 
   const location = useLocation();
   console.log("myNewLocation", location)
@@ -359,14 +193,20 @@ const CompanyPage = () => {
         "data": []
       }
       ]
+
+      const barGraphData = []
+     
+  
       
       companyHistorical.map(item => {
         priceGraphData[0].data.push({x: item.date.split("-").reverse().join("-"), y: item.close.toFixed(2)})
         priceGraphData[1].data.push({x: item.date.split("-").reverse().join("-"), y: item.high.toFixed(2)})
         priceGraphData[2].data.push({x: item.date.split("-").reverse().join("-"), y: item.low.toFixed(2)})
+        barGraphData.push({"date": item.date, "price": item.close, "high": item.high, "low": item.low})
       });
      
   console.log("companyHistoricalArray", companyHistorical)
+  console.log("barGraphData", barGraphData)
 
   const getGraphTimeLine = (days) => {
 
@@ -379,42 +219,42 @@ const CompanyPage = () => {
     if(days <= 30) {
   return  [{
     "id": "price",
-    "data": priceGraphData[0].data.slice(0, days).reverse()
+    "data": timeLine1.slice(0, days).filter((_,index) => index).concat(timeLineEnd1).reverse()
   }, 
   {
     "id": "high",
-    "data": priceGraphData[1].data.slice(0,days).reverse()
+    "data": timeLine2.slice(0, days).filter((_,index) => index ).concat(timeLineEnd2).reverse()
   }, {
     "id": "low",
-    "data": priceGraphData[2].data.slice(0, days).reverse()
+    "data": timeLine3.slice(0, days).filter((_,index) => index ).concat(timeLineEnd3).reverse()
   }
 ]
     }
     else if(days === 180){
       return  [{
         "id": "price",
-        "data": priceGraphData[0].data.slice(0, days).filter((_,index) => index % 10 === 0).reverse()
+        "data": timeLine1.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd1).reverse()
       }, 
       {
         "id": "high",
-        "data": priceGraphData[1].data.slice(0,days).filter((_,index) => index % 10 === 0).reverse()
+        "data": timeLine2.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd2).reverse()
       }, {
         "id": "low",
-        "data": priceGraphData[2].data.slice(0, days).filter((_,index) => index % 10 === 0).reverse()
+        "data": timeLine3.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd3).reverse()
       }
     ]
     }
     else if(days === 365){
       return  [{
         "id": "price",
-        "data": timeLine1.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd1).reverse()
+        "data": timeLine1.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd1).reverse()
       }, 
       {
         "id": "high",
-        "data": timeLine2.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd2).reverse()
+        "data": timeLine2.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd2).reverse()
       }, {
         "id": "low",
-        "data": timeLine3.slice(0, days).filter((_,index) => index % 20 === 0).concat(timeLineEnd3).reverse()
+        "data": timeLine3.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd3).reverse()
       }
     ]
     }
@@ -422,20 +262,27 @@ const CompanyPage = () => {
 
      return  [{
       "id": "price",
-      "data": timeLine1.slice(0, days).filter((_,index) => index % 100 === 0).concat(timeLineEnd1).reverse()
+      "data": timeLine1.slice(0, days).filter((_,index) => index % 365 === 0).concat(timeLineEnd1).reverse()
     }, 
     {
       "id": "high",
-      "data": timeLine2.slice(0,days).filter((_,index) => index % 100 === 0).concat(timeLineEnd2).reverse()
+      "data": timeLine2.slice(0,days).filter((_,index) => index % 365 === 0).concat(timeLineEnd2).reverse()
     }, {
       "id": "low",
-      "data": timeLine3.slice(0, days).filter((_,index) => index % 100 === 0).concat(timeLineEnd3).reverse()
+      "data": timeLine3.slice(0, days).filter((_,index) => index % 365 === 0).concat(timeLineEnd3).reverse()
     }
   ]
     }
 
   }
 
+  const getBarGraphTimeLine = (days) => {
+    if(days <= 30) {
+      return barGraphData.slice(0, days);
+    }
+  }
+
+  console.warn("results", getBarGraphTimeLine(30))
 
     return (
   <CompanyLayout>
@@ -449,7 +296,7 @@ const CompanyPage = () => {
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
         <div className={companyStyles.chartContainer}>
-        <CompanyLineChart data={getGraphTimeLine(1825)}/>
+        <CompanyBarChart data={data}/>
         </div>
       </section>
    </main>
