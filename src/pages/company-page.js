@@ -99,7 +99,12 @@ const CompanyPage = () => {
     {(companyKeyMetrics.metrics && companyObject.profile) &&  <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
-      <div className={companyStyles.graphButtonContainer}>
+
+
+        <div className={companyStyles.chartContainer}>
+    <CompanyLineChart data={getLineGraphTimeLine(365, companyHistorical)} /> 
+        </div>
+        <div className={companyStyles.graphButtonContainer}>
           <div className={companyStyles.graphTypeContainer} >
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Line</button>
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
@@ -113,10 +118,6 @@ const CompanyPage = () => {
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6Y</button>
           </div>
           </div>
-
-        <div className={companyStyles.chartContainer}>
-    <CompanyLineChart data={getLineGraphTimeLine(365, companyHistorical)} /> 
-        </div>
       </section>
    </main>
   </CompanyLayout>
