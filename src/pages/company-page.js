@@ -32,6 +32,9 @@ const CompanyPage = () => {
      let [companyRating, setCompanyRating] = useState({});
      let [companyKeyMetrics, setCompanyKeyMetrics] = useState({});
      let [companyHistorical, setCompanyHistorical] = useState([]);
+     let [graphType, setGraphType] = useState("Line");
+     let [graphTimeLine, setGraphTimeLine] = useState(5);
+     let [activeClass, setActiveClass] = useState([0,0,0]);
      const companyUrl = 'https://financialmodelingprep.com/api/v3/company/profile/';
      const companyRatingsUrl = 'https://financialmodelingprep.com/api/v3/company/rating/';
      const keyMetricsUrl = 'https://financialmodelingprep.com/api/v3/company-key-metrics/';
@@ -79,15 +82,56 @@ const CompanyPage = () => {
  
 
 
+    const handleGraphButtonClick = (e) => {
+ 
+      switch(e.target.innerHTML) {
+        case("Line"):
+          setGraphType("Line");
+          setActiveClass([1,0,0]);
+        break;
+        case("Scatter"):
+          setGraphType("Scatter");
+          setActiveClass([0,1,0]);
+        break;
+        case("Bar"):
+          setGraphType("Bar");
+          setActiveClass([0,0,1]);
+        break;
+        Default:
+          setGraphType("Line");
+          setActiveClass([1,0,0]);
+        break;
 
- /* const getBarGraphTimeLine = (days) => {
-    if(days <= 30) {
-      return barGraphData.slice(0, days).reverse();
+      }
     }
-  }*/
+
+    const handleGraphTimeLineButtonClick = (e) => {
+      
+      switch(e.target.innerHTML) {
+        case("5D"): 
+          setGraphTimeLine(5);
+        break;
+        case("1M"):
+          setGraphTimeLine(30);
+        break;
+        case("6M"):
+          setGraphTimeLine(180);
+        break;
+        case("1Y"):
+          setGraphTimeLine(365);
+        break;
+        case("5Y"):
+          setGraphTimeLine(1825);
+        break;
+        default:
+          setGraphTimeLine(5);
+        break;
 
 
+      }
+    }
 
+    
     return (
   <CompanyLayout>
     <SEO title="CompanyDetails" />
@@ -96,26 +140,29 @@ const CompanyPage = () => {
     
       <section className={companyStyles.fiftyFiveMainContentContainer}>
     {(companyObject.profile && companyRating.rating) && <CompanySummary company={companyObject} companyRating={companyRating}/> }
-    {(companyKeyMetrics.metrics && companyObject.profile) &&  <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
+    {(companyKeyMetrics.metrics && companyObject.profile) && <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
 
 
         <div className={companyStyles.chartContainer}>
-    <CompanyLineChart data={getLineGraphTimeLine(365, companyHistorical)} /> 
+    {graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
+     : 
+     graphType === "Scatter" ? <CompanyScatterChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
+     : <CompanyBarChart data={getBarGraphTimeLine(1825, companyHistorical)} />}
         </div>
-        <div className={companyStyles.graphButtonContainer}>
+        <div className={companyStyles.graphButtonContainer} onClick={handleGraphButtonClick}>
           <div className={companyStyles.graphTypeContainer} >
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Line</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >Bar</button>
+          <button className="globalGraphButton highlighted" type="button" aria-label="graphButton" name="graphButton" >Line</button>
+          <button className="globalGraphButton" type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
+          <button className="globalGraphButton" type="button" aria-label="graphButton" name="graphButton" >Bar</button>
           </div>
-          <div className={companyStyles.graphTimeLineContainer} >
+          <div className={companyStyles.graphTimeLineContainer} onClick={handleGraphTimeLineButtonClick}>
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >5D</button>
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1M</button>
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6M</button>
           <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1Y</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6Y</button>
+          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >5Y</button>
           </div>
           </div>
       </section>
@@ -136,20 +183,29 @@ const getBarGraphTimeLine = (days, companyHistorical) => {
     barGraphData.push({"date": item.date.split("-").reverse().join("-"), "price": item.close, "high": item.high, "low": item.low})
   });
 
-  if(days <= 30) {
+  if(days === 5) {
     return barGraphData.slice(0, days).reverse();
   }
+  else if (days === 30) {
+    days -= 8;
+    let timeLine = barGraphData.slice(0, days);
+    let timeLineEnd = timeLine[timeLine.length - 1];
+    return timeLine.filter((_,index) => index).concat(timeLineEnd).reverse();
+  }
   else if (days === 180) {
+    days-= 52;
     let timeLine = barGraphData.slice(0, days);
     let timeLineEnd = timeLine[timeLine.length - 1];
     return timeLine.filter((_,index) => index % 6 === 0).concat(timeLineEnd).reverse();
   }
   else if (days === 365) {
+    days -= 104;
     let timeLine = barGraphData.slice(0, days);
     let timeLineEnd = timeLine[timeLine.length - 1];
     return timeLine.filter((_,index) => index % 12 === 0).concat(timeLineEnd).reverse();
   }
   else if (days === 1825) {
+    days-= 520;
     let timeLine = barGraphData.slice(0, days);
     let timeLineEnd = timeLine[timeLine.length - 1];
     return timeLine.filter((_,index) => index % 180 === 0).concat(timeLineEnd).reverse();
@@ -158,7 +214,7 @@ const getBarGraphTimeLine = (days, companyHistorical) => {
 }
 
 const getLineGraphTimeLine = (days, companyHistorical) => {
-  console.table(companyHistorical)
+
       const priceGraphData = [
         {
        "id": "price",
@@ -174,10 +230,6 @@ const getLineGraphTimeLine = (days, companyHistorical) => {
      }
      ]
   
- 
-    
-  
-     
      companyHistorical.map(item => {
        priceGraphData[0].data.push({x: item.date.split("-").reverse().join("-"), y: item.close.toFixed(2)})
        priceGraphData[1].data.push({x: item.date.split("-").reverse().join("-"), y: item.high.toFixed(2)})
@@ -188,63 +240,80 @@ const getLineGraphTimeLine = (days, companyHistorical) => {
       let timeLine1 = priceGraphData[0].data.slice(0, days);
       let timeLine2 = priceGraphData[1].data.slice(0, days);
       let timeLine3 = priceGraphData[2].data.slice(0, days);
-        let timeLineEnd1 = timeLine1[timeLine1.length - 1];
-        let timeLineEnd2 = timeLine2[timeLine2.length - 1];
-        let timeLineEnd3 = timeLine3[timeLine3.length - 1];
-      if(days <= 30) {
+
+
+  
+      if(days === 5) {
     return  [{
       "id": "price",
-      "data": timeLine1.slice(0, days).filter((_,index) => index).concat(timeLineEnd1).reverse()
+      "data": timeLine1.slice(0, days).filter((_,index) => index).reverse()
     }, 
     {
       "id": "high",
-      "data": timeLine2.slice(0, days).filter((_,index) => index ).concat(timeLineEnd2).reverse()
+      "data": timeLine2.slice(0, days).filter((_,index) => index ).reverse()
     }, {
       "id": "low",
-      "data": timeLine3.slice(0, days).filter((_,index) => index ).concat(timeLineEnd3).reverse()
+      "data": timeLine3.slice(0, days).filter((_,index) => index ).reverse()
     }
   ]
       }
-      else if(days === 180){
+      else if(days === 30){
+        days-= 8
         return  [{
           "id": "price",
-          "data": timeLine1.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd1).reverse()
+          "data": timeLine1.slice(0, days).filter((_,index) => index).reverse()
         }, 
         {
           "id": "high",
-          "data": timeLine2.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd2).reverse()
+          "data": timeLine2.slice(0, days).filter((_,index) => index).reverse()
         }, {
           "id": "low",
-          "data": timeLine3.slice(0, days).filter((_,index) => index % 6 === 0).concat(timeLineEnd3).reverse()
+          "data": timeLine3.slice(0, days).filter((_,index) => index).reverse()
+        }
+      ]
+      }
+      else if(days === 180){
+        days -= 52;
+        return  [{
+          "id": "price",
+          "data": timeLine1.slice(0, days).filter((_,index) => index % 6 === 0).reverse()
+        }, 
+        {
+          "id": "high",
+          "data": timeLine2.slice(0, days).filter((_,index) => index % 6 === 0).reverse()
+        }, {
+          "id": "low",
+          "data": timeLine3.slice(0, days).filter((_,index) => index % 6 === 0).reverse()
         }
       ]
       }
       else if(days === 365){
+        days -= 104;
         return  [{
           "id": "price",
-          "data": timeLine1.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd1).reverse()
+          "data": timeLine1.slice(0, days).filter((_,index) => index % 12 === 0).reverse()
         }, 
         {
           "id": "high",
-          "data": timeLine2.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd2).reverse()
+          "data": timeLine2.slice(0, days).filter((_,index) => index % 12 === 0).reverse()
         }, {
           "id": "low",
-          "data": timeLine3.slice(0, days).filter((_,index) => index % 12 === 0).concat(timeLineEnd3).reverse()
+          "data": timeLine3.slice(0, days).filter((_,index) => index % 12 === 0).reverse()
         }
       ]
       }
       else if(days === 1825){
-  
+        days -= 520;
        return  [{
         "id": "price",
-        "data": timeLine1.slice(0, days).filter((_,index) => index % 180 === 0).concat(timeLineEnd1).reverse()
+        "data": timeLine1.slice(0, days).filter((_,index) => index % 52 === 0).reverse()
       }, 
       {
         "id": "high",
-        "data": timeLine2.slice(0,days).filter((_,index) => index % 180 === 0).concat(timeLineEnd2).reverse()
+        "data": timeLine2.slice(0,days).filter((_,index) => index % 52 === 0).reverse()
       }, {
         "id": "low",
-        "data": timeLine3.slice(0, days).filter((_,index) => index % 180 === 0).concat(timeLineEnd3).reverse()
+        "data": timeLine3.slice(0, days).filter((_,index) => index % 52 === 0).reverse()
       }
     ]
       }

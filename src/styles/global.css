@@ -85,6 +85,25 @@ tr:nth-child(odd) {
     cursor: pointer;
 }
 
+.globalGraphButton {
+    align-items: center;
+    background-color: #141930;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: 80%;
+    height: 30px;
+    justify-content: center;
+    width: 60px;
+    margin: 0 10px 0 10px;
+}
+
+.highLighted {
+    background-color: #58BF75;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
