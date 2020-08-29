@@ -87,20 +87,19 @@ tr:nth-child(odd) {
 
 .globalGraphButton {
     align-items: center;
-    background-color: #141930;
+    background-color: #808080;
     border: none;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
     display: flex;
-    font-size: 80%;
     height: 30px;
     justify-content: center;
     width: 60px;
     margin: 0 10px 0 10px;
 }
 
-.highLighted {
+.highlighted {
     background-color: #58BF75;
 }
 

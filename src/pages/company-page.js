@@ -34,7 +34,8 @@ const CompanyPage = () => {
      let [companyHistorical, setCompanyHistorical] = useState([]);
      let [graphType, setGraphType] = useState("Line");
      let [graphTimeLine, setGraphTimeLine] = useState(5);
-     let [activeClass, setActiveClass] = useState([0,0,0]);
+     let [activeClass, setActiveClass] = useState([1,0,0]);
+     let [tlActiveClass, setTlActiveClass] = useState([1,0,0,0,0])
      const companyUrl = 'https://financialmodelingprep.com/api/v3/company/profile/';
      const companyRatingsUrl = 'https://financialmodelingprep.com/api/v3/company/rating/';
      const keyMetricsUrl = 'https://financialmodelingprep.com/api/v3/company-key-metrics/';
@@ -110,21 +111,27 @@ const CompanyPage = () => {
       switch(e.target.innerHTML) {
         case("5D"): 
           setGraphTimeLine(5);
+          setTlActiveClass([1,0,0,0,0])
         break;
         case("1M"):
           setGraphTimeLine(30);
+          setTlActiveClass([0,1,0,0,0])
         break;
         case("6M"):
           setGraphTimeLine(180);
+          setTlActiveClass([0,0,1,0,0])
         break;
         case("1Y"):
           setGraphTimeLine(365);
+          setTlActiveClass([0,0,0,1,0])
         break;
         case("5Y"):
           setGraphTimeLine(1825);
+          setTlActiveClass([0,0,0,0,1])
         break;
         default:
           setGraphTimeLine(5);
+          setTlActiveClass([1,0,0,0,0])
         break;
 
 
@@ -137,7 +144,7 @@ const CompanyPage = () => {
     <SEO title="CompanyDetails" />
     <h4 className={companyStyles.pageHeader}>COMPANY SUMMARY</h4>
     <main className={companyStyles.mainContentCompanyContainer}>
-    
+      
       <section className={companyStyles.fiftyFiveMainContentContainer}>
     {(companyObject.profile && companyRating.rating) && <CompanySummary company={companyObject} companyRating={companyRating}/> }
     {(companyKeyMetrics.metrics && companyObject.profile) && <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
@@ -149,22 +156,24 @@ const CompanyPage = () => {
     {graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
      : 
      graphType === "Scatter" ? <CompanyScatterChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
-     : <CompanyBarChart data={getBarGraphTimeLine(1825, companyHistorical)} />}
-        </div>
-        <div className={companyStyles.graphButtonContainer} onClick={handleGraphButtonClick}>
+     : <CompanyBarChart data={getBarGraphTimeLine(graphTimeLine, companyHistorical)} />}
+
+<div className={companyStyles.graphButtonContainer} onClick={handleGraphButtonClick}>
           <div className={companyStyles.graphTypeContainer} >
-          <button className="globalGraphButton highlighted" type="button" aria-label="graphButton" name="graphButton" >Line</button>
-          <button className="globalGraphButton" type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
-          <button className="globalGraphButton" type="button" aria-label="graphButton" name="graphButton" >Bar</button>
+          <button className={activeClass[0] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Line</button>
+          <button className={activeClass[1] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
+          <button className={activeClass[2] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Bar</button>
           </div>
           <div className={companyStyles.graphTimeLineContainer} onClick={handleGraphTimeLineButtonClick}>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >5D</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1M</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >6M</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >1Y</button>
-          <button className={companyStyles.graphButton} type="button" aria-label="graphButton" name="graphButton" >5Y</button>
+          <button className={tlActiveClass[0] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >5D</button>
+          <button className={tlActiveClass[1] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >1M</button>
+          <button className={tlActiveClass[2] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >6M</button>
+          <button className={tlActiveClass[3] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >1Y</button>
+          <button className={tlActiveClass[4] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >5Y</button>
           </div>
           </div>
+        </div>
+        
       </section>
    </main>
   </CompanyLayout>

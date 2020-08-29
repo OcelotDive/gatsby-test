@@ -23,20 +23,27 @@
     left: 0;
     width: 60%;
     height: 100%;
+
 }
 
 .fortyFiveMainContentContainer {
     width: 40%;
     height: 100%;
-    min-height: 100%;
     align-self: flex-end;
+    background: #141930;
+    border-radius: 10px;
+    margin-left: 1%;
+
+ 
 }
 
 .chartContainer {
     width: 100%;
-    height: 500px;
-    align-self: baseline;
+    height: 550px;
+    margin-left: 1%;
     overflow: visible;
+    padding-bottom: 100px;
+
 }
 
 .pageHeader {
@@ -134,6 +141,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+
+
 }
 
 .graphTypeContainer {
@@ -142,7 +152,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8px;
+    font-size: 12px;
+
 }
 
 .graphTimeLineContainer {
@@ -150,6 +161,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     font-size: 12px;
+
 }
