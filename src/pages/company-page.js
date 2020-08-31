@@ -22,11 +22,11 @@ const CompanyPage = () => {
 
 
   const location = useLocation();
-  console.log("myNewLocation", location)
+
 
   
      const symbol = location.hash.substring(1);
-     console.log("symbol", symbol)
+
 
      let [companyObject, setCompanyObject] = useState({});
      let [companyRating, setCompanyRating] = useState({});
@@ -47,7 +47,7 @@ const CompanyPage = () => {
       const fetchData = async () => {
         const result = await axios(`${companyUrl}${symbol}${Key.fmpk}`,);
         setCompanyObject(result.data)
-      //  console.log("result",result)
+       console.log("company received from page",result.data)
       }
       fetchData();
         }, [symbol])

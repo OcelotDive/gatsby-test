@@ -3,7 +3,7 @@ import React from "react";
 import companyStyles from "./company.module.css";
 const CompanyDataBrief = ({company, companyKeyMetrics}) => {
     const keyMetrics = companyKeyMetrics.metrics[0];
-    console.log(keyMetrics)
+  
     return (
         <>
         <section className={companyStyles.companyDataBrief}>

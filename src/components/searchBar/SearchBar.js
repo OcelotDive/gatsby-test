@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import Key from "../../keys"
-
+import { Link } from "gatsby";
 import searchStyles from "./searchBar.module.css";
 import { node } from "prop-types";
 
@@ -59,7 +59,8 @@ const SearchBar = ({placeholder}) => {
 
   const reset = (e) => {
     setDisplaySearches(false);
-    console.log(e.target)
+    //done on 31/8/20
+    searchRef.current.value = "";
     
     
    
@@ -77,7 +78,11 @@ const SearchBar = ({placeholder}) => {
 
   {displaySearches &&  <ul className={searchStyles.searchResultList} >
       {
-       filteredList.map(companyObj => <li key={companyObj.symbol} className={searchStyles.searchBarListItem}>{companyObj.symbol} {companyObj.name}</li>)
+       filteredList.map(companyObj => (
+        <Link style={{textDecoration: "none", display: "flex"}} to={`/company-page/#${companyObj.symbol}`}> 
+       <li key={companyObj.symbol} className={searchStyles.searchBarListItem} onClick={reset}>{companyObj.symbol} {companyObj.name}</li>
+       </Link>
+       ))
       }
     </ul>
     }
