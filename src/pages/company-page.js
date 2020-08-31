@@ -41,6 +41,8 @@ const CompanyPage = () => {
      const keyMetricsUrl = 'https://financialmodelingprep.com/api/v3/company-key-metrics/';
      const companyHistoricalUrl = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
 
+     
+
      useEffect(() => {
       const fetchData = async () => {
         const result = await axios(`${companyUrl}${symbol}${Key.fmpk}`,);

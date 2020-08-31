@@ -40,6 +40,22 @@ const CompanyLineChart = ({ data /* see data tab */ }) => (
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
+        theme={{
+            axis: {
+            legend: {
+                text: {
+                    fill: "#ffffff",
+                }
+            },
+
+              ticks: {
+           
+                text: {
+                  fill: "#ffffff",
+                },
+              },
+            },
+          }}
         legends={[
             {
                 anchor: 'bottom-right',
@@ -52,6 +68,7 @@ const CompanyLineChart = ({ data /* see data tab */ }) => (
                 itemWidth: 80,
                 itemHeight: 20,
                 itemOpacity: 0.75,
+                itemTextColor: "#ffffff",
                 symbolSize: 12,
                 symbolShape: 'square',
                 symbolBorderColor: 'rgba(0, 0, 0, .5)',

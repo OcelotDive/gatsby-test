@@ -41,6 +41,20 @@ const CompanyScatterChart = ({ data /* see data tab */ }) => (
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
+        theme={{
+            axis: {
+            legend: {
+                text: {
+                    fill: "#ffffff",
+                }
+            },
+              ticks: {
+                text: {
+                  fill: "#ffffff",
+                },
+              },
+            },
+          }}
         legends={[
             {
                 anchor: 'bottom-right',
@@ -52,6 +66,7 @@ const CompanyScatterChart = ({ data /* see data tab */ }) => (
                 itemHeight: 12,
                 itemsSpacing: 5,
                 itemDirection: 'left-to-right',
+                itemTextColor: '#ffffff',
                 symbolSize: 12,
                 symbolShape: 'square',
                 effects: [

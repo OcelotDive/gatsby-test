@@ -39,6 +39,20 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
             legendPosition: 'middle',
             legendOffset: -40
         }}
+        theme={{
+            axis: {
+            legend: {
+                text: {
+                    fill: "#ffffff",
+                }
+            },
+              ticks: {
+                text: {
+                  fill: "#ffffff",
+                },
+              },
+            },
+          }}
     
      
     
@@ -55,6 +69,7 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
                 itemHeight: 20,
                 itemDirection: 'left-to-right',
                 itemOpacity: 0.85,
+                itemTextColor: '#ffffff',
                 symbolSize: 20,
                 effects: [
                     {
