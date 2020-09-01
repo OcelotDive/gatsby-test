@@ -10,6 +10,7 @@ const CompanyRating = ({companyRating}) => {
    if(companyRating.rating) {
     let starArray = [];
     while(starArray.length < companyRating.rating.score) {
+        
         starArray.push("*");
     }
 
@@ -22,11 +23,17 @@ const CompanyRating = ({companyRating}) => {
     </span>
         <section className={companyStyles.companyRatingsCard}>
         {Object.keys(companyRating.ratingDetails).map(item => {
+         let temp = [];
+         while(temp.length < companyRating.ratingDetails[item].score) {
+             temp.push("*");
+         }
+          
+           
       return  (
-      <div className="cardInfoBar" >
-        <span className="cardDataName"></span>
-        <i className="far fa-star"></i>
-        <span className="cardDataInfo"></span>
+      <div className={companyStyles.cardInfoBar} key={item}>&nbsp;&nbsp;&nbsp;
+        <span className={companyStyles.cardDataName}>{item}</span>&nbsp;&nbsp;&nbsp;<span className={companyStyles.cardScore}><small>Score: </small> 
+        {temp.map((score, index) => <small><small><FontAwesomeIcon icon={faStar} key={item + index}/></small></small>)}</span>
+        <span className={companyStyles.cardDataInfo}><small>Rec: </small><span className={companyStyles.recommendation}><small><small>{companyRating.ratingDetails[item].recommendation}</small></small></span></span>
     </div>
       )
    })
