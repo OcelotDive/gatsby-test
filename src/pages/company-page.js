@@ -181,7 +181,7 @@ const CompanyPage = () => {
         
       </section>
    </main>
-   <CompanyAccounts />
+   <CompanyAccounts symbol={symbol}/>
   </CompanyLayout>
     )
 }

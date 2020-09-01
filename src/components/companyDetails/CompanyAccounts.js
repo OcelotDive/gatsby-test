@@ -1,10 +1,31 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Key from "../../keys";
 import companyStyles from "./company.module.css";
+import axios from "axios"
 
-const CompanyAccounts = () => {
-
+const CompanyAccounts = ({symbol}) => {
 let [activeAccountsButton, setActiveAccountsButton] = useState([0,0,0,0]);
+
+      const annualIncomeStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/income-statement/';
+       const annualBalanceStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/';
+        const annualCashFlowStatement = 'https://financialmodelingprep.com/api/v3/financials/cash-flow-statement/';
+        const ratioUrl = 'https://financialmodelingprep.com/api/v3/financial-ratios/';
+      
+
+     useEffect(() => {
+         if(activeAccountsButton[0] === 1) {
+        const fetchData = async () => {
+          const result = await axios(`${annualIncomeStatementUrl}${symbol}${Key.fmpk}`,);
+         console.log(result);
+         
+        
+        }
+        fetchData();
+
+    }
+          }, [activeAccountsButton])
+
+
 
 const handleAccountsClick = (e) => {
 
@@ -37,6 +58,7 @@ const handleAccountsClick = (e) => {
             <button className={activeAccountsButton[3] === 1 ? "globalAccountsButton highlighted" : "globalAccountsButton"} type="button" aria-label="graphButton" name="graphButton">Financial Ratios</button>
           </div>
         </section>
+
         </>
     )
 }
