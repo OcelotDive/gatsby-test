@@ -112,6 +112,12 @@ tr:nth-child(odd) {
     margin: 0 10px 0 10px;
 }
 
+.globalAccountsButton {
+    background: #141930;
+    color: #fff;
+    margin-right: 10px;
+}
+
 .highlighted {
     background-color: #58BF75;
 }

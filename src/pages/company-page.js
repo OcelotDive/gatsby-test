@@ -14,6 +14,7 @@ import companyStyles from "../components/companyDetails/company.module.css";
 import CompanyLineChart from "../components/companyDetails/CompanyLineChart";
 import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart";
 import CompanyBarChart from "../components/companyDetails/CompanyBarChart";
+import CompanyAccounts from "../components/companyDetails/CompanyAccounts";
 //return this.http.get(`${this.companyProfile}${symbol}${this.fmpk}`)
 //this.keyMetrics = 'https://financialmodelingprep.com/api/v3/company-key-metrics/'
 
@@ -163,7 +164,7 @@ const CompanyPage = () => {
      : <CompanyBarChart data={getBarGraphTimeLine(graphTimeLine, companyHistorical)} />}
 
 <div className={companyStyles.graphButtonContainer} onClick={handleGraphButtonClick}>
-          <div className={companyStyles.graphTypeContainer} >
+          <div className={companyStyles.graphTypeContainer}>
           <button className={activeClass[0] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Line</button>
           <button className={activeClass[1] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Scatter</button>
           <button className={activeClass[2] === 1 ? "globalGraphButton highlighted" : "globalGraphButton"} type="button" aria-label="graphButton" name="graphButton" >Bar</button>
@@ -180,6 +181,7 @@ const CompanyPage = () => {
         
       </section>
    </main>
+   <CompanyAccounts />
   </CompanyLayout>
     )
 }

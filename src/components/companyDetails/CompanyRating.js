@@ -27,8 +27,7 @@ const CompanyRating = ({companyRating}) => {
          while(temp.length < companyRating.ratingDetails[item].score) {
              temp.push("*");
          }
-          
-           
+               
       return  (
       <div className={companyStyles.cardInfoBar} key={item}>&nbsp;&nbsp;&nbsp;
         <span className={companyStyles.cardDataName}>{item}</span>&nbsp;&nbsp;&nbsp;<span className={companyStyles.cardScore}><small>Score: </small> 

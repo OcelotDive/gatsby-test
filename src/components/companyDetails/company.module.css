@@ -196,3 +196,18 @@
     justify-content: center;
     font-size: 12px;
 }
+
+.accountsContainer {
+    position: relative;
+    width: 95%;
+    margin-left: 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.accountsButtonContainer {
+    width: 100%;
+    display: flex;
+    margin-top: 0.2%;
+    justify-content: flex-start;
+}
