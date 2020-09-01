@@ -120,6 +120,7 @@
     border-bottom: solid 1px lightgray;
     margin-bottom: 0;
     padding: 2px;
+    width: 100%;
 }
 
 .searchBarListItem:hover {
