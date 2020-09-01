@@ -148,7 +148,7 @@ const CompanyPage = () => {
     <main className={companyStyles.mainContentCompanyContainer}>
       
       <section className={companyStyles.fiftyFiveMainContentContainer}>
-    {(companyObject.profile && companyRating.rating) && <CompanySummary company={companyObject} companyRating={companyRating}/> }
+    {(companyObject.profile) && <CompanySummary company={companyObject} companyRating={companyRating}/> }
     {(companyKeyMetrics.metrics && companyObject.profile) && <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>

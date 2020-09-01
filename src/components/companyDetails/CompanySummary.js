@@ -3,16 +3,15 @@ import React, { useEffect, useState } from "react";
 import companyStyles from "./company.module.css";
 import Key from "../../keys";
 import CompanyPage from "../../pages/company-page";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+import CompanyRating from "./CompanyRating";
+
+
 
 
 
 const CompanySummary = ({company, companyRating}) => {
-    let starArray = [];
-    while(starArray.length < companyRating.rating.score) {
-        starArray.push("*");
-    }
+  
 
 // console.log("from compSum", company.profile.image)
  
@@ -27,11 +26,7 @@ const CompanySummary = ({company, companyRating}) => {
         </div>
        
      <article className={companyStyles.backgroundInfo}>{company.profile.description}</article>
-        <div className={companyStyles.companyRating}><small>Recommendation:</small>
-        <span><b>{companyRating.rating.recommendation}</b></span>&nbsp;&nbsp;&nbsp;
-        <small> Stock Performance Rating: </small>
-        {starArray.map((star, index) => <FontAwesomeIcon icon={faStar} key={index}/> )}
-    </div> 
+       {companyRating && <CompanyRating companyRating={companyRating} />}
         </>
     )
         
