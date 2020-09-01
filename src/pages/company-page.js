@@ -9,6 +9,7 @@ import SEO from "../components/seo";
 import { useLocation } from '@reach/router';
 import queryString from 'query-string'
 import Utils from "../utils";
+import NoData from "../components/NoData";
 import companyStyles from "../components/companyDetails/company.module.css";
 import CompanyLineChart from "../components/companyDetails/CompanyLineChart";
 import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart";
@@ -47,7 +48,8 @@ const CompanyPage = () => {
       const fetchData = async () => {
         const result = await axios(`${companyUrl}${symbol}${Key.fmpk}`,);
         setCompanyObject(result.data)
-       console.log("company received from page",result.data)
+       
+      
       }
       fetchData();
         }, [symbol])
@@ -64,7 +66,7 @@ const CompanyPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         const result = await axios(`${keyMetricsUrl}${symbol}${Key.fmpk}`,);
-     //   console.log("key-metrics", result.data)
+       console.log("key-metrics", result.data)
         setCompanyKeyMetrics(result.data);
         }
         fetchData();
@@ -149,7 +151,7 @@ const CompanyPage = () => {
       
       <section className={companyStyles.fiftyFiveMainContentContainer}>
     {(companyObject.profile) && <CompanySummary company={companyObject} companyRating={companyRating}/> }
-    {(companyKeyMetrics.metrics && companyObject.profile) && <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/> }
+    {(companyKeyMetrics.metrics && companyObject.profile) ? <CompanyDataBrief company={companyObject} companyKeyMetrics={companyKeyMetrics}/>  : <NoData />}
     </section>
       <section className={companyStyles.fortyFiveMainContentContainer}>
 

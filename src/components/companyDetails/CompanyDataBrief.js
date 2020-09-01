@@ -3,10 +3,10 @@ import React from "react";
 import companyStyles from "./company.module.css";
 const CompanyDataBrief = ({company, companyKeyMetrics}) => {
     const keyMetrics = companyKeyMetrics.metrics[0];
-  
+    
     return (
         <>
-        <section className={companyStyles.companyDataBrief}>
+       <section className={companyStyles.companyDataBrief}>
             <div className={companyStyles.companyDataSection}>
             <div className={companyStyles.dataBriefHeaderSection}>Financial Info</div>
             <div className={companyStyles.infoBar}>
@@ -79,7 +79,7 @@ const CompanyDataBrief = ({company, companyKeyMetrics}) => {
             </div>
             
 
-        </section>
+    </section> 
         </>
     )
 }
