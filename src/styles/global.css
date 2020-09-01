@@ -10,6 +10,19 @@ html {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E2E2E2, #C9D6FF);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .mainContentContainer {
@@ -88,7 +101,7 @@ tr:nth-child(odd) {
 .globalGraphButton {
     align-items: center;
     background-color: #808080;
-    border: none;
+    border: solid 1px #000;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
