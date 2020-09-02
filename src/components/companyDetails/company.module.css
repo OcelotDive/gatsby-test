@@ -223,14 +223,25 @@
     text-align: center;
 }
 
-.financialTable {
+.financialTableContainer {
+    position: relative;
     width: 95%;
-    font-size: 60% !important;
-    overflow: hidden;
+    max-width: 95%;
+    font-size: 33% !important;
+    overflow-x: scroll;
     margin-left: 2.5%;
     margin-right: 2.5%;
 }
 
+.financialTable {
+    width: 100%;
+}
+
 td {
-    text-emphasis: center;
+    text-align: center;
+}
+
+.downloadToCsvButton {
+    margin-bottom: 1%;
+    font-size: 20px;
 }

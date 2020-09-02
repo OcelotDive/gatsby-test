@@ -1,13 +1,23 @@
 import React from "react";
-
+import Utils from "../../../utils";
 import companyStyles from "../company.module.css";
 const IncomeStatement = ({incomeStatements}) => {
 
 console.log(incomeStatements)
 
-function format(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const format = (digit) => {
+    return digit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
+function handleCsvClick() {
+  
+  
+	Utils.exportTableToCsv("table.csv");
+};
+
+
 
 
     return (
@@ -15,7 +25,7 @@ function format(x) {
         <h4 className={companyStyles.statementHeader}>Income Statement</h4>
 
 <section className={companyStyles.financialTableContainer}>
-    <button className="downloadToCsv">Download To Csv</button>
+    <button className={companyStyles.downloadToCsvButton} onClick={handleCsvClick}>Download To Csv</button>
     <table className={companyStyles.financialTable} >
             <tbody>
         <tr>
@@ -138,14 +148,6 @@ function format(x) {
             {incomeStatements.map(statement => {
             return <td>
                     {format(parseInt(statement["Net Income Com"] / 1000000).toFixed(2))}
-                   </td>
-            })}
-        </tr>
-        <tr>
-            <th>Preferred Dividends</th>
-            {incomeStatements.map(statement => {
-            return <td>
-                    {format(parseInt(statement["Preferred Dividends"]).toFixed(2))}
                    </td>
             })}
         </tr>

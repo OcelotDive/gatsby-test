@@ -12,13 +12,20 @@ let [incomeStatements, setIncomeStatements] = useState([]);
        const annualBalanceStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/';
         const annualCashFlowStatement = 'https://financialmodelingprep.com/api/v3/financials/cash-flow-statement/';
         const ratioUrl = 'https://financialmodelingprep.com/api/v3/financial-ratios/';
+
+
+        const scroll = () => {
+            setTimeout(() => {
+                window.scrollTo(0, 870);
+            }, 0)
+        }
       
 
      useEffect(() => {
          if(activeAccountsButton[0] === 1) {
         const fetchData = async () => {
           const result = await axios(`${annualIncomeStatementUrl}${symbol}${Key.fmpk}`,);
-            setIncomeStatements(result.data.financials)
+            setIncomeStatements(result.data.financials.slice(0, 11))
          
         
         }
@@ -34,6 +41,7 @@ const handleAccountsClick = (e) => {
     switch(e.target.innerHTML) {
         case ("Income Statement"):
             activeAccountsButton[0] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([1,0,0,0]);
+            scroll();
         break;
         case ("Balance Sheet"):
             activeAccountsButton[1] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,1,0,0]);
