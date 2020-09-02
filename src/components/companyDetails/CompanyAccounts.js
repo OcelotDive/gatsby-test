@@ -61,9 +61,11 @@ const handleAccountsClick = (e) => {
         break;
         case ("Cash Flow"):
             activeAccountsButton[2] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,0,1,0]);
+            scroll();
         break;
         case ("Financial Ratios"):
             activeAccountsButton[3] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,0,0,1]);
+            scroll();
         break;
         default:
             setActiveAccountsButton([0,0,0,0]);
