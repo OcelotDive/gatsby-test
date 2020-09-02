@@ -145,10 +145,15 @@ const getGraphTimeLine = (days, companyHistorical) => {
         downloadCsv(csv.join(""), filename);
     }
 
+    const format = (digit) => {
+      return digit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   const Utils = {
       getGraphTimeLine:  getGraphTimeLine,
       downloadCsv:  downloadCsv,
-      exportTableToCsv:  exportTableToCsv
+      exportTableToCsv:  exportTableToCsv,
+      format: format
   }
 
   export default Utils;

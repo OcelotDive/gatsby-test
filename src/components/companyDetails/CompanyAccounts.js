@@ -25,7 +25,10 @@ let [incomeStatements, setIncomeStatements] = useState([]);
          if(activeAccountsButton[0] === 1) {
         const fetchData = async () => {
           const result = await axios(`${annualIncomeStatementUrl}${symbol}${Key.fmpk}`,);
-            setIncomeStatements(result.data.financials.slice(0, 11))
+            if(Object.keys(result.data).length > 0) {
+            setIncomeStatements(result.data.financials)
+            }
+            
          
         
         }
