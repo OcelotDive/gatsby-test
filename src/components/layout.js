@@ -14,7 +14,7 @@ import Ticker from "../components/Ticker/Ticker";
 import MenuTab from "../components/nav/MenuTab";
 import "./layout.css"
 import searchStyles from "./searchBar/SearchBar";
-
+import Spinner from "../components/spinner/Spinner";
 const Layout = ({ children, ticker }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -42,7 +42,7 @@ const Layout = ({ children, ticker }) => {
          
         }}
       >
-      
+     
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

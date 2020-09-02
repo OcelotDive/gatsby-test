@@ -209,5 +209,28 @@
     width: 100%;
     display: flex;
     margin-top: 0.2%;
+    margin-bottom: 2.5%;
     justify-content: flex-start;
+}
+
+.statementHeader {
+    margin-left: 2.5%;
+    width: 50%;
+}
+
+.thData {
+    font-weight: 900;
+    text-align: center;
+}
+
+.financialTable {
+    width: 95%;
+    font-size: 60% !important;
+    overflow: hidden;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+td {
+    text-emphasis: center;
 }
