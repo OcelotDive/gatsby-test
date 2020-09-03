@@ -15,6 +15,7 @@ import CompanyLineChart from "../components/companyDetails/CompanyLineChart";
 import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart";
 import CompanyBarChart from "../components/companyDetails/CompanyBarChart";
 import CompanyAccounts from "../components/companyDetails/CompanyAccounts";
+import Spinner from "../components/spinner/Spinner";
 //return this.http.get(`${this.companyProfile}${symbol}${this.fmpk}`)
 //this.keyMetrics = 'https://financialmodelingprep.com/api/v3/company-key-metrics/'
 
@@ -158,7 +159,7 @@ const CompanyPage = () => {
 
 
         <div className={companyStyles.chartContainer}>
-    {graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
+    {(!graphTimeLine || !companyHistorical) ? <Spinner /> : graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
      : 
      graphType === "Scatter" ? <CompanyScatterChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
      : <CompanyBarChart data={getBarGraphTimeLine(graphTimeLine, companyHistorical)} />}

@@ -36,7 +36,7 @@ const SearchBar = ({placeholder}) => {
 
   const getSearchInput = () => {
     
-    searchRef.current.value.length >= 2 ? setDisplaySearches(true) : setDisplaySearches(false);
+    searchRef.current.value.length >= 3 ? setDisplaySearches(true) : setDisplaySearches(false);
 
     
     setFilteredList(dataList.filter(company =>  {

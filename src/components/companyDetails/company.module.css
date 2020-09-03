@@ -34,6 +34,20 @@
     margin-left: 1%;
 }
 
+@media only screen and (max-width: 1300px) {
+    .mainContentCompanyContainer {
+        flex-direction: column;
+    }
+    .fiftyFiveMainContentContainer,
+    .fortyFiveMainContentContainer {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .accountsButtonContainer {
+        justify-content: center !important;
+    }
+}
+
 .chartContainer {
     width: 100%;
     height: 550px;
