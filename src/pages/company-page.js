@@ -35,9 +35,9 @@ const CompanyPage = () => {
      let [companyKeyMetrics, setCompanyKeyMetrics] = useState({});
      let [companyHistorical, setCompanyHistorical] = useState([]);
      let [graphType, setGraphType] = useState("Line");
-     let [graphTimeLine, setGraphTimeLine] = useState(5);
+     let [graphTimeLine, setGraphTimeLine] = useState(30);
      let [activeClass, setActiveClass] = useState([1,0,0]);
-     let [tlActiveClass, setTlActiveClass] = useState([1,0,0,0,0])
+     let [tlActiveClass, setTlActiveClass] = useState([0,1,0,0,0])
      const companyUrl = 'https://financialmodelingprep.com/api/v3/company/profile/';
      const companyRatingsUrl = 'https://financialmodelingprep.com/api/v3/company/rating/';
      const keyMetricsUrl = 'https://financialmodelingprep.com/api/v3/company-key-metrics/';
@@ -135,8 +135,8 @@ const CompanyPage = () => {
           setTlActiveClass([0,0,0,0,1])
         break;
         default:
-          setGraphTimeLine(5);
-          setTlActiveClass([1,0,0,0,0])
+          setGraphTimeLine(30);
+          setTlActiveClass([0,1,0,0,0])
         break;
 
 
