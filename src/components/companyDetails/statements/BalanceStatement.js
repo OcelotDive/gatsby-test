@@ -33,7 +33,7 @@ function handleCsvClick() {
             <th>Cash and cash equivalents</th>
             {balanceStatements.map(statement => {
              return <td> 
-                    {Utils.format(parseInt(statement["Cash and cash equivalents"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Cash and cash equivalents"] / 1000000).toFixed(2))}
                     </td>
             })}
             
@@ -42,7 +42,7 @@ function handleCsvClick() {
             <th>Short-term investments</th>
             {balanceStatements.map(statement => {
              return   <td>
-                     {Utils.format(parseInt(statement["Short-term investments"] / 1000000).toFixed(2))}
+                     {Utils.format(Number(statement["Short-term investments"] / 1000000).toFixed(2))}
                       </td>
             })}
             
@@ -51,7 +51,7 @@ function handleCsvClick() {
             <th>Cash and short-term investments</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Cash and short-term investments"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Cash and short-term investments"] / 1000000).toFixed(2))}
                    </td>
             })}
 
@@ -60,7 +60,7 @@ function handleCsvClick() {
             <th>Receivables</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Receivables"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Receivables"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -68,7 +68,7 @@ function handleCsvClick() {
             <th>Inventories</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Inventories"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Inventories"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -76,7 +76,7 @@ function handleCsvClick() {
             <th>Property, Plant & Equipment Net</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Property, Plant & Equipment Net"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Property, Plant & Equipment Net"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -84,7 +84,7 @@ function handleCsvClick() {
             <th>Goodwill and Intangible Assets</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Goodwill and Intangible Assets"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Goodwill and Intangible Assets"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -92,7 +92,7 @@ function handleCsvClick() {
             <th>Long-term investments</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Long-term investments"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Long-term investments"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -100,7 +100,7 @@ function handleCsvClick() {
             <th>Tax Assets</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Tax assets"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Tax assets"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -108,7 +108,7 @@ function handleCsvClick() {
             <th>Total non-current Assets</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Total non-current assets"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Total non-current assets"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -116,7 +116,7 @@ function handleCsvClick() {
             <th>Total Current Assets</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Total current assets"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Total current assets"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -124,7 +124,7 @@ function handleCsvClick() {
             <th>Total Assets</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Total assets"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Total assets"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -132,7 +132,7 @@ function handleCsvClick() {
             <th>Payables</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Payables"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Payables"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -140,7 +140,7 @@ function handleCsvClick() {
             <th>Short-term debt</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Short-term debt"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Short-term debt"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>
@@ -148,7 +148,7 @@ function handleCsvClick() {
             <th>Total current liabilities</th>
             {balanceStatements.map(statement => {
             return <td>
-                    {Utils.format(parseInt(statement["Total current liabilities"] / 1000000).toFixed(2))}
+                    {Utils.format(Number(statement["Total current liabilities"] / 1000000).toFixed(2))}
                    </td>
             })}
         </tr>

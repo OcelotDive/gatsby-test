@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import IncomeStatement from "./statements/IncomeStatement";
 import BalanceStatement from "./statements/BalanceStatement";
 import RatiosStatement from "./statements/RatiosStatement";
+import CashFlowStatement from "./statements/CashFlowStatement";
 import Key from "../../keys";
 import companyStyles from "./company.module.css";
 import axios from "axios"
@@ -10,6 +11,7 @@ const CompanyAccounts = ({symbol}) => {
 let [activeAccountsButton, setActiveAccountsButton] = useState([0,0,0,0]);
 let [incomeStatements, setIncomeStatements] = useState([]);
 let [balanceStatements, setBalanceStatements] = useState([]);
+let [cashFlowStatements, setCashFlowStatements] = useState([]);
 let [ratiosStatements, setRatiosStatements] = useState([]);
 
       const annualIncomeStatementUrl = 'https://financialmodelingprep.com/api/v3/financials/income-statement/';
@@ -38,9 +40,20 @@ let [ratiosStatements, setRatiosStatements] = useState([]);
         else if (activeAccountsButton[1] === 1) {
             const fetchData = async () => {
                 const result = await axios(`${annualBalanceStatementUrl}${symbol}${Key.fmpk}`,);
-                console.warn("this is balance", result)
+           
                   if(Object.keys(result.data).length > 0) {
                     setBalanceStatements(result.data.financials.slice(0, 10));
+                  }
+              }
+              fetchData();
+        }
+
+        else if (activeAccountsButton[2] === 1) {
+            const fetchData = async () => {
+                const result = await axios(`${annualCashFlowStatement}${symbol}${Key.fmpk}`,);
+                console.warn("this is cashflow", result)
+                  if(Object.keys(result.data).length > 0) {
+                    setCashFlowStatements(result.data.financials.slice(0, 10));
                   }
               }
               fetchData();
@@ -99,6 +112,8 @@ const handleAccountsClick = (e) => {
         {activeAccountsButton[0] === 1 ? <IncomeStatement incomeStatements={incomeStatements}/>
         : 
         activeAccountsButton[1] === 1 ? <BalanceStatement balanceStatements={balanceStatements} />
+        :
+        activeAccountsButton[2] === 1 ? <CashFlowStatement cashFlowStatements={cashFlowStatements} />
         :
         activeAccountsButton[3] === 1 ? <RatiosStatement ratiosStatements={ratiosStatements} />
         :
