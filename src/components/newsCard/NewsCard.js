@@ -5,7 +5,7 @@ import newsCardStyles from './newsCardStyles.module.css';
 
 const NewsCard = ({newsItem, primary}) => {
 
- const newsItemDesc = newsItem.abstract.length > 130 ? `${newsItem.abstract.substring(0, 130)}...` : newsItem.abstract.substring(0, 130);
+ const newsItemDesc = newsItem.abstract.length > 120 ? `${newsItem.abstract.substring(0, 120)}...` : newsItem.abstract.substring(0, 130);
  
   return (
     !primary ?
@@ -16,7 +16,7 @@ const NewsCard = ({newsItem, primary}) => {
         </div>
         <div className={newsCardStyles.newsDescription}>
           <h6 className={newsCardStyles.newsItemHeader}>{newsItem.title}</h6>
-          <p>{newsItemDesc}</p>
+          <p className={newsCardStyles.newsParagraph}>{newsItemDesc}</p>
         </div>
         </a>
       </div>

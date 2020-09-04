@@ -38,6 +38,7 @@ html {
   
     animation: fadeInLayout 3s ease-in;*/
     padding: 0;
+    overflow-x: scroll;
 }
 
 .pageHeader {
