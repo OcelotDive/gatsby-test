@@ -159,7 +159,7 @@ const CompanyPage = () => {
 
 
         <div className={companyStyles.chartContainer}>
-    {(!graphTimeLine || !companyHistorical) ? <Spinner /> : graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
+    {graphType === "Line" ? <CompanyLineChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
      : 
      graphType === "Scatter" ? <CompanyScatterChart data={getLineGraphTimeLine(graphTimeLine, companyHistorical)} />
      : <CompanyBarChart data={getBarGraphTimeLine(graphTimeLine, companyHistorical)} />}

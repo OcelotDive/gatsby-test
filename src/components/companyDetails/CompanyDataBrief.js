@@ -35,7 +35,7 @@ const CompanyDataBrief = ({company, companyKeyMetrics}) => {
             </div>
             <div className={companyStyles.infoBar}>
                 <div className={companyStyles.dataName}>Div Yield</div>
-                <div className={companyStyles.dataInfo}>{keyMetrics['Dividend Yield'] || "N/A"}</div>
+                <div className={companyStyles.dataInfo}>{Number(keyMetrics['Dividend Yield']).toFixed(5) || "N/A"}</div>
             </div>
             <div className={companyStyles.infoBar}>
                 <div className={companyStyles.dataName}>PE Ratio</div>

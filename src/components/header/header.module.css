@@ -20,7 +20,7 @@
 .mainHeaderLogoContainer {
     max-width: 200px;
     position: absolute;
-    top: -10px;
+    top: -60px;
     width: 200px;
 }
 
@@ -32,18 +32,4 @@
     position: absolute;
     right: 0%;
     width: 180px;
-}
-
-.testDiv {
-    position: absolute;
-    background: #fff;
-    top: 5%;
-}
-
-.testDiv:after {
-    content: "";
-    width: 200px;
-    height: 0;
-    background: #fff;
-    display: block;
 }

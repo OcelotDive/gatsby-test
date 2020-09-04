@@ -3,13 +3,15 @@ import PropTypes from "prop-types"
 import SearchBar from "../searchBar/SearchBar";
 import AccessButton from "../accessButton/AccessButton";
 import headerStyles from './header.module.css';
+import Logo from '../logo/Logo';
 
 
 const Header = ({ siteTitle }) => (
   <section className={headerStyles.headerContainer}>
+    
   <header className={headerStyles.mainHeader}>
     <div className={headerStyles.mainHeaderLogoContainer}>
-    
+    <Logo />
     </div>
   <div className={headerStyles.accessButtonContainer}>
     <AccessButton innerText="Join" accessClass="joinButton"/>
