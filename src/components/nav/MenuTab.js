@@ -1,6 +1,7 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useScr} from "react";
 import Draggable from "react-draggable";
-
+import useScrollPosition from '@react-hook/window-scroll'
+import { window, document } from 'browser-monads';
 import Nav from "../nav/Nav";
 import navStyles from "./nav.module.css";
 import burgerStyles from "./burgerStyles.css";
@@ -23,8 +24,7 @@ const MenuTab = () => {
       
 
        const hideUnhideMenu = () => {
-           let preScrollPosY = window.pageYOffset;
-            
+           let preScrollPosY =  
            window.onscroll = () => {
                let currentScrollPosY = window.pageYOffset;
                   
