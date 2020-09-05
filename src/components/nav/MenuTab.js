@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useRef, useState, useScr} from "react";
 import Draggable from "react-draggable";
 
 import Nav from "../nav/Nav";
@@ -12,49 +12,43 @@ const MenuTab = () => {
     const navRef = useRef();
     let [menuOpenClose, setMenuOpenClosed] = useState(false);
  
-    console.warn(window.locationhref)
+
        const handleBurgerClick = (e) => {
          setMenuOpenClosed(!menuOpenClose);
          burgerRef.current.className = !menuOpenClose ?  "burgerContainer change" : "burgerContainer"; 
          navRef.current.style.left =  !menuOpenClose ? "0" : "-200px";
          navRef.current.style.opacity = !menuOpenClose ? "1" : "0";
        }
-       let hideUnhideMenu;
-      useEffect(() => {
-        if(typeof window !== 'undefined') {
-           
-            hideUnhideMenu = () => {
-                let preScrollPosY =  
-                window.onscroll = () => {
-                    let currentScrollPosY = window.pageYOffset;
-                       
-                    if(preScrollPosY > currentScrollPosY) {
-                     menuRef.current.style.top = "250px";
-                     
-       
-                     
-                    }
-                    else {
-                        menuRef.current.style.top  = "-1000px";
-                        navRef.current.style.left = "-200px";
-                        navRef.current.style.opacity = "0";
-                        setTimeout(() => {
-                         setMenuOpenClosed(false);
-                         burgerRef.current.className = "burgerContainer";
-                        }, 400)
-                    }
-                   
-                    preScrollPosY = currentScrollPosY; 
-                }
-            }
-        }
-        hideUnhideMenu();
-      }, [])
 
-       
+      
+       if(typeof window !== 'undefined'){
+       const hideUnhideMenu = () => {
+           let preScrollPosY =  
+           window.onscroll = () => {
+               let currentScrollPosY = window.pageYOffset;
+                  
+               if(preScrollPosY > currentScrollPosY) {
+                menuRef.current.style.top = "250px";
+                
+  
+                
+               }
+               else {
+                   menuRef.current.style.top  = "-1000px";
+                   navRef.current.style.left = "-200px";
+                   navRef.current.style.opacity = "0";
+                   setTimeout(() => {
+                    setMenuOpenClosed(false);
+                    burgerRef.current.className = "burgerContainer";
+                   }, 400)
+               }
+              
+               preScrollPosY = currentScrollPosY; 
+           }
+       }
 
-       
-
+       hideUnhideMenu();
+    }
 
     return (
         <>
