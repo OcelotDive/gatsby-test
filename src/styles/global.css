@@ -30,13 +30,13 @@ html {
     width: 100%;
     height: 100%;
     opacity: 1;
-    /* -webkit-animation: fadeInLayout 3s ease-in;
+    -webkit-animation: fadeInLayout 1.5s ease-in;
   
-    -moz-animation: fadeInLayout 3s ease-in;
+    -moz-animation: fadeInLayout 1.5s ease-in;
   
-    -o-animation: fadeInLayout 3s ease-in;
+    -o-animation: fadeInLayout 1.5s ease-in;
   
-    animation: fadeInLayout 3s ease-in;*/
+    animation: fadeInLayout 1.5s ease-in;
     padding: 0;
     overflow-x: scroll;
 }
