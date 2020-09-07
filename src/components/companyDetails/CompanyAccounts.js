@@ -19,14 +19,12 @@ let [ratiosStatements, setRatiosStatements] = useState([]);
         const annualCashFlowStatement = 'https://financialmodelingprep.com/api/v3/financials/cash-flow-statement/';
         const annualRatioUrl = 'https://financialmodelingprep.com/api/v3/financial-ratios/';
 
-
-    /*    const scroll = () => {
+        const scroll = () => {
             setTimeout(() => {
                 window.scrollTo(0, 870);
             }, 0)
         }
-      */
-
+      
      useEffect(() => {
          if(activeAccountsButton[0] === 1) {
         const fetchData = async () => {
@@ -79,19 +77,20 @@ const handleAccountsClick = (e) => {
     switch(e.target.innerHTML) {
         case ("Income Statement"):
             activeAccountsButton[0] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([1,0,0,0]);
-          //  scroll();
+            if(typeof window !== "undefined") scroll();
+            
         break;
         case ("Balance Sheet"):
             activeAccountsButton[1] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,1,0,0]);
-          //  scroll();
+            if(typeof window !== "undefined") scroll();
         break;
         case ("Cash Flow"):
             activeAccountsButton[2] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,0,1,0]);
-          //  scroll();
+            if(typeof window !== "undefined") scroll();
         break;
         case ("Financial Ratios"):
             activeAccountsButton[3] === 1 ? setActiveAccountsButton([0,0,0,0]) : setActiveAccountsButton([0,0,0,1]);
-          //  scroll();
+            if(typeof window !== "undefined") scroll();
         break;
         default:
             setActiveAccountsButton([0,0,0,0]);
