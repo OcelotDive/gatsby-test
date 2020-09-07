@@ -18,6 +18,7 @@ const MenuTab = () => {
          burgerRef.current.className = !menuOpenClose ?  "burgerContainer change" : "burgerContainer"; 
          navRef.current.style.left =  !menuOpenClose ? "0" : "-200px";
          navRef.current.style.opacity = !menuOpenClose ? "1" : "0";
+         navRef.current.style.visibility = !menuOpenClose ? "visible" : "hidden";
        }
 
       

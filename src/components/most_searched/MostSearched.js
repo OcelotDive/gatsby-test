@@ -3,14 +3,14 @@ import { Link } from "gatsby";
 
 import Key from "../../keys";
 
-import activeStyles from "./activeStyles.module.css";
+import mostSearchedStyles from "./mostSearched.module.css";
 
 
+const MostSearched = () => {
 
-const Actives = () => {
-
-    const activesUrl = "https://financialmodelingprep.com/api/v3/actives";
+    const mostSearchedUrl = "https://financialmodelingprep.com/api/v3/quote/AAPL,FB,GOOGL,AMZN,MSFT,NVDA,ZNGA,WBA,PIH,JPM,TSLA,XOM,UNH,MCK,AXP";
     const companyUrl = 'https://financialmodelingprep.com/api/v3/company/profile/';
+    
 
     let [dataList, setDataList] = useState([]);
     let [nameSorted, setNameSorted] = useState(false);
@@ -22,18 +22,20 @@ const Actives = () => {
     const changeClass = !changeSorted ? "triDown" : "triUp";
 
     useEffect(() => {
-        fetch(`${activesUrl}${Key.fmpk}`)
+        fetch(`${mostSearchedUrl}${Key.fmpk}`)
         .then((response) => response.json())
         .then((data) => {
-            console.warn(data)
+          
           setDataList(data);
+
+
         });
+        
       }, []);
 
-
-      useEffect(() => {
+    useEffect(() => {
         dataList.map((item, index) => {
-         fetch(`${companyUrl}${item.ticker}${Key.fmpk}`)
+         fetch(`${companyUrl}${item.symbol}${Key.fmpk}`)
          .then((response) => response.json())
          .then((data) => {
             companyImages.push(data.profile.image);
@@ -47,8 +49,8 @@ const Actives = () => {
          
         if(!nameSorted) {
         dataList.sort((a, b) => {
-            if(a.companyName.toLowerCase() < b.companyName.toLowerCase()) {return -1}
-            if(a.companyName.toLowerCase() > b.companyName.toLowerCase()) {return 1}
+            if(a.name.toLowerCase() < b.name.toLowerCase()) {return -1}
+            if(a.name.toLowerCase() > b.name.toLowerCase()) {return 1}
             return 0; 
         })
         setPriceSorted(false);
@@ -57,8 +59,8 @@ const Actives = () => {
     }
     else {
             dataList.sort((a, b) => {
-                if(a.companyName.toLowerCase() > b.companyName.toLowerCase()) { return -1}
-                if(a.companyName.toLowerCase() < b.companyName.toLowerCase()) {return 1}
+                if(a.name.toLowerCase() > b.name.toLowerCase()) { return -1}
+                if(a.name.toLowerCase() < b.name.toLowerCase()) {return 1}
                 return 0; 
             })
             setPriceSorted(false);
@@ -83,10 +85,10 @@ const Actives = () => {
 
     const changeSort = () => {
         if(!changeSorted) {
-        dataList.sort((a, b) => Number(a.changes)-Number(b.changes));
+        dataList.sort((a, b) => Number(a.change)-Number(b.change));
         }
         else {
-            dataList.sort((a, b) => Number(b.changes)-Number(a.changes));
+            dataList.sort((a, b) => Number(b.change)-Number(a.change));
         }
         setNameSorted(false);
         setPriceSorted(false);
@@ -94,16 +96,16 @@ const Actives = () => {
         setDataList([...dataList]);
     }
 
-      
-
+  
+ 
     return (
         <>
-        <h4 className="pageHeader">ACTIVES</h4>
+        <h4 className="pageHeader">Most Searched</h4>
         <main className="mainContentContainer">
         <table>
             <tbody>
                 <tr>
-                <th className="tableHeader"></th>
+                    <th className="tableHeader"></th>
                 <th className="tableHeader">Symbol</th>
                     <th className="tableHeader" onClick={nameSort}>NAME<span className={nameClass}></span></th>
                     <th className="tableHeader" onClick={priceSort}>PRICE <span className={priceClass}></span></th>
@@ -111,22 +113,23 @@ const Actives = () => {
                     <th className="tableHeader">CHANGE(%)</th>
                 </tr>
 
-             { dataList.map(active => {
+             {dataList.map(company => {
                 
-                const changeClass = active.changes > 0 ? "pricePositive" : active.changes <  0 ? "priceNegative" : "priceNull";
-                const companyImg = companyImages.find(image => image.endsWith(`${active.ticker}.jpg`));
+                const changeClass = company.change > 0 ? "pricePositive" : company.change <  0 ? "priceNegative" : "priceNull";
+                const companyImg = companyImages.find(image => image.endsWith(`${company.symbol}.jpg`));
                 return (
           
-                 <tr key={active.ticker}>
-                  <td><img  className={activeStyles.companyImage} src={companyImg} alt="company logo"  /></td>
-                 <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${active.ticker}`}>{active.ticker}</Link></td>
+                 <tr key={company.symbol + company.symbol}>
+                    
+                 <td><img  className={mostSearchedStyles.companyImage} src={companyImg} alt="company logo"  /></td>
+                 <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${company.symbol}`}>{company.symbol}</Link></td>
                   
                     
-                    <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${active.ticker}`}>{active.companyName}</Link></td>
+                    <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${company.symbol}`}>{company.name}</Link></td>
                     
-                    <td className="priceNull">${Number(active.price).toFixed(2)}</td>
-                    <td className={changeClass}>{active.changes}</td>
-                    <td className={changeClass}>{active.changesPercentage}</td>
+                    <td className="priceNull">${Number(company.price).toFixed(2)}</td>
+                    <td className={changeClass}>{company.change}</td>
+                    <td className={changeClass}>{company.changesPercentage}</td>
                     
                 </tr>
                 
@@ -141,4 +144,4 @@ const Actives = () => {
 }
 
 
-export default Actives;
+export default MostSearched;

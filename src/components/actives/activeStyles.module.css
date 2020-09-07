@@ -1,0 +1,16 @@
+.companyImage {
+    width: 60px;
+    margin: auto;
+    height: auto;
+    padding: 0;
+    animation: blurIn 3s;
+}
+
+@keyframes blurIn {
+    0% {
+        filter: blur(50px);
+    }
+    100% {
+        filter: blur(0)
+    }
+}
