@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "gatsby";
 
 import Key from "../../keys";
 
@@ -98,13 +98,20 @@ const Actives = () => {
                 
                 const changeClass = active.changes > 0 ? "pricePositive" : active.changes <  0 ? "priceNegative" : "priceNull";
                 return (
+          
                  <tr key={active.ticker}>
-                 <td className="priceNull">{active.ticker}</td>
-                    <td className="priceNull">{active.companyName}</td>
+                 
+                 <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${active.ticker}`}>{active.ticker}</Link></td>
+                  
+                    
+                    <td className="priceNull"><Link style={{textDecoration: "none"}} to={`/company-page/#${active.ticker}`}>{active.companyName}</Link></td>
+                    
                     <td className="priceNull">${Number(active.price).toFixed(2)}</td>
                     <td className={changeClass}>{active.changes}</td>
                     <td className={changeClass}>{active.changesPercentage}</td>
+                    
                 </tr>
+                
                 )
                 })
             }
