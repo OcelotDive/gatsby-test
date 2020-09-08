@@ -5,8 +5,7 @@
     width: 30%;
     position: absolute;
     right: 0%;
-    animation: driftIn 1.5s ease-in;
-    
+    animation: driftIn 1s ease-in;
 }
 
 .inputGroup {
