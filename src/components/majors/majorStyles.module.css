@@ -1,4 +1,4 @@
-.majorIndexesOuterContaner {
+.majorIndexesOuterContainer {
     border-left: solid 1px #808080;
     border-right: solid 1px #808080;
     box-shadow: 3px 3px 3px 3px #808080;
@@ -7,6 +7,18 @@
     overflow: hidden;
     position: relative;
     width: 100%;
+}
+
+.majorIndexesOuterContainerPlaceholder {
+    border-left: solid 1px #808080;
+    border-right: solid 1px #808080;
+    box-shadow: 3px 3px 3px 3px #808080;
+    height: 140px;
+    margin-bottom: 1.5%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    opacity: 0;
 }
 
 .majorIndexesInnerContainer {

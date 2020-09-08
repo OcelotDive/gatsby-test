@@ -47,14 +47,18 @@ const MajorIndexes = ({ fmpk }) => {
           ></div>
         </div>
       )}
-      {majorIndexes.length > 5 && (
-        <section className={majorStyles.majorIndexesOuterContaner}>
+      {majorIndexes.length > 5 ? (
+        <section className={majorStyles.majorIndexesOuterContainer}>
           <div className={majorStyles.majorIndexesInnerContainer}>
             {majorIndexes.map(major => {
               return <MajorCard key={major.indexName} major={major} />
             })}
           </div>
         </section>
+      ) : (
+        <section
+          className={majorStyles.majorIndexesOuterContainerPlaceholder}
+        ></section>
       )}
     </>
   )
