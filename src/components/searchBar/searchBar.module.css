@@ -81,7 +81,7 @@
     color: #000;
     cursor: text;
     opacity: 1;
-    width: 330px;
+    width: 20em;
 }
 
 .input:focus~.searchBar {
