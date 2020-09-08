@@ -54,9 +54,9 @@ const MenuTab = () => {
             onClick={handleBurgerClick}
             ref={burgerRef}
           >
-            <div className="bar1"></div>
-            <div className="bar2"></div>
-            <div className="bar3"></div>
+            <div className="bar1" onClick={handleBurgerClick}></div>
+            <div className="bar2" onClick={handleBurgerClick}></div>
+            <div className="bar3" onClick={handleBurgerClick}></div>
           </div>
           <span>Menu</span>
           <Nav ref={navRef} />
