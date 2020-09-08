@@ -3,6 +3,7 @@
     height: 100%;
     padding: 1rem;
     width: 12.5%;
+    margin: auto;
 }
 
 .dash-spinner-title {
@@ -15,6 +16,7 @@
     animation: dash-title 2s infinite;
     font-weight: 100;
     text-align: center;
+    white-space: nowrap;
 }
 
 .dash-spinner {

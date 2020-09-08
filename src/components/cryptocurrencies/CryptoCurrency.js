@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-
+import Spinner from "../spinner/Spinner"
 import Key from "../../keys"
 
 const CryptoCurrency = () => {
@@ -80,45 +80,49 @@ const CryptoCurrency = () => {
   return (
     <>
       <h4 className="pageHeader">CRYPTOCURRENCY</h4>
-      <main className="mainContentContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th className="tableHeader">Symbol</th>
-              <th className="tableHeader" onClick={nameSort}>
-                NAME<span className={nameClass}></span>
-              </th>
-              <th className="tableHeader" onClick={priceSort}>
-                PRICE <span className={priceClass}></span>
-              </th>
-              <th className="tableHeader" onClick={changeSort}>
-                CHANGE <span className={changeClass}></span>
-              </th>
-              <th className="tableHeader">CHANGE(%)</th>
-            </tr>
+      {dataList.length > 0 ? (
+        <main className="mainContentContainer">
+          <table>
+            <tbody>
+              <tr>
+                <th className="tableHeader">Symbol</th>
+                <th className="tableHeader" onClick={nameSort}>
+                  NAME<span className={nameClass}></span>
+                </th>
+                <th className="tableHeader" onClick={priceSort}>
+                  PRICE <span className={priceClass}></span>
+                </th>
+                <th className="tableHeader" onClick={changeSort}>
+                  CHANGE <span className={changeClass}></span>
+                </th>
+                <th className="tableHeader">CHANGE(%)</th>
+              </tr>
 
-            {dataList.map(crypto => {
-              const changeClass =
-                crypto.changes > 0
-                  ? "pricePositive"
-                  : crypto.changes < 0
-                  ? "priceNegative"
-                  : "priceNull"
-              return (
-                <tr key={crypto.name}>
-                  <td className="priceNull">{crypto.ticker}</td>
-                  <td className="priceNull">{crypto.name}</td>
-                  <td className="priceNull">${crypto.price.toFixed(2)}</td>
-                  <td className={changeClass}>{crypto.changes}</td>
-                  <td className={changeClass}>
-                    ({((crypto.changes / crypto.price) * 100).toFixed(2)})
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </main>
+              {dataList.map(crypto => {
+                const changeClass =
+                  crypto.changes > 0
+                    ? "pricePositive"
+                    : crypto.changes < 0
+                    ? "priceNegative"
+                    : "priceNull"
+                return (
+                  <tr key={crypto.name}>
+                    <td className="priceNull">{crypto.ticker}</td>
+                    <td className="priceNull">{crypto.name}</td>
+                    <td className="priceNull">${crypto.price.toFixed(2)}</td>
+                    <td className={changeClass}>{crypto.changes}</td>
+                    <td className={changeClass}>
+                      ({((crypto.changes / crypto.price) * 100).toFixed(2)})
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Spinner />
+      )}
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-
+import Spinner from "../spinner/Spinner"
 import Key from "../../keys"
 
 const Commodities = () => {
@@ -82,43 +82,47 @@ const Commodities = () => {
   return (
     <>
       <h4 className="pageHeader">MAJOR COMMODITIES</h4>
-      <main className="mainContentContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th className="tableHeader">SYMBOL</th>
-              <th className="tableHeader" onClick={nameSort}>
-                NAME<span className={nameClass}></span>
-              </th>
-              <th className="tableHeader" onClick={priceSort}>
-                PRICE <span className={priceClass}></span>
-              </th>
-              <th className="tableHeader" onClick={changeSort}>
-                CHANGE <span className={changeClass}></span>
-              </th>
-              <th className="tableHeader">CHANGE(%)</th>
-            </tr>
+      {dataList.length > 0 ? (
+        <main className="mainContentContainer">
+          <table>
+            <tbody>
+              <tr>
+                <th className="tableHeader">SYMBOL</th>
+                <th className="tableHeader" onClick={nameSort}>
+                  NAME<span className={nameClass}></span>
+                </th>
+                <th className="tableHeader" onClick={priceSort}>
+                  PRICE <span className={priceClass}></span>
+                </th>
+                <th className="tableHeader" onClick={changeSort}>
+                  CHANGE <span className={changeClass}></span>
+                </th>
+                <th className="tableHeader">CHANGE(%)</th>
+              </tr>
 
-            {dataList.map(com => {
-              const changeClass =
-                com.change > 0
-                  ? "pricePositive"
-                  : com.change < 0
-                  ? "priceNegative"
-                  : "priceNull"
-              return (
-                <tr key={com.symbol}>
-                  <td className="priceNull">{com.symbol}</td>
-                  <td className="priceNull">{com.name}</td>
-                  <td className="priceNull">${com.price.toFixed(2)}</td>
-                  <td className={changeClass}>{com.change}</td>
-                  <td className={changeClass}>({com.changesPercentage})</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </main>
+              {dataList.map(com => {
+                const changeClass =
+                  com.change > 0
+                    ? "pricePositive"
+                    : com.change < 0
+                    ? "priceNegative"
+                    : "priceNull"
+                return (
+                  <tr key={com.symbol}>
+                    <td className="priceNull">{com.symbol}</td>
+                    <td className="priceNull">{com.name}</td>
+                    <td className="priceNull">${com.price.toFixed(2)}</td>
+                    <td className={changeClass}>{com.change}</td>
+                    <td className={changeClass}>({com.changesPercentage})</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Spinner />
+      )}
     </>
   )
 }

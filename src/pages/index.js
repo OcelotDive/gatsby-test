@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import Key from "../keys"
 import Layout from "../components/layout"
+import Spinner from "../components/spinner/Spinner"
 
 import SEO from "../components/seo"
 import MajorIndexes from "../components/majors/MajorIndexes"
@@ -51,17 +52,20 @@ const IndexPage = () => {
     <Layout>
       <MajorIndexes fmpk={Key.fmpk} />
       <SEO title="Home" />
-
-      <section className="mainContentContainer">
-        <NewsSelect selectNewsSource={selectNewsSource} />
-        {newsType.map((item, index) => (
-          <NewsCard
-            newsItem={item}
-            primary={index === 0 ? true : false}
-            key={item.title}
-          />
-        ))}
-      </section>
+      {newsType.length > 0 ? (
+        <section className="mainContentContainer">
+          <NewsSelect selectNewsSource={selectNewsSource} />
+          {newsType.map((item, index) => (
+            <NewsCard
+              newsItem={item}
+              primary={index === 0 ? true : false}
+              key={item.title}
+            />
+          ))}
+        </section>
+      ) : (
+        <Spinner />
+      )}
     </Layout>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-
+import Spinner from "../spinner/Spinner"
 import Key from "../../keys"
 
 const Sectors = () => {
@@ -81,41 +81,45 @@ const Sectors = () => {
   return (
     <>
       <h4 className="pageHeader">SECTORS</h4>
-      <main className="mainContentContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th className="tableHeader" onClick={nameSort}>
-                NAME<span className={nameClass}></span>
-              </th>
-              <th className="tableHeader" onClick={changeSort}>
-                CHANGE(%)<span className={changeClassTri}></span>
-              </th>
-            </tr>
+      {dataList.length > 0 ? (
+        <main className="mainContentContainer">
+          <table>
+            <tbody>
+              <tr>
+                <th className="tableHeader" onClick={nameSort}>
+                  NAME<span className={nameClass}></span>
+                </th>
+                <th className="tableHeader" onClick={changeSort}>
+                  CHANGE(%)<span className={changeClassTri}></span>
+                </th>
+              </tr>
 
-            {dataList.map(sector => {
-              const percentStr = sector.changesPercentage.substring(
-                0,
-                sector.changesPercentage.length - 1
-              )
+              {dataList.map(sector => {
+                const percentStr = sector.changesPercentage.substring(
+                  0,
+                  sector.changesPercentage.length - 1
+                )
 
-              const changeClass =
-                Number(percentStr) > 0
-                  ? "pricePositive"
-                  : Number(percentStr) < 0
-                  ? "priceNegative"
-                  : "priceNull"
+                const changeClass =
+                  Number(percentStr) > 0
+                    ? "pricePositive"
+                    : Number(percentStr) < 0
+                    ? "priceNegative"
+                    : "priceNull"
 
-              return (
-                <tr key={sector.sector}>
-                  <td className="priceNull">{sector.sector}</td>
-                  <td className={changeClass}>{sector.changesPercentage}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </main>
+                return (
+                  <tr key={sector.sector}>
+                    <td className="priceNull">{sector.sector}</td>
+                    <td className={changeClass}>{sector.changesPercentage}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Spinner />
+      )}
     </>
   )
 }

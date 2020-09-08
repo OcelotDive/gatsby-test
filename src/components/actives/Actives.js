@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
+import Spinner from "../spinner/Spinner"
 import Key from "../../keys"
 
 import activeStyles from "./activeStyles.module.css"
@@ -95,72 +96,76 @@ const Actives = () => {
   return (
     <>
       <h4 className="pageHeader">ACTIVES</h4>
-      <main className="mainContentContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th className="tableHeader"></th>
-              <th className="tableHeader">Symbol</th>
-              <th className="tableHeader" onClick={nameSort}>
-                NAME<span className={nameClass}></span>
-              </th>
-              <th className="tableHeader" onClick={priceSort}>
-                PRICE <span className={priceClass}></span>
-              </th>
-              <th className="tableHeader" onClick={changeSort}>
-                CHANGE <span className={changeClass}></span>
-              </th>
-              <th className="tableHeader">CHANGE(%)</th>
-            </tr>
+      {dataList.length > 0 ? (
+        <main className="mainContentContainer">
+          <table>
+            <tbody>
+              <tr>
+                <th className="tableHeader"></th>
+                <th className="tableHeader">Symbol</th>
+                <th className="tableHeader" onClick={nameSort}>
+                  NAME<span className={nameClass}></span>
+                </th>
+                <th className="tableHeader" onClick={priceSort}>
+                  PRICE <span className={priceClass}></span>
+                </th>
+                <th className="tableHeader" onClick={changeSort}>
+                  CHANGE <span className={changeClass}></span>
+                </th>
+                <th className="tableHeader">CHANGE(%)</th>
+              </tr>
 
-            {dataList.map(active => {
-              const changeClass =
-                active.changes > 0
-                  ? "pricePositive"
-                  : active.changes < 0
-                  ? "priceNegative"
-                  : "priceNull"
-              const companyImg = companyImages.find(image =>
-                image.endsWith(`${active.ticker}.jpg`)
-              )
-              return (
-                <tr key={active.ticker}>
-                  <td>
-                    <img
-                      className={activeStyles.companyImage}
-                      src={companyImg}
-                      alt="company logo"
-                    />
-                  </td>
-                  <td className="priceNull">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to={`/company-page/#${active.ticker}`}
-                    >
-                      {active.ticker}
-                    </Link>
-                  </td>
+              {dataList.map(active => {
+                const changeClass =
+                  active.changes > 0
+                    ? "pricePositive"
+                    : active.changes < 0
+                    ? "priceNegative"
+                    : "priceNull"
+                const companyImg = companyImages.find(image =>
+                  image.endsWith(`${active.ticker}.jpg`)
+                )
+                return (
+                  <tr key={active.ticker}>
+                    <td>
+                      <img
+                        className={activeStyles.companyImage}
+                        src={companyImg}
+                        alt="company logo"
+                      />
+                    </td>
+                    <td className="priceNull">
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/company-page/#${active.ticker}`}
+                      >
+                        {active.ticker}
+                      </Link>
+                    </td>
 
-                  <td className="priceNull">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to={`/company-page/#${active.ticker}`}
-                    >
-                      {active.companyName}
-                    </Link>
-                  </td>
+                    <td className="priceNull">
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/company-page/#${active.ticker}`}
+                      >
+                        {active.companyName}
+                      </Link>
+                    </td>
 
-                  <td className="priceNull">
-                    ${Number(active.price).toFixed(2)}
-                  </td>
-                  <td className={changeClass}>{active.changes}</td>
-                  <td className={changeClass}>{active.changesPercentage}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </main>
+                    <td className="priceNull">
+                      ${Number(active.price).toFixed(2)}
+                    </td>
+                    <td className={changeClass}>{active.changes}</td>
+                    <td className={changeClass}>{active.changesPercentage}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Spinner />
+      )}
     </>
   )
 }

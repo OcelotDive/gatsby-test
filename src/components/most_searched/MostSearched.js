@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Spinner from "../spinner/Spinner"
 import { Link } from "gatsby"
 
 import Key from "../../keys"
@@ -96,72 +97,76 @@ const MostSearched = () => {
   return (
     <>
       <h4 className="pageHeader">Most Searched</h4>
-      <main className="mainContentContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th className="tableHeader"></th>
-              <th className="tableHeader">Symbol</th>
-              <th className="tableHeader" onClick={nameSort}>
-                NAME<span className={nameClass}></span>
-              </th>
-              <th className="tableHeader" onClick={priceSort}>
-                PRICE <span className={priceClass}></span>
-              </th>
-              <th className="tableHeader" onClick={changeSort}>
-                CHANGE <span className={changeClass}></span>
-              </th>
-              <th className="tableHeader">CHANGE(%)</th>
-            </tr>
+      {dataList.length > 0 ? (
+        <main className="mainContentContainer">
+          <table>
+            <tbody>
+              <tr>
+                <th className="tableHeader"></th>
+                <th className="tableHeader">Symbol</th>
+                <th className="tableHeader" onClick={nameSort}>
+                  NAME<span className={nameClass}></span>
+                </th>
+                <th className="tableHeader" onClick={priceSort}>
+                  PRICE <span className={priceClass}></span>
+                </th>
+                <th className="tableHeader" onClick={changeSort}>
+                  CHANGE <span className={changeClass}></span>
+                </th>
+                <th className="tableHeader">CHANGE(%)</th>
+              </tr>
 
-            {dataList.map(company => {
-              const changeClass =
-                company.change > 0
-                  ? "pricePositive"
-                  : company.change < 0
-                  ? "priceNegative"
-                  : "priceNull"
-              const companyImg = companyImages.find(image =>
-                image.endsWith(`${company.symbol}.jpg`)
-              )
-              return (
-                <tr key={company.symbol + company.symbol}>
-                  <td>
-                    <img
-                      className={mostSearchedStyles.companyImage}
-                      src={companyImg}
-                      alt="company logo"
-                    />
-                  </td>
-                  <td className="priceNull">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to={`/company-page/#${company.symbol}`}
-                    >
-                      {company.symbol}
-                    </Link>
-                  </td>
+              {dataList.map(company => {
+                const changeClass =
+                  company.change > 0
+                    ? "pricePositive"
+                    : company.change < 0
+                    ? "priceNegative"
+                    : "priceNull"
+                const companyImg = companyImages.find(image =>
+                  image.endsWith(`${company.symbol}.jpg`)
+                )
+                return (
+                  <tr key={company.symbol + company.symbol}>
+                    <td>
+                      <img
+                        className={mostSearchedStyles.companyImage}
+                        src={companyImg}
+                        alt="company logo"
+                      />
+                    </td>
+                    <td className="priceNull">
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/company-page/#${company.symbol}`}
+                      >
+                        {company.symbol}
+                      </Link>
+                    </td>
 
-                  <td className="priceNull">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to={`/company-page/#${company.symbol}`}
-                    >
-                      {company.name}
-                    </Link>
-                  </td>
+                    <td className="priceNull">
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/company-page/#${company.symbol}`}
+                      >
+                        {company.name}
+                      </Link>
+                    </td>
 
-                  <td className="priceNull">
-                    ${Number(company.price).toFixed(2)}
-                  </td>
-                  <td className={changeClass}>{company.change}</td>
-                  <td className={changeClass}>{company.changesPercentage}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </main>
+                    <td className="priceNull">
+                      ${Number(company.price).toFixed(2)}
+                    </td>
+                    <td className={changeClass}>{company.change}</td>
+                    <td className={changeClass}>{company.changesPercentage}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Spinner />
+      )}
     </>
   )
 }

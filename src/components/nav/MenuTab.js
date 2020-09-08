@@ -29,7 +29,7 @@ const MenuTab = () => {
         if (preScrollPosY > currentScrollPosY) {
           menuRef.current.style.top = "250px"
         } else {
-          menuRef.current.style.top = "-1000px"
+          menuRef.current.style.top = -currentScrollPosY + 250 + "px"
           navRef.current.style.left = "-200px"
           navRef.current.style.opacity = "0"
           setTimeout(() => {
