@@ -173,7 +173,7 @@
 
 .input:focus~.closeIcon {
     opacity: 1;
-    transform: translateX(16em);
+    transform: translateX(20rem);
 }
 
 @media all and (max-width: 920px) {
