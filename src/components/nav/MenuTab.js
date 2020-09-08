@@ -54,9 +54,9 @@ const MenuTab = () => {
             onMouseDown={handleBurgerClick}
             ref={burgerRef}
           >
-            <div className="bar1" onMouseDown={handleBurgerClick}></div>
-            <div className="bar2" onMouseDown={handleBurgerClick}></div>
-            <div className="bar3" onMouseDown={handleBurgerClick}></div>
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
           </div>
           <span>Menu</span>
           <Nav ref={navRef} />
