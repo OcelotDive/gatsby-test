@@ -148,7 +148,7 @@
     transition: all 3000ms;
     vertical-align: middle;
     webkit-transition: all 3000ms;
-    z-index: 9;
+    z-index: 9
 }
 
 .closeIcon:after {
