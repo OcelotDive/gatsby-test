@@ -51,7 +51,7 @@ const MenuTab = () => {
         <section className="menuNavContainer" ref={menuRef}>
           <div
             className="burgerContainer"
-            onMouseDown={handleBurgerClick}
+            onClick={handleBurgerClick}
             ref={burgerRef}
           >
             <div className="bar1"></div>
