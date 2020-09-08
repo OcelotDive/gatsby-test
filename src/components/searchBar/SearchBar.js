@@ -56,7 +56,7 @@ const SearchBar = ({ placeholder }) => {
 
   return (
     <>
-      <form className={searchStyles.searchWrapper}>
+      
         <input
           className={searchStyles.input}
           type="text"
@@ -91,7 +91,7 @@ const SearchBar = ({ placeholder }) => {
             ))}
           </ul>
         )}
-      </form>
+    
     </>
   )
 }
