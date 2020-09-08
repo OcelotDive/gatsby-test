@@ -23,6 +23,7 @@
     cursor: pointer;
     display: inline-block;
     z-index: 999;
+    border: solid 1px red;
 }
 
 .bar1,
@@ -33,6 +34,7 @@
     margin: 6px 0;
     transition: 0.4s;
     width: 35px;
+    cursor: pointer;
 }
 
 .change .bar1 {
