@@ -48,7 +48,7 @@ const MenuTab = () => {
   return (
     <>
       <Draggable>
-        <section className="menuNavContainer" ref={menuRef}>
+        <section className="menuNavContainer" ref={menuRef} onClick={handleBurgerClick}>
           <div
             className="burgerContainer"
             onClick={handleBurgerClick}
