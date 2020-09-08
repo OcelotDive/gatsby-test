@@ -38,11 +38,15 @@ const MajorIndexes = ({fmpk}) => {
 
     return (
         <>
+        
         <h4 className="pageHeader">MAJOR INDEXES</h4>
+        {majorIndexes.length > 5 && 
         <div className={majorStyles.controlContainer}>
         <div className={majorStyles.majorLeftTriangle} onMouseDown={scrollLeft}></div>
         <div className={majorStyles.majorRightTriangle} onMouseDown={scrollRight}></div>
         </div>
+        }
+        {majorIndexes.length > 5 &&
         <section className={majorStyles.majorIndexesOuterContaner}>
             <div className={majorStyles.majorIndexesInnerContainer}>
 
@@ -53,6 +57,7 @@ const MajorIndexes = ({fmpk}) => {
                 })}
             </div>
         </section>
+            }
         </>
     )
 }
