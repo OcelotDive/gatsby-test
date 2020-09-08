@@ -166,14 +166,14 @@
     padding: 2px;
     position: absolute;
     text-align: center;
-    top: 12px;
+    top: 15px;
     width: 15px;
     z-index: 9999;
 }
 
 .input:focus~.closeIcon {
     opacity: 1;
-    transform: translateX(330px);
+    transform: translateX(16em);
 }
 
 @media all and (max-width: 920px) {
