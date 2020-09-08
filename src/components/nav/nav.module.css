@@ -5,7 +5,7 @@
     justify-content: flex-end;
     left: -200px;
     margin-top: 4px;
-    opacity: 0;
+    opacity: 1;
     position: fixed;
     top: 45px;
     transition: all .5s;
