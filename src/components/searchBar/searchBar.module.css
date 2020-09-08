@@ -140,15 +140,15 @@
     bottom: 16px;
     cursor: pointer;
     display: inline-block;
-    moz-transition: all 3000ms;
+    moz-transition: all 500ms;
     opacity: 0;
-    o-transition: all 3000ms;
+    o-transition: all 500ms;
     outline: 0;
     position: relative;
-    transition: all 3000ms;
+    transition: all 500ms;
     vertical-align: middle;
-    webkit-transition: all 3000ms;
-    z-index: 9
+    webkit-transition: all 500ms;
+    z-index: 9;
 }
 
 .closeIcon:after {
@@ -164,7 +164,7 @@
     font-weight: normal;
     height: 15px;
     justify-content: center;
-    left: 295px;
+    left: 50px;
     padding: 2px;
     position: absolute;
     text-align: center;
@@ -175,7 +175,7 @@
 
 .input:focus~.closeIcon {
     opacity: 1;
-   /* transform: translateX(320px); */
+    transform: translateX(240px); 
 }
 
 @media all and (max-width: 920px) {
