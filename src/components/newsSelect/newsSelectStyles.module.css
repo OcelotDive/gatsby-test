@@ -1,11 +1,10 @@
 .form {
+    animation: driftIn 1s ease-in;
     display: flex;
     flex-direction: column;
-    position: relative;
-    width: 30%;
     position: absolute;
     right: 0%;
-    animation: driftIn 1s ease-in;
+    width: 30%;
 }
 
 .inputGroup {
@@ -97,11 +96,11 @@
 
 @keyframes driftIn {
     0% {
-        right: -8%;
         opacity: 0;
+        right: -8%;
     }
     100% {
-        right: 0;
         opacity: 1;
+        right: 0;
     }
 }

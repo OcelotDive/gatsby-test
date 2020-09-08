@@ -1,19 +1,20 @@
 .menuNavContainer {
-    position: fixed;
-    width: 120px;
-    height: 40px;
-    left: 20px;
-    top: 250px;
-    border: solid 1px #141930;
-    display: flex;
-    justify-content: space-around;
     align-items: center;
     background: #fff;
-    transition: top 0.3s ease-out;
-    z-index: 9;
+    border: solid 1px #141930;
     box-shadow: 3px 3px 3px #808080;
     cursor: grab;
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    left: 20px;
+    position: fixed;
+    top: 250px;
+    transition: top 0.3s ease-out;
+    width: 120px;
+    z-index: 9;
 }
+
 .menuNavContainer:active {
     cursor: grabbing;
 }
@@ -34,25 +35,16 @@
     width: 35px;
 }
 
-
-/* Rotate first bar */
-
 .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
     transform: rotate(-45deg) translate(-9px, 6px);
+    webkit-transform: rotate(-45deg) translate(-9px, 6px);
 }
-
-
-/* Fade out the second bar */
 
 .change .bar2 {
     opacity: 0;
 }
 
-
-/* Rotate last bar */
-
 .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
+    webkit-transform: rotate(45deg) translate(-8px, -8px);
 }

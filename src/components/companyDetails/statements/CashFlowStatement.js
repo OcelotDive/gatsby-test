@@ -225,7 +225,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               })}
             </tr>
             <tr>
-              <th>Net Cash/Marketcap</th>
+              <th>Net Cash / Marketcap</th>
               {cashFlowStatements.map(statement => {
                 return (
                   <td>

@@ -7,12 +7,12 @@
     height: 60px;
     justify-content: space-around;
     margin-bottom: 1.45rem;
+    min-width: 1200px;
     overflow: hidden;
     position: relative;
     top: 0;
     white-space: nowrap;
     width: 100%;
-    min-width: 1200px;
 }
 
 .ticker {
@@ -31,9 +31,9 @@
 }
 
 .tickerStock {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .stockQuote {

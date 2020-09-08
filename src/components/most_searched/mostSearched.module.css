@@ -1,9 +1,9 @@
 .companyImage {
-    width: 60px;
-    margin: auto;
-    height: auto;
-    padding: 0;
     animation: blurIn 3s;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    width: 60px;
 }
 
 @keyframes blurIn {

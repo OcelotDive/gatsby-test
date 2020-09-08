@@ -1,9 +1,8 @@
 import React from "react"
 import Utils from "../../../utils"
 import companyStyles from "../company.module.css"
-const IncomeStatement = ({ incomeStatements }) => {
-  console.log(incomeStatements)
 
+const IncomeStatement = ({ incomeStatements }) => {
   function handleCsvClick() {
     Utils.exportTableToCsv("table.csv")
   }
@@ -136,7 +135,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               })}
             </tr>
             <tr>
-              <th>Earnings before Tax</th>
+              <th>Earnings Before Tax</th>
               {incomeStatements.map(statement => {
                 return (
                   <td>
@@ -176,7 +175,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               })}
             </tr>
             <tr>
-              <th>Net Income - Non-Controlling int</th>
+              <th>Net Income - Non-Controlling Int</th>
               {incomeStatements.map(statement => {
                 return (
                   <td>
@@ -190,7 +189,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               })}
             </tr>
             <tr>
-              <th>Net Income - Discontinued ops</th>
+              <th>Net Income - Discontinued Ops</th>
               {incomeStatements.map(statement => {
                 return (
                   <td>
@@ -262,7 +261,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               })}
             </tr>
             <tr>
-              <th>Dividend per Share</th>
+              <th>Dividend Per Share</th>
               {incomeStatements.map(statement => {
                 return (
                   <td>

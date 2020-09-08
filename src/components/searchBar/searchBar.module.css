@@ -1,9 +1,9 @@
 .searchWrapper {
-    position: absolute;
-    width: 320px;
+    bottom: 12%;
     height: 40px;
     left: 60%;
-    bottom: 12%;
+    position: absolute;
+    width: 320px;
 }
 
 .searchBar {
@@ -11,8 +11,8 @@
     border-radius: 20%;
     box-shadow: 0 0 5px 0 #0C2A46;
     height: 40px;
-    top: 0;
     position: absolute;
+    top: 0;
     transition: all .4s;
     width: 40px;
     z-index: 4;
@@ -100,26 +100,26 @@
 }
 
 .searchResultList {
-    position: absolute;
-    left: -2.5%;
-    top: 100%;
-    list-style: none;
-    height: 200px;
-    width: 92%;
-    min-width: 250px;
     background: #fff;
-    z-index: 9999;
     border-radius: 1px;
-    overflow-y: scroll;
+    height: 200px;
+    left: -2.5%;
+    list-style: none;
+    min-width: 250px;
     overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    top: 100%;
     white-space: nowrap;
+    width: 92%;
+    z-index: 9999;
 }
 
 .searchBarListItem {
-    text-indent: 2.5%;
     border-bottom: solid 1px lightgray;
     margin-bottom: 0;
     padding: 2px;
+    text-indent: 2.5%;
     width: 100%;
 }
 
@@ -133,47 +133,47 @@
 }
 
 .closeIcon {
-    border: 1px solid transparent;
     background-color: transparent;
-    display: inline-block;
-    vertical-align: middle;
-    outline: 0;
-    cursor: pointer;
-    position: relative;
+    border: 1px solid transparent;
     bottom: 16px;
-    z-index: 9;
+    cursor: pointer;
+    display: inline-block;
+    moz-transition: all 500ms;
     opacity: 0;
-    -webkit-transition: all 500ms;
-    -moz-transition: all 500ms;
-    -o-transition: all 500ms;
+    o-transition: all 500ms;
+    outline: 0;
+    position: relative;
     transition: all 500ms;
+    vertical-align: middle;
+    webkit-transition: all 500ms;
+    z-index: 9;
 }
 
 .closeIcon:after {
-    content: "X";
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 15px;
-    height: 15px;
-    position: absolute;
     background-color: #FA9595;
-    left: -200%;
-    top: 12px;
-    padding: 2px;
     border-radius: 50%;
-    text-align: center;
-    color: white;
-    font-weight: normal;
-    font-size: 12px;
     box-shadow: 0 0 2px #E50F0F;
+    color: white;
+    content: "X";
     cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    font-weight: normal;
+    height: 15px;
+    justify-content: center;
+    left: -200%;
+    padding: 2px;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    width: 15px;
     z-index: 9999;
 }
 
 .input:focus~.closeIcon {
-    transform: translateX(330px);
     opacity: 1;
+    transform: translateX(330px);
 }
 
 @media all and (max-width: 920px) {

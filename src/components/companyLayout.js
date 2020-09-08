@@ -5,42 +5,32 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, {useState} from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header/header";
-import Ticker from "../components/Ticker/Ticker";
-import MenuTab from "../components/nav/MenuTab";
+import Header from "./header/header"
+import Ticker from "../components/Ticker/Ticker"
+import MenuTab from "../components/nav/MenuTab"
 import "./layout.css"
-import searchStyles from "./searchBar/SearchBar";
+import searchStyles from "./searchBar/SearchBar"
 
 const CompanyLayout = ({ children, ticker }) => {
- 
-
-
-
   return (
     <section className="LayoutMain">
       <Header />
-      <Ticker ticker={ticker}/>
+      <Ticker ticker={ticker} />
       <MenuTab />
       <div
         style={{
-  
           postion: `absolute`,
           top: `0`,
           width: `100%`,
           height: `100%`,
-      
-          
-      
-         
         }}
       >
-      
         <main>{children}</main>
-        <footer style={{textAlign: `center`}}>
+        <footer style={{ textAlign: `center` }}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

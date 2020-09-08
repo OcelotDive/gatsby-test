@@ -6,8 +6,8 @@
 
 .headerContainer {
     background: #59C173;
-    background: linear-gradient(left, rgb(20,25,48), rgb(20,25,48), rgb(66,134,244), rgb(89,193,115));
-    background: -webkit-linear-gradient(left, rgb(20,25,48), rgb(20,25,48), rgb(66,134,244), rgb(89,193,115));
+    background: linear-gradient(left, rgb(20, 25, 48), rgb(20, 25, 48), rgb(66, 134, 244), rgb(89, 193, 115));
+    background: -webkit-linear-gradient(left, rgb(20, 25, 48), rgb(20, 25, 48), rgb(66, 134, 244), rgb(89, 193, 115));
     box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);
     height: 120px;
     moz-box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.75);

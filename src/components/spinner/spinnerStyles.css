@@ -1,91 +1,91 @@
 .spinnerContainer {
-    width: 12.5%;
-    height: 100%;
     display: block;
+    height: 100%;
     padding: 1rem;
+    width: 12.5%;
 }
 
 .dash-spinner-title {
-    width: 100%;
     font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 600;
+    width: 100%;
 }
 
 .dash-spinner-title p {
-    text-align: center;
-    font-weight: 100;
     animation: dash-title 2s infinite;
+    font-weight: 100;
+    text-align: center;
 }
 
 .dash-spinner {
-    display: flex;
-    margin: 0 auto;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    z-index: -2;
     border-radius: 4px;
+    display: flex;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+    z-index: -2;
 }
 
 .dash-spinner__bottom {
     display: flex;
-    margin-top: auto;
     flex-direction: column;
     height: 12px;
+    margin-top: auto;
     width: 100%;
 }
 
 .dash-spinner__background {
-    width: 100%;
-    height: 100%;
     display: block;
-    position: absolute;
-    z-index: -1;
     display: flex;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
 }
 
 .dash-bar {
-    height: 2px;
-    background-color: #119DFF;
     animation: bar-one 2s infinite;
-    transform-origin: 0% 0%;
-    display: inline-flex;
+    background-color: #119DFF;
     border-radius: 8px;
+    display: inline-flex;
+    height: 2px;
+    transform-origin: 0% 0%;
 }
 
 .dash-bar__one {
-    transform: rotate(-50deg);
     bottom: -10px;
     left: 8px;
     position: relative;
+    transform: rotate(-50deg);
 }
 
 .dash-bar__two {
-    transform: rotate(25deg);
     animation: bar-two 2s infinite;
-    left: 33px;
-    bottom: 26px;
-    position: relative;
     animation-delay: 2s infinite;
+    bottom: 26px;
+    left: 33px;
+    position: relative;
+    transform: rotate(25deg);
 }
 
 .dash-bar__three {
-    transform: rotate(-30deg);
     animation: bar-three 2s infinite;
-    left: 57px;
-    bottom: 15px;
-    position: relative;
     animation-delay: 2s infinite;
+    bottom: 15px;
+    left: 57px;
+    position: relative;
+    transform: rotate(-30deg);
 }
 
 .dash-vert {
-    display: inline-block;
-    transform-origin: 0% 0%;
-    position: absolute;
     bottom: 0px;
-    width: 20px;
-    margin: none;
     box-shadow: 3px 3px 3px;
+    display: inline-block;
+    margin: none;
+    position: absolute;
+    transform-origin: 0% 0%;
+    width: 20px;
 }
 
 .dash-vert__one {
@@ -95,55 +95,55 @@
 
 .dash-vert__two {
     animation: vert-two 2s infinite;
-    left: 25px;
     background-color: #a74d0d;
+    left: 25px;
 }
 
 .dash-vert__three {
     animation: vert-three 2s infinite;
-    left: 50px;
     background-color: #197c65;
+    left: 50px;
 }
 
 .dash-vert__four {
     animation: vert-four 2s infinite;
-    left: 75px;
     background-color: #bd6353;
+    left: 75px;
 }
 
 .dash-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    display: block;
     background-color: #119DFF;
-    position: absolute;
-    z-index: 2;
+    border-radius: 100%;
     box-shadow: 3px 3px 3px;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+    z-index: 2;
 }
 
 .dash-dot__one {
+    animation: dot-one 2s infinite;
     bottom: 0px;
     left: 7px;
-    animation: dot-one 2s infinite;
 }
 
 .dash-dot__two {
+    animation: dot-two 2s infinite;
     bottom: 28px;
     left: 31px;
-    animation: dot-two 2s infinite;
 }
 
 .dash-dot__three {
+    animation: dot-three 2s infinite;
     bottom: 18px;
     left: 55px;
-    animation: dot-three 2s infinite;
 }
 
 .dash-dot__four {
+    animation: dot-four 2s infinite;
     bottom: 34px;
     left: 82px;
-    animation: dot-four 2s infinite;
 }
 
 @keyframes dot-one {
