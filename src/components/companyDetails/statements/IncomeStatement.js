@@ -1,5 +1,6 @@
 import React from "react"
 import Utils from "../../../utils"
+import shortid from "shortid"
 import companyStyles from "../company.module.css"
 
 const IncomeStatement = ({ incomeStatements }) => {
@@ -24,7 +25,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Year</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -34,7 +35,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Revenue</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Revenue"] / 1000000).toFixed(2)
                     )}
@@ -46,7 +47,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Cost of Revenue</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Cost of Revenue"] / 1000000).toFixed(
                         2
@@ -60,7 +61,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Gross Profit</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Gross Profit"] / 1000000).toFixed(2)
                     )}
@@ -72,7 +73,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>R &amp; D Expenses</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["R&D Expenses"] / 1000000).toFixed(2)
                     )}
@@ -84,7 +85,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Sales &amp; Admin Expense</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["SG&A Expense"] / 1000000).toFixed(2)
                     )}
@@ -96,7 +97,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Operating Expenses</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(
                         statement["Operating Expenses"] / 1000000
@@ -110,7 +111,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Operating Income</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Operating Income"] / 1000000).toFixed(
                         2
@@ -124,7 +125,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Interest Expense</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Interest Expense"] / 1000000).toFixed(
                         2
@@ -138,7 +139,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Earnings Before Tax</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(
                         statement["Earnings before Tax"] / 1000000
@@ -152,7 +153,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Income Tax Expense</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(
                         statement["Income Tax Expense"] / 1000000
@@ -166,7 +167,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Net Income</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Net Income"] / 1000000).toFixed(2)
                     )}
@@ -178,7 +179,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Net Income - Non-Controlling Int</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(
                         statement["Net Income - Non-Controlling int"] / 1000000
@@ -192,7 +193,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Net Income - Discontinued Ops</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(
                         statement["Net Income - Discontinued ops"] / 1000000
@@ -206,7 +207,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Net Income Com</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       parseInt(statement["Net Income Com"] / 1000000).toFixed(2)
                     )}
@@ -218,7 +219,9 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EPS</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>{Utils.format(Number(statement["EPS"]).toFixed(2))}</td>
+                  <td key={shortid.generate()}>
+                    {Utils.format(Number(statement["EPS"]).toFixed(2))}
+                  </td>
                 )
               })}
             </tr>
@@ -226,7 +229,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EPS Diluted</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(Number(statement["EPS Diluted"]).toFixed(2))}
                   </td>
                 )
@@ -236,7 +239,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Weighted Av Shs Out</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Weighted Average Shs Out"] / 1000000
@@ -250,7 +253,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Weighted Av Shs Out (Dil)</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Weighted Average Shs Out (Dil)"] / 1000000
@@ -264,7 +267,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Dividend Per Share</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Dividend per Share"]).toFixed(2)
                     )}
@@ -276,7 +279,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Gross Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(Number(statement["Gross Margin"]).toFixed(2))}
                   </td>
                 )
@@ -286,7 +289,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EBITDA Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["EBITDA Margin"]).toFixed(2)
                     )}
@@ -298,7 +301,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EBIT Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(Number(statement["EBIT Margin"]).toFixed(2))}
                   </td>
                 )
@@ -308,7 +311,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Profit Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Profit Margin"]).toFixed(2)
                     )}
@@ -320,7 +323,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Free Cash Flow Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Free Cash Flow margin"]).toFixed(2)
                     )}
@@ -332,7 +335,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EBITDA</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["EBITDA"] / 1000000).toFixed(2)
                     )}
@@ -344,7 +347,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>EBIT</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["EBIT"] / 1000000).toFixed(2)
                     )}
@@ -356,7 +359,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Consolidated Income</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Consolidated Income"] / 1000000
@@ -370,7 +373,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Earnings Before Tax Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Earnings Before Tax Margin"]).toFixed(2)
                     )}
@@ -382,7 +385,7 @@ const IncomeStatement = ({ incomeStatements }) => {
               <th>Net Profit Margin</th>
               {incomeStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Net Profit Margin"]).toFixed(2)
                     )}

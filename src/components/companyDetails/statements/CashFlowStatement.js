@@ -1,5 +1,6 @@
 import React from "react"
 import Utils from "../../../utils"
+import shortid from "shortid"
 import companyStyles from "../company.module.css"
 
 const CashFlowStatement = ({ cashFlowStatements }) => {
@@ -24,7 +25,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Year</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -34,7 +35,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Depreciation &amp; Amortization</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Depreciation & Amortization"] / 1000000
@@ -48,7 +49,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Stock-based Compensation</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Stock-based compensation"] / 1000000
@@ -62,7 +63,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Operating Cash Flow</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Operating Cash Flow"] / 1000000
@@ -76,7 +77,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Capital Expenditure</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Capital Expenditure"] / 1000000
@@ -90,7 +91,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Acquisitions and Disposals</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Acquisitions and disposals"] / 1000000
@@ -104,7 +105,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Investment Purchases and Sales</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Investment purchases and sales"] / 1000000
@@ -118,7 +119,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Investing Cash Flow</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Investing Cash flow"] / 1000000
@@ -132,7 +133,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Issuance (repayment) of Debt</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Issuance (repayment) of debt"] / 1000000
@@ -146,7 +147,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Issuance (buybacks) of Shares</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Issuance (buybacks) of shares"] / 1000000
@@ -160,7 +161,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Dividend Payments</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Dividend payments"] / 1000000).toFixed(
                         2
@@ -174,7 +175,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Financing Cash Flow</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Financing Cash Flow"] / 1000000
@@ -188,7 +189,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Effect of Forex Changes on Cash</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Effect of forex changes on cash"] / 1000000
@@ -202,7 +203,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Net Cash Flow / Change in Cash</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(
                         statement["Net cash flow / Change in cash"] / 1000000
@@ -216,7 +217,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Free Cash Flow</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Free Cash Flow"] / 1000000).toFixed(2)
                     )}
@@ -228,7 +229,7 @@ const CashFlowStatement = ({ cashFlowStatements }) => {
               <th>Net Cash / Marketcap</th>
               {cashFlowStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Net Cash/Marketcap"] / 1000000).toFixed(
                         2

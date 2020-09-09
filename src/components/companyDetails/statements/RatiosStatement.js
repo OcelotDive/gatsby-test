@@ -1,5 +1,6 @@
 import React from "react"
 import Utils from "../../../utils"
+import shortid from "shortid"
 import companyStyles from "../company.module.css"
 
 const RatiosStatement = ({ ratiosStatements }) => {
@@ -26,7 +27,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -36,7 +37,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price Book Value Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceBookValueRatio"
@@ -51,7 +52,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price To Book Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"]["priceToBookRatio"]
                     ).toFixed(2)}
@@ -64,7 +65,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price To Sales Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceToSalesRatio"
@@ -79,7 +80,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price Earning Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceEarningsRatio"
@@ -94,7 +95,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Receivables Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "receivablesTurnover"
@@ -109,7 +110,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price To Free CashFlows Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceToFreeCashFlowsRatio"
@@ -124,7 +125,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price To Operating CashFlows Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceToOperatingCashFlowsRatio"
@@ -139,7 +140,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price CashFlow Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceCashFlowRatio"
@@ -154,7 +155,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price Earnings To Growth Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "priceEarningsToGrowthRatio"
@@ -169,7 +170,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price Sales Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"]["priceSalesRatio"]
                     ).toFixed(2)}
@@ -182,7 +183,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Dividend Yield</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"]["dividendYield"]
                     ).toFixed(2)}
@@ -195,7 +196,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Enterprise Value Multiple</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"][
                         "enterpriseValueMultiple"
@@ -210,7 +211,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Price Fair Value</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["investmentValuationRatios"]["priceFairValue"]
                     ).toFixed(2)}
@@ -234,7 +235,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -244,7 +245,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Ebt Per EBIT</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"]["ebtperEBIT"]
                     ).toFixed(2)}
@@ -257,7 +258,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Ebit Per Revenue</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "ebitperRevenue"
@@ -272,7 +273,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Niper EBT</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"]["niperEBT"]
                     ).toFixed(2)}
@@ -285,7 +286,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Gross Profit Margin</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "grossProfitMargin"
@@ -300,7 +301,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Operating Profit Margin</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "operatingProfitMargin"
@@ -315,7 +316,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Pretax Profit Margin</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "pretaxProfitMargin"
@@ -330,7 +331,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Net Profit Margin</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "netProfitMargin"
@@ -345,7 +346,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Effective Tax Rate</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "effectiveTaxRate"
@@ -360,7 +361,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Return On Assets</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "returnOnAssets"
@@ -375,7 +376,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Return On Equity</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "returnOnEquity"
@@ -390,7 +391,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Return On Capital Employed</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["profitabilityIndicatorRatios"][
                         "returnOnCapitalEmployed"
@@ -416,7 +417,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -426,7 +427,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Receivables Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["operatingPerformanceRatios"][
                         "receivablesTurnover"
@@ -441,7 +442,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Payables Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["operatingPerformanceRatios"][
                         "payablesTurnover"
@@ -456,7 +457,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Inventory Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["operatingPerformanceRatios"][
                         "inventoryTurnover"
@@ -471,7 +472,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Fixed Asset Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["operatingPerformanceRatios"][
                         "fixedAssetTurnover"
@@ -486,7 +487,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Asset Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["operatingPerformanceRatios"]["assetTurnover"]
                     ).toFixed(2)}
@@ -510,7 +511,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -520,7 +521,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Current Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"]["currentRatio"]
                     ).toFixed(2)}
@@ -533,7 +534,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Quick Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"]["quickRatio"]
                     ).toFixed(2)}
@@ -546,7 +547,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Cash Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"]["cashRatio"]
                     ).toFixed(2)}
@@ -559,7 +560,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Days of Sales Outstanding</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"][
                         "daysOfSalesOutstanding"
@@ -574,7 +575,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Days of Inventory Outstanding</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"][
                         "daysOfInventoryOutstanding"
@@ -589,7 +590,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Operating Cycle</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"]["operatingCycle"]
                     ).toFixed(2)}
@@ -602,7 +603,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Days Of Payables Outstanding</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"][
                         "daysOfPayablesOutstanding"
@@ -617,7 +618,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Cash Conversion Cycle</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["liquidityMeasurementRatios"][
                         "cashConversionCycle"
@@ -641,7 +642,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -651,7 +652,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Debt Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(statement["debtRatios"]["debtRatio"]).toFixed(2)}%
                   </td>
                 )
@@ -661,7 +662,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Debt Equity Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(statement["debtRatios"]["debtEquityRatio"]).toFixed(
                       2
                     )}
@@ -674,7 +675,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Long Term Debt to Capitalization</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["debtRatios"]["longtermDebtToCapitalization"]
                     ).toFixed(2)}
@@ -687,7 +688,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Total Debt to Capitalization</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["debtRatios"]["totalDebtToCapitalization"]
                     ).toFixed(2)}
@@ -700,7 +701,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Interest Coverage</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["debtRatios"]["interestCoverage"]
                     ).toFixed(2)}
@@ -713,7 +714,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Cash Flow to Debt Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["debtRatios"]["cashFlowToDebtRatio"]
                     ).toFixed(2)}
@@ -726,7 +727,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Company Equity Multiplier</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["debtRatios"]["companyEquityMultiplier"]
                     ).toFixed(2)}
@@ -750,7 +751,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Year</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td className={companyStyles.thData}>
+                  <td className={companyStyles.thData} key={shortid.generate()}>
                     {statement.date.substring(0, 4)}
                   </td>
                 )
@@ -760,7 +761,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Operating Cash Flow Per Share</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "operatingCashFlowPerShare"
@@ -775,7 +776,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Free Cash Flow Per Share</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "freeCashFlowPerShare"
@@ -790,7 +791,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Cash Per Share</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"]["cashPerShare"]
                     ).toFixed(2)}
@@ -803,7 +804,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Payout Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"]["payoutRatio"]
                     ).toFixed(2)}
@@ -816,7 +817,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Receivables Turnover</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "receivablesTurnover"
@@ -831,7 +832,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Operating Cash Flow Sales Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "operatingCashFlowSalesRatio"
@@ -846,7 +847,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Free Cash Flow Operating Cash Flow</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "freeCashFlowOperatingCashFlowRatio"
@@ -861,7 +862,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Cash Flow Coverage Ratios</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "cashFlowCoverageRatios"
@@ -876,7 +877,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Short Term Coverage Ratios</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "shortTermCoverageRatios"
@@ -891,7 +892,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Capital Expenditure Coverage</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "capitalExpenditureCoverageRatios"
@@ -906,7 +907,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Dividend Paid and Capex Coverage</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "dividendpaidAndCapexCoverageRatios"
@@ -921,7 +922,7 @@ const RatiosStatement = ({ ratiosStatements }) => {
               <th>Dividend Payout Ratio</th>
               {ratiosStatements.map(statement => {
                 return (
-                  <td>
+                  <td key={shortid.generate()}>
                     {Number(
                       statement["cashFlowIndicatorRatios"][
                         "dividendPayoutRatio"
