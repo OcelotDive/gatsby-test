@@ -4,18 +4,16 @@
     left: 60%;
     position: absolute;
     width: 320px;
- 
-    
 }
 
 .searchBar {
     background: #141930;
     border-radius: 20%;
-    box-shadow: 0 0 5px 0 #0C2A46;
+    box-shadow: 0 0 5px 0 #0c2a46;
     height: 40px;
     position: absolute;
     top: 0;
-    transition: all .4s;
+    transition: all 0.4s;
     width: 40px;
     z-index: 4;
 }
@@ -68,7 +66,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: all .5s;
+    transition: all 0.5s;
     width: 0;
     z-index: 5;
 }
@@ -87,7 +85,7 @@
 }
 
 .input:focus~.searchBar {
-    background: #0C2B47;
+    background: #0c2b47;
     border-radius: 50%;
     box-shadow: none;
     ms-transform: rotate(360deg);
@@ -148,14 +146,14 @@
     transition: all 500ms;
     vertical-align: middle;
     webkit-transition: all 500ms;
-    z-index: 9
+    z-index: 9;
 }
 
 .closeIcon:after {
     align-items: center;
-    background-color: #FA9595;
+    background-color: #fa9595;
     border-radius: 50%;
-    box-shadow: 0 0 2px #E50F0F;
+    box-shadow: 0 0 2px #e50f0f;
     color: white;
     content: "X";
     cursor: pointer;
@@ -168,14 +166,14 @@
     padding: 2px;
     position: absolute;
     text-align: center;
-    top: 15px;
+    top: 12px;
     width: 15px;
     z-index: 9999;
 }
 
 .input:focus~.closeIcon {
     opacity: 1;
-    transform: translateX(240px); 
+    transform: translateX(240px);
 }
 
 @media all and (max-width: 920px) {
