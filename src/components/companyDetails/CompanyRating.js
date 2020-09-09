@@ -14,7 +14,7 @@ const CompanyRating = ({ companyRating }) => {
     return (
       <>
         <span className={companyStyles.companyRating}>
-          <small>Recommendation:</small>
+          <small>Recommendation: </small>
           <span>
             <b>{companyRating.rating.recommendation}</b>
           </span>
