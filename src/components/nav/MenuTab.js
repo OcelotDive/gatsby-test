@@ -47,7 +47,7 @@ const MenuTab = () => {
 
   return (
     <>
-      <Draggable>
+      <Draggable handle=".handle">
         <section className="menuNavContainer" ref={menuRef}>
           <div
             className="burgerContainer"
@@ -58,7 +58,7 @@ const MenuTab = () => {
             <div className="bar2"></div>
             <div className="bar3"></div>
           </div>
-          <span>Menu</span>
+          <span className="handle">Menu</span>
           <Nav ref={navRef} />
         </section>
       </Draggable>
