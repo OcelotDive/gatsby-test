@@ -1,12 +1,12 @@
 * {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-size: 20px;
 }
 
 html {
-    background: #C9D6FF;
-    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
-    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    background: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);
     khtml-user-select: none;
     moz-user-select: none;
     ms-user-select: none;
@@ -29,7 +29,7 @@ html {
 }
 
 .pageHeader {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-size: 180%;
     margin-bottom: 2%;
 }
@@ -39,13 +39,13 @@ tr:nth-child(odd) {
 }
 
 .pricePositive {
-    color: #00FF00;
+    color: #00ff00;
     margin-bottom: 1%;
     text-align: center;
 }
 
 .priceNegative {
-    color: #FF0000;
+    color: #ff0000;
     margin-bottom: 1%;
     text-align: center;
 }
@@ -103,10 +103,11 @@ tr:nth-child(odd) {
     background: #141930;
     color: #fff;
     margin-right: 10px;
+    padding: 5px;
 }
 
 .highlighted {
-    background-color: #58BF75;
+    background-color: #58bf75;
 }
 
 ::-webkit-scrollbar {
