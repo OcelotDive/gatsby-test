@@ -39,9 +39,9 @@ const CompanyRating = ({ companyRating }) => {
                 <span className={companyStyles.cardScore}>
                   <small>Score: </small>
                   {temp.map((score, index) => (
-                    <small>
+                    <small key={item + index}>
                       <small>
-                        <FontAwesomeIcon icon={faStar} key={item + index} />
+                        <FontAwesomeIcon icon={faStar} />
                       </small>
                     </small>
                   ))}
