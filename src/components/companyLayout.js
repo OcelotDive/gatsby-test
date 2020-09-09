@@ -27,6 +27,7 @@ const CompanyLayout = ({ children, ticker }) => {
           top: `0`,
           width: `100%`,
           height: `100%`,
+          overflow: `hidden`,
         }}
       >
         <main>{children}</main>
