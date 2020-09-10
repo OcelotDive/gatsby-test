@@ -135,17 +135,17 @@
 .closeIcon {
     background-color: transparent;
     border: 1px solid transparent;
-    bottom: 16px;
+    bottom: 5px;
     cursor: pointer;
     display: inline-block;
-    moz-transition: all 500ms;
+    moz-transition: all 525ms;
     opacity: 0;
-    o-transition: all 500ms;
+    o-transition: all 525ms;
     outline: 0;
     position: relative;
-    transition: all 500ms;
+    transition: all 525ms;
     vertical-align: middle;
-    webkit-transition: all 500ms;
+    webkit-transition: all 525ms;
     z-index: 9;
 }
 
@@ -166,7 +166,6 @@
     padding: 2px;
     position: absolute;
     text-align: center;
-    top: 12px;
     width: 15px;
     z-index: 9999;
 }
