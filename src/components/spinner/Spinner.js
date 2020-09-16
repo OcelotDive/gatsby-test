@@ -10,7 +10,6 @@ const Spinner = () => {
     }, 30000)
     if (textChange != "Loading...") {
       clearTimeout(displayTime)
-      alert("timeOut cleared")
     }
   }, [textChange])
 
