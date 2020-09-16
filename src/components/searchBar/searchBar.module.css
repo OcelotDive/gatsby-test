@@ -139,7 +139,7 @@
     cursor: pointer;
     display: inline-block;
     moz-transition: all 525ms;
-    opacity: 1;
+    opacity: 0;
     o-transition: all 525ms;
     outline: 0;
     position: relative;
