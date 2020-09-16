@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "gatsby"
 import axios from "axios"
 import CompanySummary from "../components/companyDetails/CompanySummary"
 import CompanyDataBrief from "../components/companyDetails/CompanyDataBrief"
@@ -7,17 +6,13 @@ import Key from "../keys"
 import CompanyLayout from "../components/companyLayout"
 import SEO from "../components/seo"
 import { useLocation } from "@reach/router"
-import queryString from "query-string"
-import Utils from "../utils"
 import NoData from "../components/NoData"
+import Spinner from "../components/spinner/Spinner"
 import companyStyles from "../components/companyDetails/company.module.css"
 import CompanyLineChart from "../components/companyDetails/CompanyLineChart"
 import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart"
 import CompanyBarChart from "../components/companyDetails/CompanyBarChart"
 import CompanyAccounts from "../components/companyDetails/CompanyAccounts"
-import Spinner from "../components/spinner/Spinner"
-//return this.http.get(`${this.companyProfile}${symbol}${this.fmpk}`)
-//this.keyMetrics = 'https://financialmodelingprep.com/api/v3/company-key-metrics/'
 
 const CompanyPage = () => {
   const location = useLocation()
@@ -91,7 +86,8 @@ const CompanyPage = () => {
         setGraphType("Bar")
         setActiveClass([0, 0, 1])
         break
-        Default: setGraphType("Line")
+      default:
+        setGraphType("Line")
         setActiveClass([1, 0, 0])
         break
     }
@@ -144,7 +140,9 @@ const CompanyPage = () => {
               companyKeyMetrics={companyKeyMetrics}
             />
           ) : (
-            <NoData />
+            <div>
+              <Spinner />
+            </div>
           )}
         </section>
         <section className={companyStyles.fortyFiveMainContentContainer}>

@@ -22,7 +22,8 @@ const SearchBar = ({ placeholder }) => {
       })
   }, [])
 
-  const getSearchInput = () => {
+  const getSearchInput = e => {
+    e.preventDefault()
     searchRef.current.value.length >= 3
       ? setDisplaySearches(true)
       : setDisplaySearches(false)
@@ -54,9 +55,14 @@ const SearchBar = ({ placeholder }) => {
     searchRef.current.value = ""
   }
 
+  const submit = e => {
+    e.preventDefault()
+    return false
+  }
+
   return (
     <>
-      <form className={searchStyles.searchWrapper}>
+      <form className={searchStyles.searchWrapper} onSubmit={submit}>
         <input
           className={searchStyles.input}
           type="text"
