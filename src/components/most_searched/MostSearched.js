@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Spinner from "../spinner/Spinner"
+import axios from "axios"
 import { Link } from "gatsby"
 
 import Key from "../../keys"
@@ -24,7 +25,7 @@ const MostSearched = () => {
     fetch(`${mostSearchedUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        setDataList(data)
+        setDataList(data.slice(0, 6))
       })
   }, [])
 
@@ -39,6 +40,32 @@ const MostSearched = () => {
     })
   }, [dataList])
 
+  /*useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`${mostSearchedUrl}${Key.fmpk}`)
+      const data = result.data
+      setDataList(data)
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    const fetchImages = () => {
+      dataList.map(async item => {
+        console.log("test")
+        const imageResult = await axios(
+          `${companyUrl}${item.symbol}${Key.fmpk}`
+        )
+        companyImages.push(imageResult.data.profile.image)
+        console.warn(imageResult)
+        setCompanyImages([...companyImages])
+      })
+    }
+    fetchImages()
+  }, [dataList])
+
+
+  */
   const nameSort = () => {
     if (!nameSorted) {
       dataList.sort((a, b) => {

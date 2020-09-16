@@ -22,8 +22,7 @@ const Actives = () => {
     fetch(`${activesUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        console.warn(data)
-        setDataList(data)
+        setDataList(data.slice(0, 6))
       })
   }, [])
 
@@ -32,6 +31,7 @@ const Actives = () => {
       fetch(`${companyUrl}${item.ticker}${Key.fmpk}`)
         .then(response => response.json())
         .then(data => {
+          console.warn("data", data)
           companyImages.push(data.profile.image)
           setCompanyImages([...companyImages])
         })
