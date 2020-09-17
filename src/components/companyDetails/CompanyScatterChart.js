@@ -18,7 +18,14 @@ const CompanyScatterChart = ({ data /* see data tab */ }) => (
       stacked: false,
       reverse: false,
     }}
-    axisTop={null}
+    axisTop={{
+      orient: "top",
+      legend: "STOCK PRICE",
+      legendOffset: -20,
+      legendPosition: "middle",
+      tickSize: 0,
+      format: () => null,
+    }}
     axisRight={null}
     axisBottom={{
       orient: "bottom",
@@ -35,7 +42,7 @@ const CompanyScatterChart = ({ data /* see data tab */ }) => (
       tickPadding: 5,
       tickRotation: 0,
       legend: "price",
-      legendOffset: -40,
+      legendOffset: -50,
       legendPosition: "middle",
     }}
     colors={{ scheme: "dark2" }}

@@ -18,7 +18,14 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
     colors={{ scheme: "dark2" }}
     label="none"
     borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
-    axisTop={null}
+    axisTop={{
+      orient: "top",
+      legend: "STOCK PRICE",
+      legendOffset: -20,
+      legendPosition: "middle",
+      tickSize: 0,
+      format: () => null,
+    }}
     axisRight={null}
     axisBottom={{
       tickSize: 5,
@@ -35,7 +42,7 @@ const CompanyBarChart = ({ data /* see data tab */ }) => (
       tickRotation: 0,
       legend: "price",
       legendPosition: "middle",
-      legendOffset: -40,
+      legendOffset: -50,
     }}
     theme={{
       axis: {

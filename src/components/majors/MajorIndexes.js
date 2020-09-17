@@ -30,6 +30,14 @@ const MajorIndexes = ({ fmpk }) => {
       let innerSlide = e.target.parentNode.nextSibling.firstElementChild
       innerSlide.style.transform = `translateX(${left + 230}px)`
     }
+    if (left >= 0) {
+      let innerSlide = e.target.parentNode.nextSibling.firstElementChild
+      innerSlide.style.transform = `translateX(${left + 20}px)`
+      let slideTimeout = setTimeout(() => {
+        innerSlide.style.transform = `translateX(${left - 10}px)`
+        clearTimeout(slideTimeout)
+      }, 500)
+    }
   }
 
   return (
