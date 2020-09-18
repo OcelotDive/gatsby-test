@@ -87,8 +87,7 @@ const CompanyPage = () => {
         setActiveClass([0, 0, 1])
         break
       default:
-        setGraphType("Line")
-        setActiveClass([1, 0, 0])
+        setActiveClass([...activeClass])
         break
     }
   }
@@ -296,37 +295,21 @@ const getBarGraphTimeLine = (days, companyHistorical) => {
   if (days === 5) {
     return barGraphData.slice(0, days).reverse()
   } else if (days === 30) {
-    days -= 8
+    days -= 7
     let timeLine = barGraphData.slice(0, days)
-    let timeLineEnd = timeLine[timeLine.length - 1]
-    return timeLine
-      .filter((_, index) => index)
-      .concat(timeLineEnd)
-      .reverse()
+    return timeLine.filter((_, index) => index % 2 === 0).reverse()
   } else if (days === 180) {
-    days -= 52
+    days -= 42
     let timeLine = barGraphData.slice(0, days)
-    let timeLineEnd = timeLine[timeLine.length - 1]
-    return timeLine
-      .filter((_, index) => index % 6 === 0)
-      .concat(timeLineEnd)
-      .reverse()
+    return timeLine.filter((_, index) => index % 14 === 0).reverse()
   } else if (days === 365) {
-    days -= 104
+    days -= 114
     let timeLine = barGraphData.slice(0, days)
-    let timeLineEnd = timeLine[timeLine.length - 1]
-    return timeLine
-      .filter((_, index) => index % 12 === 0)
-      .concat(timeLineEnd)
-      .reverse()
+    return timeLine.filter((_, index) => index % 16 === 0).reverse()
   } else if (days === 1825) {
-    days -= 520
+    days -= 570
     let timeLine = barGraphData.slice(0, days)
-    let timeLineEnd = timeLine[timeLine.length - 1]
-    return timeLine
-      .filter((_, index) => index % 180 === 0)
-      .concat(timeLineEnd)
-      .reverse()
+    return timeLine.filter((_, index) => index % 62 === 0).reverse()
   }
 }
 
