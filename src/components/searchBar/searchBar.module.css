@@ -150,19 +150,17 @@
 }
 
 .closeIcon:after {
-    align-items: center;
     background-color: #fa9595;
     border-radius: 50%;
     box-shadow: 0 0 2px #e50f0f;
     color: white;
     content: "X";
     cursor: pointer;
-    display: flex;
     font-size: 12px;
     font-weight: normal;
     height: 15px;
-    justify-content: center;
     left: 50px;
+    line-height: 12px;
     padding: 2px;
     position: absolute;
     text-align: center;

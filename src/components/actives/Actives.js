@@ -31,7 +31,6 @@ const Actives = () => {
       fetch(`${companyUrl}${item.ticker}${Key.fmpk}`)
         .then(response => response.json())
         .then(data => {
-          console.warn("data", data)
           companyImages.push(data.profile.image)
           setCompanyImages([...companyImages])
         })
