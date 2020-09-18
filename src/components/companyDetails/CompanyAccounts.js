@@ -113,6 +113,7 @@ const CompanyAccounts = ({ symbol }) => {
         <div
           className={companyStyles.accountsButtonContainer}
           onClick={handleAccountsClick}
+          role="accountContainer"
         >
           <button
             className={
@@ -123,6 +124,7 @@ const CompanyAccounts = ({ symbol }) => {
             type="button"
             aria-label="graphButton"
             name="graphButton"
+            role="graphButton"
           >
             Income Statement
           </button>

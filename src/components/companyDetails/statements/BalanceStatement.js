@@ -76,7 +76,7 @@ const BalanceStatement = ({ balanceStatements }) => {
               <th>Receivables</th>
               {balanceStatements.map(statement => {
                 return (
-                  <td key={shortid.generate()} key={shortid.generate()}>
+                  <td key={shortid.generate()}>
                     {Utils.format(
                       Number(statement["Receivables"] / 1000000).toFixed(2)
                     )}
