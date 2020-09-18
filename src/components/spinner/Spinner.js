@@ -7,7 +7,7 @@ const Spinner = () => {
   useEffect(() => {
     const displayTime = setTimeout(() => {
       setTextChange("Full data not available at this time.")
-    }, 30000)
+    }, 15000)
     if (textChange != "Loading...") {
       clearTimeout(displayTime)
     }
