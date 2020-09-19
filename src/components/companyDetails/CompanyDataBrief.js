@@ -9,7 +9,7 @@ const CompanyDataBrief = ({ company, companyKeyMetrics }) => {
       <section className={companyStyles.companyDataBrief}>
         <div className={companyStyles.companyDataSection}>
           <div className={companyStyles.dataBriefHeaderSection}>
-            Financial Info
+            Financial Snapshot
           </div>
           <div className={companyStyles.infoBar}>
             <div className={companyStyles.dataName}>Symbol</div>
