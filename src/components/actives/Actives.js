@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Spinner from "../spinner/Spinner"
 import Key from "../../keys"
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import activeStyles from "./activeStyles.module.css"
 
@@ -127,7 +128,7 @@ const Actives = () => {
                 return (
                   <tr key={active.ticker}>
                     <td>
-                      <img
+                      <LazyLoadImage
                         className={activeStyles.companyImage}
                         src={companyImg}
                         alt="company logo"

@@ -59,14 +59,14 @@
 }
 
 .standardNewsImage {
-    animation: blurIn 4s;
+    animation: blurIn 2s;
     height: 100%;
     position: absolute;
     width: 100%;
 }
 
 .primaryNewsImage {
-    animation: blurIn 4s;
+    animation: blurIn 2s;
     height: 100%;
     position: absolute;
     transition: 0.5s;

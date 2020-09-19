@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Spinner from "../spinner/Spinner"
 import axios from "axios"
 import { Link } from "gatsby"
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Key from "../../keys"
 
@@ -156,7 +157,7 @@ const MostSearched = () => {
                 return (
                   <tr key={company.symbol + company.symbol}>
                     <td>
-                      <img
+                      <LazyLoadImage
                         className={mostSearchedStyles.companyImage}
                         src={companyImg}
                         alt="company logo"
