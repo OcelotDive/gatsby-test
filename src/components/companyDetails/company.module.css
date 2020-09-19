@@ -223,6 +223,7 @@
     width: 100%;
 }
 
+
 .statementHeader {
     margin-left: 2.5%;
     width: 50%;
@@ -255,4 +256,7 @@ td {
 .downloadToCsvButton {
     font-size: 20px;
     margin-bottom: 1%;
+    cursor: pointer;
+    
 }
+
