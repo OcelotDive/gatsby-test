@@ -2,6 +2,10 @@ import React from "react"
 import Abs from "./accessButton.module.css"
 
 const AccessButton = ({ innerText }) => {
+  const handleClick = () => {
+    alert("Logins disabled at this time.")
+  }
+
   const accessClass =
     innerText === "Join"
       ? "joinButton"
@@ -16,6 +20,7 @@ const AccessButton = ({ innerText }) => {
       name={innerText}
     >
       {innerText}
+      onClick={handleClick}
     </button>
   )
 }
