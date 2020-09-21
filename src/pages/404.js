@@ -9,10 +9,10 @@ const NotFoundPage = () => (
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     <p>
-      Use the back button or return to homepage.{" "}
+      Use the back button or return to homepage.
       <Link to="/">
-        <li className={navStyles.mainNavListItem}>
-          <span className={navStyles.navListLink}>Home</span>
+        <li>
+          <span>Home</span>
         </li>
       </Link>
     </p>
