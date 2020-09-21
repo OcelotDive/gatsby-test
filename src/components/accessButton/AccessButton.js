@@ -18,9 +18,9 @@ const AccessButton = ({ innerText }) => {
       type="button"
       aria-label="AccessButton"
       name={innerText}
+      onClick={handleClick}
     >
       {innerText}
-      onClick={handleClick}
     </button>
   )
 }
