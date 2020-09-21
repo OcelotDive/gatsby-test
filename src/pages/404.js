@@ -9,7 +9,11 @@ const NotFoundPage = () => (
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     <p>
-      Use the back button or return to homepage.
+      Hit the back button or use the menu and search bar to try to resolve the
+      issue.
+    </p>
+    <p>
+      Suggestion
       <Link to="/">
         <li>
           <span>Home</span>
