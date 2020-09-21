@@ -63,8 +63,11 @@ const CompanyPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(`${companyHistoricalUrl}${symbol}${Key.fmpk}`)
-
-      setCompanyHistorical(result.data.historical)
+      if (result.data.historical === undefined) {
+        setCompanyHistorical([])
+      } else {
+        setCompanyHistorical(result.data.historical)
+      }
     }
     fetchData()
   }, [symbol])
@@ -270,7 +273,9 @@ const CompanyPage = () => {
           </div>
         </section>
       </main>
-      <CompanyAccounts symbol={symbol} />
+      {companyHistorical !== undefined && companyHistorical.length > 0 && (
+        <CompanyAccounts symbol={symbol} />
+      )}
     </CompanyLayout>
   )
 }
