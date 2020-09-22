@@ -28,7 +28,9 @@ const CompanyAccounts = ({ symbol }) => {
       window.scrollTo(0, 870)
     }, 0)
   }
-
+  useEffect(() => {
+    setActiveAccountsButton([0, 0, 0, 0])
+  }, [symbol])
   useEffect(() => {
     if (activeAccountsButton[0] === 1) {
       const fetchData = async () => {
