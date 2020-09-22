@@ -2,6 +2,7 @@ import React from "react"
 import majorStyles from "./majorStyles.module.css"
 
 const MajorCard = ({ major }) => {
+  major = ""
   const changeClass =
     major.changes > 0
       ? "majorCardPricePositive"
