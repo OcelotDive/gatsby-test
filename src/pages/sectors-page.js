@@ -2,11 +2,14 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Sectors from "../components/sectors/Sectors"
+import ErrorBoundary from "../components/errorBoundary/ErrorBoundary"
 
 const FifthPage = () => (
   <Layout>
-    <SEO title="Sectors" />
-    <Sectors />
+    <ErrorBoundary>
+      <SEO title="Sectors" />
+      <Sectors />
+    </ErrorBoundary>
   </Layout>
 )
 

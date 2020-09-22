@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import ErrorBoundary from "../components/errorBoundary/ErrorBoundary"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,8 +7,10 @@ import Commodities from "../components/commodities/Commodities"
 
 const ThirdPage = () => (
   <Layout>
-    <SEO title="Commodities" />
-    <Commodities />
+    <ErrorBoundary>
+      <SEO title="Commodities" />
+      <Commodities />
+    </ErrorBoundary>
   </Layout>
 )
 

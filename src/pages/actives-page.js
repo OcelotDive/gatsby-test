@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import ErrorBoundary from "../components/errorBoundary/ErrorBoundary"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,8 +8,10 @@ import Actives from "../components/actives/Actives"
 
 const SixthPage = () => (
   <Layout>
-    <SEO title="ACTIVES" />
-    <Actives />
+    <ErrorBoundary>
+      <SEO title="ACTIVES" />
+      <Actives />
+    </ErrorBoundary>
   </Layout>
 )
 

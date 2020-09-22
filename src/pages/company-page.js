@@ -12,6 +12,7 @@ import CompanyLineChart from "../components/companyDetails/CompanyLineChart"
 import CompanyScatterChart from "../components/companyDetails/CompanyScatterChart"
 import CompanyBarChart from "../components/companyDetails/CompanyBarChart"
 import CompanyAccounts from "../components/companyDetails/CompanyAccounts"
+import ErrorBoundary from "../components/errorBoundary/ErrorBoundary"
 
 const CompanyPage = () => {
   const location = useLocation()
@@ -125,157 +126,159 @@ const CompanyPage = () => {
 
   return (
     <CompanyLayout>
-      <SEO title="CompanyDetails" />
-      <h4 className={companyStyles.pageHeader}>COMPANY SUMMARY</h4>
-      <main className={companyStyles.mainContentCompanyContainer}>
-        <section className={companyStyles.fiftyFiveMainContentContainer}>
-          {companyObject.profile && (
-            <CompanySummary
-              company={companyObject}
-              companyRating={companyRating}
-            />
-          )}
-          {companyKeyMetrics.metrics && companyObject.profile ? (
-            <CompanyDataBrief
-              company={companyObject}
-              companyKeyMetrics={companyKeyMetrics}
-            />
-          ) : (
-            <div>
-              <Spinner />
-            </div>
-          )}
-        </section>
-        <section className={companyStyles.fortyFiveMainContentContainer}>
-          <div className={companyStyles.chartContainer}>
-            {graphType === "Line" ? (
-              <CompanyLineChart
-                data={getLineGraphTimeLine(graphTimeLine, companyHistorical)}
-              />
-            ) : graphType === "Scatter" ? (
-              <CompanyScatterChart
-                data={getLineGraphTimeLine(graphTimeLine, companyHistorical)}
-              />
-            ) : (
-              <CompanyBarChart
-                data={getBarGraphTimeLine(graphTimeLine, companyHistorical)}
+      <ErrorBoundary>
+        <SEO title="CompanyDetails" />
+        <h4 className={companyStyles.pageHeader}>COMPANY SUMMARY</h4>
+        <main className={companyStyles.mainContentCompanyContainer}>
+          <section className={companyStyles.fiftyFiveMainContentContainer}>
+            {companyObject.profile && (
+              <CompanySummary
+                company={companyObject}
+                companyRating={companyRating}
               />
             )}
-
-            <div
-              className={companyStyles.graphButtonContainer}
-              onClick={handleGraphButtonClick}
-            >
-              <div className={companyStyles.graphTypeContainer}>
-                <button
-                  className={
-                    activeClass[0] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  Line
-                </button>
-                <button
-                  className={
-                    activeClass[1] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  Scatter
-                </button>
-                <button
-                  className={
-                    activeClass[2] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  Bar
-                </button>
+            {companyKeyMetrics.metrics && companyObject.profile ? (
+              <CompanyDataBrief
+                company={companyObject}
+                companyKeyMetrics={companyKeyMetrics}
+              />
+            ) : (
+              <div>
+                <Spinner />
               </div>
+            )}
+          </section>
+          <section className={companyStyles.fortyFiveMainContentContainer}>
+            <div className={companyStyles.chartContainer}>
+              {graphType === "Line" ? (
+                <CompanyLineChart
+                  data={getLineGraphTimeLine(graphTimeLine, companyHistorical)}
+                />
+              ) : graphType === "Scatter" ? (
+                <CompanyScatterChart
+                  data={getLineGraphTimeLine(graphTimeLine, companyHistorical)}
+                />
+              ) : (
+                <CompanyBarChart
+                  data={getBarGraphTimeLine(graphTimeLine, companyHistorical)}
+                />
+              )}
+
               <div
-                className={companyStyles.graphTimeLineContainer}
-                onClick={handleGraphTimeLineButtonClick}
+                className={companyStyles.graphButtonContainer}
+                onClick={handleGraphButtonClick}
               >
-                <button
-                  className={
-                    tlActiveClass[0] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
+                <div className={companyStyles.graphTypeContainer}>
+                  <button
+                    className={
+                      activeClass[0] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    Line
+                  </button>
+                  <button
+                    className={
+                      activeClass[1] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    Scatter
+                  </button>
+                  <button
+                    className={
+                      activeClass[2] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    Bar
+                  </button>
+                </div>
+                <div
+                  className={companyStyles.graphTimeLineContainer}
+                  onClick={handleGraphTimeLineButtonClick}
                 >
-                  5D
-                </button>
-                <button
-                  className={
-                    tlActiveClass[1] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  1M
-                </button>
-                <button
-                  className={
-                    tlActiveClass[2] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  6M
-                </button>
-                <button
-                  className={
-                    tlActiveClass[3] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  1Y
-                </button>
-                <button
-                  className={
-                    tlActiveClass[4] === 1
-                      ? "globalGraphButton highlighted"
-                      : "globalGraphButton"
-                  }
-                  type="button"
-                  aria-label="graphButton"
-                  name="graphButton"
-                >
-                  5Y
-                </button>
+                  <button
+                    className={
+                      tlActiveClass[0] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    5D
+                  </button>
+                  <button
+                    className={
+                      tlActiveClass[1] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    1M
+                  </button>
+                  <button
+                    className={
+                      tlActiveClass[2] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    6M
+                  </button>
+                  <button
+                    className={
+                      tlActiveClass[3] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    1Y
+                  </button>
+                  <button
+                    className={
+                      tlActiveClass[4] === 1
+                        ? "globalGraphButton highlighted"
+                        : "globalGraphButton"
+                    }
+                    type="button"
+                    aria-label="graphButton"
+                    name="graphButton"
+                  >
+                    5Y
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
-      {companyHistorical !== undefined && companyHistorical.length > 0 && (
-        <CompanyAccounts symbol={symbol} />
-      )}
+          </section>
+        </main>
+        {companyHistorical !== undefined && companyHistorical.length > 0 && (
+          <CompanyAccounts symbol={symbol} />
+        )}
+      </ErrorBoundary>
     </CompanyLayout>
   )
 }
