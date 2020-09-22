@@ -1,19 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
 
-const SomethingWentWrong = () => (
-  <>
-    <h1>Oops... Something went wrong.</h1>
-    <p>Apologies, there may have been a problem fetching your data.</p>
-    <p>Hit the button to return home.</p>
-    <p>
-      <Link to="/">
+const SomethingWentWrong = () => {
+  const handleRefresh = () => {
+    window.location.reload(false)
+  }
+
+  return (
+    <>
+      <h1>Oops... Something went wrong.</h1>
+      <p>Apologies, there may have been a problem fetching your data.</p>
+      <p>Hit the button to return home.</p>
+      <p>
         <li style={{ listStyleType: "none" }}>
-          <button className="returnHomeButton">Ok</button>
+          <button className="returnHomeButton" onClick={handleRefresh}>
+            Ok
+          </button>
         </li>
-      </Link>
-    </p>
-  </>
-)
+      </p>
+    </>
+  )
+}
 
 export default SomethingWentWrong
