@@ -32,6 +32,7 @@ const MenuTab = () => {
           menuRef.current.style.top = -currentScrollPosY + 250 + "px"
           navRef.current.style.left = "-200px"
           navRef.current.style.opacity = "0"
+
           setTimeout(() => {
             setMenuOpenClosed(false)
             burgerRef.current.className = "burgerContainer"
