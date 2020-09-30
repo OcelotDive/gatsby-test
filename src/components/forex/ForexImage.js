@@ -31,7 +31,7 @@ const ForexImage = function ({ src }) {
       render={({ images }) =>
         renderImage(
           images.edges.find(image => {
-            return image.node.relativePath === src
+            return image.node.relativePath === src 
           })
         )
       }

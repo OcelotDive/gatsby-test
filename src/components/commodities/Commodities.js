@@ -18,13 +18,13 @@ const Commodities = () => {
     fetch(`${majorCommoditiesUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+    
         setDataList(data)
       })
   }, [])
 
   const nameSort = () => {
-    console.log("name")
+   
     if (!nameSorted) {
       dataList.sort((a, b) => {
         if (a.name.toLowerCase() < b.name.toLowerCase()) {

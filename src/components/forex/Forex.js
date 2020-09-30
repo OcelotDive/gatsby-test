@@ -5,8 +5,38 @@ import Key from "../../keys"
 import forexStyles from "./forexStyles.module.css"
 
 const Forex = () => {
-  const forexUrl = "https://financialmodelingprep.com/api/v3/forex"
+  const forexUrl = "https://financialmodelingprep.com/api/v3/fx"
 
+  let fxArray = [
+    "AUD/CAD",
+    "AUD/CHF",
+    "AUD/JPY",
+    "AUD/NZD",
+    "AUD/USD",
+    "CAD/CHF",
+    "CAD/JPY",
+    "CHF/JPY",
+    "EUR/AUD",
+    "EUR/CAD",
+    "EUR/CHF",
+    "EUR/GBP",
+    "EUR/JPY",
+    "EUR/NOK",
+    "EUR/NZD",
+    "EUR/USD",
+    "GBP/CAD",
+    "GBP/CHF",
+    "GBP/JPY",
+    "GBP/NZD",
+    "GBP/USD",
+    "NZD/JPY",
+    "NZD/USD",
+    "USD/CAD",
+    "USD/CHF",
+    "USD/JPY",
+    "USD/NOK",
+    "USD/SEK"
+  ]
   let [dataList, setDataList] = useState([])
   let [nameSorted, setNameSorted] = useState(false)
   let [priceSorted, setPriceSorted] = useState(false)
@@ -19,7 +49,11 @@ const Forex = () => {
     fetch(`${forexUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        setDataList(data.forexList)
+        let temp = data.filter(fx => {
+          return fxArray.includes(fx.ticker);
+        })
+      
+        setDataList(temp)
       })
   }, [])
 
@@ -87,17 +121,17 @@ const Forex = () => {
             <table>
               <tbody>
                 <tr>
-                  <th className={forexStyles.tableHeader}></th>
-                  <th className={forexStyles.tableHeader} onClick={nameSort}>
+                  <th className="tableHeader"></th>
+                  <th className="tableHeader" onClick={nameSort}>
                     PAIR <span className={nameClass}></span>
                   </th>
-                  <th className={forexStyles.tableHeader} onClick={priceSort}>
+                  <th className="tableHeader" onClick={priceSort}>
                     PRICE <span className={priceClass}></span>
                   </th>
-                  <th className={forexStyles.tableHeader} onClick={changeSort}>
+                  <th className="tableHeader" onClick={changeSort}>
                     CHANGE <span className={changeClass}></span>
                   </th>
-                  <th className={forexStyles.tableHeader}>CHANGE(%)</th>
+                  <th className="tableHeader">CHANGE(%)</th>
                 </tr>
 
                 {dataList.map(forex => {
@@ -119,7 +153,7 @@ const Forex = () => {
                         {forex.ticker}
                       </td>
                       <td className={forexStyles.forexPriceNull}>
-                        {forex.ask}
+                        {Number(forex.ask).toFixed(4)}
                       </td>
                       <td className={forexStyles[changeClass]}>
                         {forex.changes.toFixed(4)}
