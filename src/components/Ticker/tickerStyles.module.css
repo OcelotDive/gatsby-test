@@ -44,13 +44,16 @@
 }
 
 .positiveChange {
-    color: #00FF00;
+    color: #0f0;
     font-size: 14px;
+    font-weight: bold;
+    
 }
 
 .negativeChange {
     color: #FF0000;
     font-size: 14px;
+    font-weight: bold;
 }
 
 @-webkit-keyframes ticker {
