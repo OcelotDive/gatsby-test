@@ -44,11 +44,13 @@ const Ticker = () => {
   }
 
   return (
+    <section className={tickerStyles.tickerContainer}>
     <section className={tickerStyles.ticker}>
       <div className={tickerStyles.tickerWrapper}>{getSymbols(tickerData)}</div>
       <div className={tickerStyles.tickerWrapper2}>
         {getSymbols(tickerData)}
       </div>
+    </section>
     </section>
   )
 }

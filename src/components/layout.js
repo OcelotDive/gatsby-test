@@ -27,7 +27,7 @@ const Layout = ({ children, ticker }) => {
   `)
 
   return (
-    <section className="LayoutMain">
+    <section className="LayoutMain" style={{overflow: "hidden"}}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Ticker ticker={ticker} />
       <MenuTab />

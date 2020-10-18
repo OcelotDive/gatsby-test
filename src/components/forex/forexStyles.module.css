@@ -1,11 +1,11 @@
 .forexPricePositive {
-    color: #00FF00;
+    color: #027402;
     margin-bottom: 1%;
     text-align: center;
 }
 
 .forexPriceNegative {
-    color: #FF0000;
+    color: #df2929;
     margin-bottom: 1%;
     text-align: center;
 }

@@ -17,7 +17,7 @@ import searchStyles from "./searchBar/SearchBar"
 
 const CompanyLayout = ({ children, ticker }) => {
   return (
-    <section className="LayoutMain">
+    <section className="LayoutMain" style={{overflow: "hidden"}}>
       <Header />
       <Ticker ticker={ticker} />
       <MenuTab />

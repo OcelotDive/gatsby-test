@@ -1,3 +1,7 @@
+.tickerContainer {
+    width: 100%;
+    overflow: hidden;
+}
 .ticker,
 .tickerWrapper,
 .tickerWrapper2 {
@@ -17,6 +21,8 @@
 
 .ticker {
     box-shadow: 3px 3px 3px #808080;
+  
+    
 }
 
 .tickerWrapper {
@@ -44,14 +50,14 @@
 }
 
 .positiveChange {
-    color: #0f0;
+    color: #027402;
     font-size: 14px;
     font-weight: bold;
     
 }
 
 .negativeChange {
-    color: #FF0000;
+    color: #df2929;
     font-size: 14px;
     font-weight: bold;
 }

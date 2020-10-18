@@ -32,24 +32,27 @@
 }
 
 .majorCard {
-    background: #fff;
-    border: solid 1px #808080;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px #808080;
+    border-radius: 15px;
+    box-shadow: 0px 14px 8px rgba(34, 35, 58, 0.5);
     display: flex;
     flex-direction: column;
     height: 100px;
     overflow: hidden;
     width: 180px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
+    background: -moz-linear-gradient(-45deg,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .majorCardName {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 900;
     line-height: 20px;
-    margin-bottom: 12px;
-    text-decoration: underline;
-    text-indent: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    text-align: center;
 }
 
 .majorCardPrice {
@@ -59,14 +62,14 @@
 
 .majorCardPricePositive {
     align-self: center;
-    color: #00FF00;
+    color: #027402;
     font-size: 15px;
     margin-bottom: 1%;
 }
 
 .majorCardPriceNegative {
     align-self: center;
-    color: #FF0000;
+    color: #df2929;
     font-size: 15px;
     margin-bottom: 1%;
 }
@@ -103,6 +106,9 @@
     width: 0;
 }
 
+.majorLeftTriangle, .majorRightTriangle:hover {
+    cursor: pointer;
+}
 .majorLeftTriangle:active {
     border-color: transparent #58BD7D transparent transparent;
 }

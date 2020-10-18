@@ -22,7 +22,6 @@ body {
 }
 
 .mainContentContainer {
-    animation: fadeInLayout 1.5s ease-in;
     height: 100%;
     moz-animation: fadeInLayout 1.5s ease-in;
     o-animation: fadeInLayout 1.5s ease-in;
@@ -31,6 +30,7 @@ body {
     padding: 0;
     position: relative;
     webkit-animation: fadeInLayout 1.5s ease-in;
+    animation: fadeInLayout 1.5s ease-in;
     width: 100%;
 }
 
@@ -45,13 +45,13 @@ tr:nth-child(odd) {
 }
 
 .pricePositive {
-    color: #00ff00;
+    color: #027402;
     margin-bottom: 1%;
     text-align: center;
 }
 
 .priceNegative {
-    color: #ff0000;
+    color: #df2929;
     margin-bottom: 1%;
     text-align: center;
 }
@@ -134,7 +134,7 @@ tr:nth-child(odd) {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(225, 227, 230);
+    background: #141930;
     border-radius: 5px;
 }
 
