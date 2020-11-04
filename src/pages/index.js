@@ -43,7 +43,13 @@ const IndexPage = () => {
     fetch(`${newsUrl}${newsSource}${Key.newsk}`)
       .then(response => response.json())
       .then(data => {
-        data.results = data.results.filter(item => item.multimedia !== null)
+        if (newsSource === "technology.json?") {
+          data.results = data.results.filter(item => item.multimedia !== null).slice(1);
+        }
+        else {
+          data.results = data.results.filter(item => item.multimedia !== null)
+
+        }
         setNewsType(data.results)
       })
   }
@@ -60,13 +66,13 @@ const IndexPage = () => {
               <NewsCard
                 newsItem={item}
                 primary={index === 0 ? true : false}
-                key={item.title}
+                key={item.title + item.short_url}
               />
             ))}
           </section>
         ) : (
-          <Spinner />
-        )}
+            <Spinner />
+          )}
       </ErrorBoundary>
     </Layout>
   )
