@@ -4,7 +4,7 @@ import Key from "../../keys"
 
 const CryptoCurrency = () => {
   const cryptoCurrencyUrl =
-    "https://financialmodelingprep.com/api/v3/cryptocurrencies"
+    "https://financialmodelingprep.com/api/v3/quotes/crypto"
 
   let [dataList, setDataList] = useState([])
   let [nameSorted, setNameSorted] = useState(false)
@@ -18,7 +18,8 @@ const CryptoCurrency = () => {
     fetch(`${cryptoCurrencyUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        setDataList(data.cryptocurrenciesList)
+        console.log(data)
+        setDataList(data)
       })
   }, [])
 
@@ -67,9 +68,9 @@ const CryptoCurrency = () => {
 
   const changeSort = () => {
     if (!changeSorted) {
-      dataList.sort((a, b) => Number(a.changes) - Number(b.changes))
+      dataList.sort((a, b) => Number(a.change) - Number(b.change))
     } else {
-      dataList.sort((a, b) => Number(b.changes) - Number(a.changes))
+      dataList.sort((a, b) => Number(b.change) - Number(a.change))
     }
     setNameSorted(false)
     setPriceSorted(false)
@@ -100,19 +101,19 @@ const CryptoCurrency = () => {
 
               {dataList.map(crypto => {
                 const changeClass =
-                  crypto.changes > 0
+                  crypto.change > 0
                     ? "pricePositive"
-                    : crypto.changes < 0
-                    ? "priceNegative"
-                    : "priceNull"
+                    : crypto.change < 0
+                      ? "priceNegative"
+                      : "priceNull"
                 return (
                   <tr key={crypto.name}>
-                    <td className="priceNull">{crypto.ticker}</td>
+                    <td className="priceNull">{crypto.symbol}</td>
                     <td className="priceNull">{crypto.name}</td>
                     <td className="priceNull">${crypto.price.toFixed(2)}</td>
-                    <td className={changeClass}>{crypto.changes}</td>
+                    <td className={changeClass}>{crypto.change.toFixed(9)}</td>
                     <td className={changeClass}>
-                      ({((crypto.changes / crypto.price) * 100).toFixed(2)})
+                      ({((crypto.change / crypto.price) * 100).toFixed(2)})
                     </td>
                   </tr>
                 )
@@ -121,8 +122,8 @@ const CryptoCurrency = () => {
           </table>
         </main>
       ) : (
-        <Spinner />
-      )}
+          <Spinner />
+        )}
     </>
   )
 }
