@@ -18,7 +18,8 @@ const CryptoCurrency = () => {
     fetch(`${cryptoCurrencyUrl}${Key.fmpk}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+
+        data = data.filter(currency => currency.price !== null)
         setDataList(data)
       })
   }, [])

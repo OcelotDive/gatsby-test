@@ -1,10 +1,7 @@
 import React from "react"
+import { Link } from "gatsby"
 
 const SomethingWentWrong = () => {
-  const handleRefresh = () => {
-    window.location.reload(false)
-  }
-
   return (
     <>
       <h1>Oops... Something went wrong.</h1>
@@ -13,9 +10,11 @@ const SomethingWentWrong = () => {
       <p> Or use the menu or search bar to navigate out of here.</p>
       <p>
         <li style={{ listStyleType: "none" }}>
-          <button className="returnHomeButton" onClick={handleRefresh}>
-            Ok
+          <Link style={{ textDecoration: "none" }} to="/">
+            <button className="returnHomeButton">
+              Ok
           </button>
+          </Link>
         </li>
       </p>
     </>
